@@ -18,5 +18,6 @@ ${VTUNE_DIR}/bin64/k1om/libittnotify.a or -L${VTUNE_DIR}/bin64/k1om/runtime -lit
 Not that I can reduce the number of pauses and resumes by launching vtune collection with the "-start-paused" flag.
 
 ___
-574  icc -g -c api_fortran_itt.c
--I/global/babbage/nsg/opt/intel/vtune/vtune_amplifier_xe_2015.15.1-367959/include
+icc -g -mmic -c api_fortran_itt.c -I/global/babbage/nsg/opt/intel/vtune/vtune_amplifier_xe_2015.15.1-367959/include
+
+ifort -g -c -mmic itt_fortran.f90
