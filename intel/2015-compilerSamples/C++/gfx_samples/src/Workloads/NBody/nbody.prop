@@ -1,0 +1,28 @@
+# workload name
+workload = nbody
+
+# execution target device (values: offload_on/offload_off/cpu )
+exec = offload_on
+
+# iterations count (values: uint)
+iterations = 1
+
+# perform validation (values: true/false)
+validate = true
+
+# perform validation on first iteration only (values: true/false)
+single.validate = false
+
+# workload specific properties
+max_error = 0.2 #(small dataset)
+GFX_MAX_THREAD_COUNT = 1024 #(smaller dataset)
+n = 8192 #(smaller dataset)
+# max_error = 0.2 #(medium dataset)
+# GFX_MAX_THREAD_COUNT = 1024 #(small dataset)
+# n = 16384 #(small dataset)
+# max_error = 0.2 #(medium dataset)
+# GFX_MAX_THREAD_COUNT = 1024 #(medium dataset)
+# n = 32768 #(medium dataset)
+# max_error = 0.2 #(large dataset)
+# GFX_MAX_THREAD_COUNT = 1024 #(large dataset)
+# n = 65536 #(large dataset)

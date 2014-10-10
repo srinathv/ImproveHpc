@@ -1,0 +1,276 @@
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html lang="en-us" xml:lang="en-us">
+<head xmlns:MSHelp="http://www.microsoft.com/MSHelp/">
+      <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="DC.Type" content="topic">
+<meta name="DC.Format" content="XHTML">
+<meta name="DC.Language" content="en-US">
+<title>Intel&reg; Graphics Technology Samples</title>
+
+<style type="text/css">
+<!--
+body {
+                color:#333333;
+                background-color:#ffffff;
+                font-family: Verdana, Arial, sans-serif;
+                font-size: 10pt;
+                margin-left: 30px;
+}
+p {
+                font-size: inherit;
+                line-height: 120%;
+                margin-top: 0;
+                margin-bottom: 5pt;
+}
+
+table { 
+	margin-bottom: 5pt; 
+	border-collapse: collapse; 
+	margin-top: 0.3em; 
+	font-size: 10pt;
+}	
+td { 
+	border: 1px #BABABA solid; 
+	vertical-align: top; 
+	font-size: 11pt;
+	margin-bottom: 0px;
+}
+td, P.TableCell, td p { 
+	margin-top: 0px; 
+	margin-left: 0px;
+	padding: 5px; 
+	text-align: left; 
+	font-size: 10pt; 
+	line-height: 120%;
+}
+tr { 
+	vertical-align:top;
+}
+td.noBorder { 
+	border: 0px none;
+}
+th, th h3{ 
+	padding: 4px; 
+	text-align: left; 
+	background-color: #555555; 
+	font-weight: bold; 
+	margin-top: 0; 
+	margin-bottom: 0; 
+	color: #FFFFFF; 
+	font-size: 11pt;	
+}
+th { 
+	border:1px #BABABA solid;
+}
+th h3.TableHead, th h3 { 
+	padding:0;
+}		
+H3.TableHead{ 
+	padding: 4px; 
+	text-align: left; 
+	background-color: #555555; 
+	font-weight: bold; 
+	margin-top: 0; 
+	margin-bottom: 0; 
+	color: #FFFFFF; 
+	font-size: 11pt;
+}
+
+
+h1 {
+                color: #0860a8;
+                font-size: 15pt;
+                padding-bottom: 1px;
+                margin-left: 0pt;
+                margin-right: 1pt;
+                margin-bottom: 0px;
+                font-weight: bold;
+}
+h1.title {
+                border-bottom:0 none;
+                font-size: 140%;
+                margin-left:0;
+                font-weight: normal;
+}
+h2 {
+                color: #0860a8;
+                font-weight: lighter;
+                margin-top: 0;
+                margin-bottom: 0;
+                font-size: 13pt;
+}
+h3 {
+                color: #333333;
+                font-weight: bold;
+                margin-top: 5pt;
+                margin-bottom: 0;
+                font-size: 10.5pt;
+}
+
+
+#mainmenu {
+text-align: left;
+font-family: verdana, tahoma, Arial, "sans serif";
+font-size: 90%;
+width: 310px;
+color: #0860a8;
+background-color: #f5f5f5;
+border: 1px #0860a8 solid;
+padding-top: 10px;
+padding-right: 10px;
+padding-bottom: 10px;
+padding-left: 10px;
+float: right;
+z-index: 0;
+margin: .1em;
+}
+
+#mainmenu a.mainmenulinks, a.mainmenulinks:visited, a.mainmenulinks:hover, a.mainmenulinks:active {
+font-family: verdana, Helvetica, sans-serif;
+font-style: normal;
+font-size: 8pt;
+font-weight: normal;
+color: #000000;
+text-decoration: underline;
+}
+
+HR {
+                color: #0860a8;
+                border: 0;
+                background: #555555;
+                height: 1px;
+                margin-top: 8px;
+                margin-bottom: 8px;
+                margin-right: 8px;
+                margin-left: 0px;
+                clip: rect(15px, auto, 165px, auto);
+}
+
+
+-->
+</style>
+	  
+	  </head>
+
+<body>
+<h1 class="title">Intel&reg; Graphics Technology Samples</h1>
+<hr>
+
+<p>The compiler samples included with the Intel compiler with graphics processor offload are designed to illustrate specific
+compiler features, programming concepts, recommended coding patterns, and compiler
+optimizations. All examples are based on the unified running and measurement
+framework. Each example resides in a separate directory and may include several
+implementation variants.</p>
+
+<p>To run the samples you will need a system which supports Intel&reg; Graphics Technology and the necessary drivers. The drivers include the JIT compiler and the
+runtime needed to run the target code produced by the compiler.</p>
+
+
+<h2>Quick Start</h2>
+<ol>
+<li>Install Intel&reg; C++ Compiler with the Intel&reg; Graphics Technology language extensions.</li>
+<li>Copy the file <samp class="codeph">&lt;install-dir&gt;/Samples/&lt;locale&gt;/C++/gfx_samples.tar.gz</samp> and extract the contents of the file to a folder where you have write permissions.</li>
+<li>Compile the project using the provided Makefile.</li>
+</ol>
+
+
+<h2>Usage Instructions</h2>
+<p>The samples package contains a Makefile configured to use Intel&reg; C++ Compiler. The Makefile promotes common use cases such as building, running, or debugging an application. Below are
+the instructions for key tasks which can be done with the samples.</p>
+
+<h3>To Build All of the Targets in the Makefile</h3>
+<ul>
+<li><p>Run <samp class="codeph">make all</code></p></li>
+</ul>
+
+<h3>To get build reports of all the Targets in the Makefile</h3>
+<ul>
+<li><p>Run <samp class="codeph">make report</code></p></li>
+</ul>
+
+<h3>To Run the Targets in the Makefile</h3>
+<ul>
+<li><p>Run <samp class="codeph">make run</code></p></li>
+</ul>
+
+<h3>To Debug</h3>
+<p>Debug the code by setting breakpoints in gdb* and then running the application only 
+on the host as debugging on the Intel Graphics Technology target is not supported yet.</p>
+<ol>
+<li><p>Set a breakpoint in the source code after the <samp class="codeph">#pragma offload</samp> statement.</p></li>
+<li><p>Run in the debugger to hit the breakpoint. 
+</p></li>
+</ol>
+
+
+<h2>Project Descriptions</h2>
+
+<table border="1" width="95%" id="table1" cellspacing="0" cellpadding="10">
+	<tr>
+		<th><h3 class="TableHead">Project</h3></th>
+		<th><h3 class="TableHead">Description</h3></th>
+	</tr>
+
+	<tr>
+		<td><p>Convolution</p></td>
+		<td><p>Contains 2 offload implementations of 2D image convolution, with filter image size defined at runtime. Illustrates vector functions, explicit caching of data for fast access in local register arrays, and using Intel&reg; Cilk<sup>TM</sup> Plus Array Notations for compact description of data parallel operations.</p></td>
+	</tr>
+
+	<tr>
+		<td><p>CrossFade</p></td>
+		<td><p>Contains 2 offload implementations of a very simple filter merging 2 images.</p></td>
+	</tr>
+
+	<tr>
+
+	<tr>
+		<td><p>HistogramLocals</p></td>
+		<td><p>Contains 2 offload implementation of byte histogram:</p>
+				<ul>
+					<li><p>For a regular byte array (1 byte per pixel)</p></li>
+          			<li><p>For array or 4-component pixels (4 bytes per pixel), separate for each components</p></li>
+          		</ul>
+          	<p>Illustrates calculation of the histogram of a byte array using local arrays in register to cache data blocks in temporary histograms.</p>
+         </td>
+	</tr>
+
+	<tr>
+		<td><p>Matmult</p></td>
+		<td><p>Contains 3 offload implementations of matrix multiplication. Supports either double or float using C++ templates. Instantiated workloads are:</p>
+		<ul>
+			<li><p>Trivial: Matmult (float), Matmult_d (double)</p></li>
+			<li><p>Tiled (faster): MatmultLocalsAN (float), MatmultLocalsAN_d (double), MatmultLocals (float).</p></li>
+		</ul>
+		<p>Illustrates outer loop vectorization using Intel&reg; Cilk<sup>TM</sup> Plus pragma simd, explicit caching of data tiles for fast access in local register arrays, and using Intel&reg; Cilk<sup>TM</sup> Plus Array Notations for compact description of data parallel operations.</p></td>
+	</tr>
+
+	<tr>
+		<td><p>NBody</p></td>
+		<td><p>Contains 3 offload implementations of N body dynamics. Supports either double or float using C++ templates. 
+		Also illustrates a simple technique to share a task between CPU and GPU. Instantiated workloads are:</p>
+			<ul>
+				<li><p>Trivial using vector function: NBody (float)</p></li>
+				<li><p>Optimized via caching in register arrays: NBodyLocals (float), NBodyLocals_SOA (float)</p></li>
+			</ul>
+		</td>
+	</tr>
+
+	<tr>
+		<td><p>TestGFXVector</p></td>
+		<td><p>Contains several kernels illustrating use of GFXVector4&lt;T&gt; and GFXVector3&lt;T&gt; utility class 
+		enabling operating on 3 or 4 component structures in a compact way using overloaded operators (similarly to OpenCL* float4 type). 
+		Also illustrates a simple technique to share a task between CPU and GPU. </p></td>
+
+
+</table>
+
+<p>Intel and Cilk are trademarks of Intel Corporation in the U.S. and/or other countries.</p>
+<p>*Other names and brands may be claimed as the property of others.
+<p>Copyright &copy; 2014, Intel Corporation. All rights reserved.</p>
+
+</body>
+
+</html>

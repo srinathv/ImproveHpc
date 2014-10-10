@@ -1,0 +1,22 @@
+# workload name
+workload = matmult
+
+# execution target device (values: offload_on/offload_off/cpu )
+exec = offload_on
+
+# iterations count (values: uint)
+iterations = 1
+
+# perform validation (values: true/false)
+validate = true
+
+# perform validation on first iteration only (values: true/false)
+single.validate = false
+
+# workload specific properties
+GFX_MAX_THREAD_COUNT = 1024 #(small dataset)
+common = 1024 #(small dataset)
+# GFX_MAX_THREAD_COUNT = 1024 #(medium dataset)
+# common = 2048 #(medium dataset)
+# GFX_MAX_THREAD_COUNT = 1024 #(large dataset)
+# common = 4096 #(large dataset)

@@ -1,0 +1,199 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<style>
+	::selection {
+		background: #b7ffb7;
+	}
+	::-moz-selection {
+		background: #b7ffb7;
+	}
+
+	body {
+		font-family: Arial, Helvetica, sans-serif;
+		font-size: 16px;
+		width: 800px;
+		margin: 0 auto;
+	}
+	h1 {
+		text-align: center;
+		font-size: 36px;
+	}
+	.h3-alike {
+		display:inline;
+		font-size: 1.17em;
+		font-weight: bold;
+	}
+	pre {
+		font-family: "Consolas", Monaco, monospace;
+		font-size:small;
+		background: #fafafa;
+		margin: 0;
+        padding-left:20px;
+	}
+	code {
+		font-family: "Consolas", Monaco, monospace;
+	}
+
+    .code-block
+    {
+        padding-left:20px;
+    }
+	.changes {
+		margin: 1em 0;
+	}
+	.changes input:active {
+		position: relative;
+		top: 1px;
+	}
+	.changes input:hover:after {
+		padding-left: 16px;
+		font-size: 10px;
+		content: 'More';
+	}
+	.changes input:checked:hover:after {
+		content: 'Less';
+	}
+	.changes input ~ .show-hide {
+		display: none;
+	}
+	.changes input:checked ~ .show-hide {
+		display: block;
+	}
+
+	ul {
+		margin: 0;
+		padding: 0.5em 0 0.5em 2.5em;
+	}
+	ul li {
+		margin-bottom: 3px;
+	}
+	ul li:last-child {
+		margin-bottom: 0;
+	}
+	.disc {
+		list-style-type:disc
+	}
+	.circ {
+		list-style-type:circ
+	}
+	
+	.single {
+		padding: 0 0.5em;
+	}
+	.specs {
+		border-collapse:collapse;
+	}
+	.specs td, .specs th {
+		font-size: 14px;
+	}
+	.specs td {
+		border: 1px solid black;
+	}
+	.specs td td, .specs td th {
+		border: none;
+	}
+	.specs	td, .specs td td, .specs td th {
+		padding: 0 0.2em 0.2em;
+		text-align: center;
+	}
+	.specs td tr:last-child td, 
+	.specs td tr:last-child th {
+		padding: 0 0.2em;
+	}
+	.serial-time {
+		width: 5.5em;
+	}
+	.modified-time {
+		width: 6.7em;
+	}
+	.compiler {
+	}
+	.comp-opt {
+	}
+	.sys-specs {
+	}
+	.organized-options td {
+		padding: 0 0.125em;
+	}
+	</style>
+	<!--[if lte IE 8]>
+	<style>
+	.changes input + .show-hide {
+		display: block;
+	}
+	.changes input {
+		display: none;
+	}
+	</style>
+	<![endif]-->
+	<title>Intel® Intrinsic Samples</title>
+</head>
+
+<body>
+	<h1>Intel® Intrinsic Samples</h1>
+	<p>The intrinsic samples included with the Intel compiler are designed to show how to utilize the intrinsics supported by the Intel® C++ compiler in a variety of applications. The intrinsic_samples folder contains 3 folders which hold project files for Microsoft Visual Studio 2010*, 3 source files demonstrating the use of a variety of intrinsics, a solution file for using Microsoft Visual Studio 2010, a build.bat file for compiling and running using the command line build environment, a Makefile for compiling and running on Linux* or OS X*.</p>
+    <p>The intrinsic samples require processors that support Intel® MMX™ and Intel® Streaming SIMD Extensions 2 (Intel® SSE2)  or higher. If not supported, the application will fail.</p>
+	
+    <h3>Quick Start</h3>
+    <div class="changes">On Windows*: <input type="checkbox">
+		<ul class="show-hide disc">
+			<li>Extract the file <code>&lt;install-dir&gt;\Samples\&lt;locale&gt;\C++\intrinsic_samples.zip</code> to a folder where you have write permissions.</li>
+		</ul>
+	</div>
+    
+    <div class="changes">On Linux* or OS X*: <input type="checkbox">
+		<ul class="show-hide disc">
+			<li>Untar the file <code>&lt;install-dir&gt;/Samples/&lt;locale&gt;/C++/intrinsic_samples.tar.gz</code> to a folder where you have write permissions</li>
+		</ul>
+	</div>
+		
+	<h3>Build Instructions:</h3>
+	<div class="changes">For Microsoft Visual Studio 2010* or newer users: <input type="checkbox">
+		<ul class="show-hide disc">
+            <li>Start Visual Studio and open the solution file <code>intrinsic_samples\intrinsic_samples.sln</code></li>
+			<li>Compile the project by clicking <b>Build > Rebuild Solution</b>.</li>
+			<li>Run the project by clicking <b>Debug > Start Without Debugging</b>.</li>
+		</ul>
+	</div>
+	<div class="changes">For Command Line Build Environment Users: <input type="checkbox">
+		<ul class="show-hide disc">
+			<li>Open the appropriate Intel® C++ Compiler command prompt from [Start] menu.</li>
+			<li>Navigate to the project folder.</li>
+			<li>Compile with: <code>Build.bat</code></li>
+            <li>Run the sample: <code>Build.bat run</code></li>
+			</li>
+		</ul>
+	</div>
+	<div class="changes">For Linux*/OS X* users: <input type="checkbox">
+		<ul class="show-hide disc">
+			<li>From a terminal window, navigate to the project folder</li>
+			<li>Set the icc environment: <code>source <icc-install-dir>/bin/compilervars.sh {ia32|intel64}</code></li>
+			<li>Build the sample:
+				<ul class="circ">
+					<li>To compile with icc:  <code>make</code></li>
+					<li>To compile with icl (OS X* only): <code>make clang</code></li>
+                    <li>To compile with GNU Compiler Collection* front end: <code>make gcc</code></li>
+				</ul>
+			</li>
+		</ul>
+	</div>
+    <hr>
+
+<p>&nbsp;</p>
+<table class="tablecontrol">
+<tr><th>Optimization Notice</th></tr>
+<tr>
+<td><p>Intel's compilers may or may not optimize to the same degree for non-Intel microprocessors for optimizations that are not unique to Intel microprocessors. These optimizations include SSE2, SSE3, and SSSE3 instruction sets and other optimizations. Intel does not guarantee the availability, functionality, or effectiveness of any optimization on microprocessors not manufactured by Intel.  Microprocessor-dependent optimizations in this product are intended for use with Intel microprocessors. Certain optimizations not specific to Intel microarchitecture are reserved for Intel microprocessors. Please refer to the applicable product User and Reference Guides for more
+information regardîng the specific instruction sets covered by this notice.</p>
+<p>Notice revision #20110804</p></td>
+</tr>
+</table>
+<p>&nbsp;</p>
+   
+    <p>Intel is a trademark of Intel Corporation in the U.S. and/or other countries.</p>
+    <p>* Other names and brands may be claimed as the property of others.</p>
+    <p>Copyright © 2014, Intel Corporation. All rights reserved.</p>
+</body>
+</html>

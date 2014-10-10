@@ -1,0 +1,2283 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN"
+    "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head>
+<meta http-equiv="Content-Type" content="application/xhtml+xml; charset=UTF-8" />
+<meta name="generator" content="AsciiDoc 8.6.8" />
+<title>Intel&#174; Integrated Performance Primitives Examples</title>
+<style type="text/css">
+/* Custom theme based on CSS for AsciiDoc xhtml11 and html5 backends */
+
+/* Default font. */
+body, thead, p.table.header, div.title, caption.title
+{
+    background-color:#FFFFFF;
+    font-family: "Intel Clear", Verdana, Arial, sans-serif;
+    font-size: 10pt;
+    margin: 0px;
+    padding: 0px;
+}
+/*
+thead, p.table.header
+{
+    font-size: 1em;
+}*/
+
+/* Title font. */
+/*h1, h2, h3, h4, h5, h6,
+#toctitle, #author, #revnumber, #revdate, #revremark, #footer
+{
+    font-family: "Neo Sans Intel",Tahoma,Arial,Helvetica,sans-serif;
+}*/
+
+body
+{
+    color: #333333;
+    background-color: #ffffff;
+    margin: 1em 5% 1em 5%;
+}
+
+img
+{
+    max-width: 100%;
+    table-layout: fixed;
+}
+
+div.imageblock img
+{
+    border-bottom: 1px solid #bababa;
+    border-top: 1px solid #bababa;
+}
+
+div.listingblock > div.content
+{
+    font-size: 0.9em;
+    overflow: auto;
+}
+
+a
+{
+    color: #0860a8;
+    text-decoration: underline;
+}
+a:visited
+{
+    color: #0860a8;
+}
+
+em
+{
+    font-style: italic;
+/*    color: navy;*/
+}
+
+strong
+{
+    font-weight: bold;
+/*    color: #0860a8;*/
+}
+
+h1, h2, h3, h4, h5, h6
+{
+    font-weight: normal;
+    color: #0860a8;
+    margin-top: 1.0em;
+    margin-bottom: 0.5em;
+/*    line-height: 1.3;*/
+}
+
+h1 {
+  border-bottom: 2px solid #0860A8;
+  font-size: 2.0em;
+/*  color: black;*/
+}
+h2
+{
+/*    border-bottom: 1px solid #0860A8;*/
+    font-size: 1.5em;
+}
+h3
+{
+/*  margin-top: 0.5em;*/
+    font-size: 1.5em;
+/*  float: left;*/
+}/*
+h3 + * {
+  clear: left;
+}*/
+h4
+{
+    font-size: 1.5em;
+}
+h5
+{
+/*  margin-top: 1.5em;*/
+    font-size: 1.5em;
+}
+
+div.sectionbody
+{
+    margin-left: 0;
+}
+
+hr
+{
+    color: #0071C5;
+    background-color: #0071C5;
+    height: 1px;
+    margin-top: 20px;
+    margin-bottom: -10px;
+    margin-right: 10px;
+    margin-left: 0px;
+    border: none;
+}
+
+p {
+    font-family: "Intel Clear", Verdana, Arial, sans-serif;
+    font-size: inherit;
+    margin-top: 0;
+    line-height: 120%;
+    margin-bottom: 10px;
+}
+
+ul, ol, li > p {
+    font-family: inherit;
+    font-size: 100%;
+    margin-top: 0px;
+    margin-bottom: 10px;
+}
+ul > li     { color: #aaa; }
+ul > li > * { color: #333333; }
+
+.monospaced, code, pre {
+  font-family: "Courier New", Courier, monospace;
+  font-size: inherit;
+/*  color: navy;*/
+  padding: 0;
+  margin: 0;
+}
+
+#author {
+  color: #527bbd;
+  font-weight: bold;
+  font-size: 1.1em;
+}
+#email {
+}
+#revnumber, #revdate, #revremark {
+}
+
+#footer {
+  font-size: small;
+  border-top: 2px solid silver;
+  padding-top: 0.5em;
+  margin-top: 4.0em;
+}
+#footer-text {
+  float: left;
+  padding-bottom: 0.5em;
+}
+#footer-badges {
+  float: right;
+  padding-bottom: 0.5em;
+}
+
+#preamble {
+  margin-top: 1.5em;
+  margin-bottom: 1.5em;
+}
+div.imageblock, div.exampleblock, div.verseblock,
+div.quoteblock, div.literalblock, div.listingblock, div.sidebarblock,
+div.admonitionblock {
+  margin-top: 1.0em;
+  margin-bottom: 1.5em;
+}
+div.admonitionblock {
+  margin-top: 2.0em;
+  margin-bottom: 2.0em;
+  margin-right: 10%;
+  color: #606060;
+}
+
+div.content { /* Block element content. */
+  padding: 0;
+}
+
+/* Block element titles. */
+div.title, caption.title {
+    font-weight: bold;
+    text-align: left;
+    margin-top: 1em;
+    margin-bottom: 0.5em;
+}
+div.title + * {
+  margin-top: 0;
+}
+
+td div.title:first-child {
+  margin-top: 0.0em;
+}
+div.content div.title:first-child {
+  margin-top: 0.0em;
+}
+div.content + div.title {
+  margin-top: 0.0em;
+}
+
+div.sidebarblock > div.content {
+  background: #ffffee;
+  border: 1px solid #dddddd;
+  border-left: 4px solid #f0f0f0;
+  padding: 0.5em;
+}
+
+div.listingblock > div.content {
+  border: 1px solid #dddddd;
+  border-left: 5px solid #f0f0f0;
+  background: #f8f8f8;
+  padding: 0.5em;
+}
+
+div.quoteblock, div.verseblock {
+  padding-left: 1.0em;
+  margin-left: 1.0em;
+  margin-right: 10%;
+  border-left: 5px solid #f0f0f0;
+  color: #888;
+}
+
+div.quoteblock > div.attribution {
+  padding-top: 0.5em;
+  text-align: right;
+}
+
+div.verseblock > pre.content {
+  font-family: inherit;
+  font-size: inherit;
+}
+div.verseblock > div.attribution {
+  padding-top: 0.75em;
+  text-align: left;
+}
+/* DEPRECATED: Pre version 8.2.7 verse style literal block. */
+div.verseblock + div.attribution {
+  text-align: left;
+}
+
+div.admonitionblock .icon {
+  vertical-align: top;
+  font-size: 1.1em;
+  font-weight: bold;
+  text-decoration: underline;
+  color: #527bbd;
+  padding-right: 0.5em;
+}
+div.admonitionblock td.content {
+  padding-left: 0.5em;
+  border-left: 3px solid #dddddd;
+}
+
+div.exampleblock > div.content {
+  border-left: 3px solid #dddddd;
+  padding-left: 0.5em;
+}
+
+div.imageblock div.content { padding-left: 0; }
+span.image img { border-style: none; }
+a.image:visited { color: white; }
+
+dl {
+  margin-top: 0.8em;
+  margin-bottom: 0.8em;
+}
+dt {
+  margin-top: 0.5em;
+  margin-bottom: 0;
+  font-style: normal;
+  font-weight: bold;
+}
+dd > *:first-child {
+  margin-top: 0.1em;
+}
+
+ul, ol {
+    list-style-position: outside;
+}
+ol.arabic {
+  list-style-type: decimal;
+}
+ol.loweralpha {
+  list-style-type: lower-alpha;
+}
+ol.upperalpha {
+  list-style-type: upper-alpha;
+}
+ol.lowerroman {
+  list-style-type: lower-roman;
+}
+ol.upperroman {
+  list-style-type: upper-roman;
+}
+
+div.compact ul, div.compact ol,
+div.compact p, div.compact p,
+div.compact div, div.compact div {
+  margin-top: 0.1em;
+  margin-bottom: 0.1em;
+}
+
+tfoot {
+  font-weight: bold;
+}
+td > div.verse {
+  white-space: pre;
+}
+
+div.hdlist {
+  margin-top: 0.8em;
+  margin-bottom: 0.8em;
+}
+div.hdlist tr {
+  padding-bottom: 15px;
+}
+dt.hdlist1.strong, td.hdlist1.strong {
+  font-weight: bold;
+}
+td.hdlist1 {
+  vertical-align: top;
+  font-style: normal;
+  padding-right: 0.2em;
+  font-weight: normal;
+  white-space: nowrap;
+}
+td.hdlist2 {
+  vertical-align: top;
+}
+div.hdlist.compact tr {
+  margin: 0;
+  padding-bottom: 0;
+}
+
+.comment {
+  background: yellow;
+}
+
+.footnote, .footnoteref {
+  font-size: 0.8em;
+}
+
+span.footnote, span.footnoteref {
+  vertical-align: super;
+}
+
+#footnotes {
+  margin: 20px 0 20px 0;
+  padding: 7px 0 0 0;
+}
+
+#footnotes div.footnote {
+  margin: 0 0 5px 0;
+}
+
+#footnotes hr {
+  border: none;
+  border-top: 1px solid silver;
+  height: 1px;
+  text-align: left;
+  margin-left: 0;
+  width: 20%;
+  min-width: 100px;
+}
+
+div.colist td {
+  padding-right: 0.5em;
+  padding-bottom: 0.3em;
+  vertical-align: top;
+}
+div.colist td img {
+  margin-top: 0.3em;
+}
+
+@media print {
+  #footer-badges { display: none; }
+}
+
+/*
+ * TOC control
+*/
+
+#toc
+{
+    background-color: #f1f1f1;
+}
+
+#toctitle
+{
+    border-bottom: 2px solid silver;
+    color: #333333;
+    font-size: 14pt;
+    font-weight: normal;
+    margin-top: 1.0em;
+    margin-bottom: 0.5em;
+}
+
+div.toclevel0, div.toclevel1, div.toclevel2, div.toclevel3, div.toclevel4
+{
+    margin-top: 0;
+    margin-bottom: 0;
+}
+div.toclevel0 > a, div.toclevel1 > a, div.toclevel2 > a, div.toclevel3 > a, div.toclevel4 > a
+{
+    text-decoration: none;
+    color: #333333;
+}
+div.toclevel0 > a:hover, div.toclevel1 > a:hover, div.toclevel2 > a:hover, div.toclevel3 > a:hover, div.toclevel4 > a:hover
+{
+    text-decoration: underline;
+}
+div.toclevel0
+{
+    margin-top: 0.5em;
+    color: black;
+    font-weight: bold;
+    font-size: 0.8em;
+}
+div.toclevel1
+{
+    margin-top: 0.5em;
+    margin-left: 0.8em;
+    font-size: 0.8em;
+}
+div.toclevel2
+{
+    list-style-type: square;
+    display: list-item;
+    margin-top: 0.5em;
+    margin-left: 2.5em;
+    font-size: 0.7em;
+}
+div.toclevel3
+{
+    list-style-type: circle;
+    display: list-item;
+    margin-top: 0.4em;
+    margin-left: 3.8em;
+    font-size: 0.7em;
+}
+div.toclevel4
+{
+    display: list-item;
+    margin-top: 0.2em;
+    margin-left: 5.1em;
+    font-size: 0.7em;
+}
+
+span.aqua { color: aqua; }
+span.black { color: black; }
+span.blue { color: blue; }
+span.fuchsia { color: fuchsia; }
+span.gray { color: gray; }
+span.green { color: green; }
+span.lime { color: lime; }
+span.maroon { color: maroon; }
+span.navy { color: navy; }
+span.olive { color: olive; }
+span.purple { color: purple; }
+span.red { color: red; }
+span.silver { color: silver; }
+span.teal { color: teal; }
+span.white { color: white; }
+span.yellow { color: yellow; }
+
+span.aqua-background { background: aqua; }
+span.black-background { background: black; }
+span.blue-background { background: blue; }
+span.fuchsia-background { background: fuchsia; }
+span.gray-background { background: gray; }
+span.green-background { background: green; }
+span.lime-background { background: lime; }
+span.maroon-background { background: maroon; }
+span.navy-background { background: navy; }
+span.olive-background { background: olive; }
+span.purple-background { background: purple; }
+span.red-background { background: red; }
+span.silver-background { background: silver; }
+span.teal-background { background: teal; }
+span.white-background { background: white; }
+span.yellow-background { background: yellow; }
+
+span.big { font-size: 2em; }
+span.small { font-size: 0.6em; }
+
+span.underline { text-decoration: underline; }
+span.overline { text-decoration: overline; }
+span.line-through { text-decoration: line-through; }
+
+div.unbreakable { page-break-inside: avoid; }
+
+
+/*
+ * Tables control
+*/
+
+div.tableblock
+{
+    margin-top: 1.0em;
+    margin-bottom: 1.5em;
+    border-color: #bababa;
+}
+div.tableblock > table
+{
+    border-collapse: collapse;
+    border: 1px solid #bababa;
+}
+td, th, tr, thead, tfoot, tbody, table,p.table
+{
+    border-color: #bababa;
+}
+thead, p.table.header
+{
+    font-weight: bold;
+    background-color: #555555;
+    border-color: #bababa;
+    color: #FFFFFF;
+}
+p.table
+{
+    margin-top: 0;
+}
+/* Because the table frame attribute is overriden by CSS in most browsers. */
+div.tableblock > table[frame="void"]
+{
+    border-style: none;
+}
+div.tableblock > table[frame="hsides"]
+{
+    border-left-style: none;
+    border-right-style: none;
+}
+div.tableblock > table[frame="vsides"]
+{
+    border-top-style: none;
+    border-bottom-style: none;
+}
+
+/* TOC2 and images width control */
+@media print
+{
+    body.manpage div#toc { display: none; }
+}
+
+@media screen
+{
+    body
+    {
+        max-width: 60em; /* approximately 80 characters wide */
+        margin-left: 25em;
+    }
+    #toc
+    {
+        min-width: 17em;
+        max-width: 22em;
+    }
+}
+
+
+@media screen {
+  #toc {
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    padding: 0.5em;
+    margin: 0;
+    overflow: auto;
+  }
+}
+</style>
+<script type="text/javascript">
+/*<![CDATA[*/
+var asciidoc = {  // Namespace.
+
+/////////////////////////////////////////////////////////////////////
+// Table Of Contents generator
+/////////////////////////////////////////////////////////////////////
+
+/* Author: Mihai Bazon, September 2002
+ * http://students.infoiasi.ro/~mishoo
+ *
+ * Table Of Content generator
+ * Version: 0.4
+ *
+ * Feel free to use this script under the terms of the GNU General Public
+ * License, as long as you do not remove or alter this notice.
+ */
+
+ /* modified by Troy D. Hanson, September 2006. License: GPL */
+ /* modified by Stuart Rackham, 2006, 2009. License: GPL */
+
+// toclevels = 1..4.
+toc: function (toclevels) {
+
+  function getText(el) {
+    var text = "";
+    for (var i = el.firstChild; i != null; i = i.nextSibling) {
+      if (i.nodeType == 3 /* Node.TEXT_NODE */) // IE doesn't speak constants.
+        text += i.data;
+      else if (i.firstChild != null)
+        text += getText(i);
+    }
+    return text;
+  }
+
+  function TocEntry(el, text, toclevel) {
+    this.element = el;
+    this.text = text;
+    this.toclevel = toclevel;
+  }
+
+  function tocEntries(el, toclevels) {
+    var result = new Array;
+    var re = new RegExp('[hH]([1-'+(toclevels+1)+'])');
+    // Function that scans the DOM tree for header elements (the DOM2
+    // nodeIterator API would be a better technique but not supported by all
+    // browsers).
+    var iterate = function (el) {
+      for (var i = el.firstChild; i != null; i = i.nextSibling) {
+        if (i.nodeType == 1 /* Node.ELEMENT_NODE */) {
+          var mo = re.exec(i.tagName);
+          if (mo && (i.getAttribute("class") || i.getAttribute("className")) != "float") {
+            result[result.length] = new TocEntry(i, getText(i), mo[1]-1);
+          }
+          iterate(i);
+        }
+      }
+    }
+    iterate(el);
+    return result;
+  }
+
+  var toc = document.getElementById("toc");
+  if (!toc) {
+    return;
+  }
+
+  // Delete existing TOC entries in case we're reloading the TOC.
+  var tocEntriesToRemove = [];
+  var i;
+  for (i = 0; i < toc.childNodes.length; i++) {
+    var entry = toc.childNodes[i];
+    if (entry.nodeName.toLowerCase() == 'div'
+     && entry.getAttribute("class")
+     && entry.getAttribute("class").match(/^toclevel/))
+      tocEntriesToRemove.push(entry);
+  }
+  for (i = 0; i < tocEntriesToRemove.length; i++) {
+    toc.removeChild(tocEntriesToRemove[i]);
+  }
+
+  // Rebuild TOC entries.
+  var entries = tocEntries(document.getElementById("content"), toclevels);
+  for (var i = 0; i < entries.length; ++i) {
+    var entry = entries[i];
+    if (entry.element.id == "")
+      entry.element.id = "_toc_" + i;
+    var a = document.createElement("a");
+    a.href = "#" + entry.element.id;
+    a.appendChild(document.createTextNode(entry.text));
+    var div = document.createElement("div");
+    div.appendChild(a);
+    div.className = "toclevel" + entry.toclevel;
+    toc.appendChild(div);
+  }
+  if (entries.length == 0)
+    toc.parentNode.removeChild(toc);
+},
+
+
+/////////////////////////////////////////////////////////////////////
+// Footnotes generator
+/////////////////////////////////////////////////////////////////////
+
+/* Based on footnote generation code from:
+ * http://www.brandspankingnew.net/archive/2005/07/format_footnote.html
+ */
+
+footnotes: function () {
+  // Delete existing footnote entries in case we're reloading the footnodes.
+  var i;
+  var noteholder = document.getElementById("footnotes");
+  if (!noteholder) {
+    return;
+  }
+  var entriesToRemove = [];
+  for (i = 0; i < noteholder.childNodes.length; i++) {
+    var entry = noteholder.childNodes[i];
+    if (entry.nodeName.toLowerCase() == 'div' && entry.getAttribute("class") == "footnote")
+      entriesToRemove.push(entry);
+  }
+  for (i = 0; i < entriesToRemove.length; i++) {
+    noteholder.removeChild(entriesToRemove[i]);
+  }
+
+  // Rebuild footnote entries.
+  var cont = document.getElementById("content");
+  var spans = cont.getElementsByTagName("span");
+  var refs = {};
+  var n = 0;
+  for (i=0; i<spans.length; i++) {
+    if (spans[i].className == "footnote") {
+      n++;
+      var note = spans[i].getAttribute("data-note");
+      if (!note) {
+        // Use [\s\S] in place of . so multi-line matches work.
+        // Because JavaScript has no s (dotall) regex flag.
+        note = spans[i].innerHTML.match(/\s*\[([\s\S]*)]\s*/)[1];
+        spans[i].innerHTML =
+          "[<a id='_footnoteref_" + n + "' href='#_footnote_" + n +
+          "' title='View footnote' class='footnote'>" + n + "</a>]";
+        spans[i].setAttribute("data-note", note);
+      }
+      noteholder.innerHTML +=
+        "<div class='footnote' id='_footnote_" + n + "'>" +
+        "<a href='#_footnoteref_" + n + "' title='Return to text'>" +
+        n + "</a>. " + note + "</div>";
+      var id =spans[i].getAttribute("id");
+      if (id != null) refs["#"+id] = n;
+    }
+  }
+  if (n == 0)
+    noteholder.parentNode.removeChild(noteholder);
+  else {
+    // Process footnoterefs.
+    for (i=0; i<spans.length; i++) {
+      if (spans[i].className == "footnoteref") {
+        var href = spans[i].getElementsByTagName("a")[0].getAttribute("href");
+        href = href.match(/#.*/)[0];  // Because IE return full URL.
+        n = refs[href];
+        spans[i].innerHTML =
+          "[<a href='#_footnote_" + n +
+          "' title='View footnote' class='footnote'>" + n + "</a>]";
+      }
+    }
+  }
+},
+
+install: function(toclevels) {
+  var timerId;
+
+  function reinstall() {
+    asciidoc.footnotes();
+    if (toclevels) {
+      asciidoc.toc(toclevels);
+    }
+  }
+
+  function reinstallAndRemoveTimer() {
+    clearInterval(timerId);
+    reinstall();
+  }
+
+  timerId = setInterval(reinstall, 500);
+  if (document.addEventListener)
+    document.addEventListener("DOMContentLoaded", reinstallAndRemoveTimer, false);
+  else
+    window.onload = reinstallAndRemoveTimer;
+}
+
+}
+asciidoc.install(4);
+/*]]>*/
+</script>
+</head>
+<body class="book">
+<div id="header">
+<h1>Intel&#174; Integrated Performance Primitives Examples</h1>
+<div id="toc">
+  <div id="toctitle">Table of Contents</div>
+  <noscript><p><b>JavaScript must be enabled in your browser to display the table of contents.</b></p></noscript>
+</div>
+</div>
+<div id="content">
+<div id="preamble">
+<div class="sectionbody">
+<h1 id="disclaimer" style="font-size:6pt; color:#FFFFFF; border-style:hidden; margin:0px;">Disclaimer</h1>
+
+<font size="-3">
+<p><font size="-3"><h2 id="_legal_information">Legal Information</h2>
+INFORMATION IN THIS DOCUMENT IS PROVIDED IN CONNECTION WITH INTEL PRODUCTS.
+NO LICENSE, EXPRESS OR IMPLIED, BY ESTOPPEL OR OTHERWISE, TO ANY INTELLECTUAL
+PROPERTY RIGHTS IS GRANTED BY THIS DOCUMENT. EXCEPT AS PROVIDED IN INTEL'S
+TERMS AND CONDITIONS OF SALE FOR SUCH PRODUCTS, INTEL ASSUMES NO LIABILITY
+WHATSOEVER, AND INTEL DISCLAIMS ANY EXPRESS OR IMPLIED WARRANTY, RELATING
+TO SALE AND/OR USE OF INTEL PRODUCTS INCLUDING LIABILITY OR WARRANTIES
+RELATING TO FITNESS FOR A PARTICULAR PURPOSE, MERCHANTABILITY, OR INFRINGEMENT
+OF ANY PATENT, COPYRIGHT OR OTHER INTELLECTUAL PROPERTY RIGHT.<br>
+A   "Mission Critical Application" is any application in which failure of the   Intel Product could result,
+directly or indirectly, in personal injury or death.   SHOULD YOU PURCHASE OR USE INTEL'S PRODUCTS FOR ANY
+SUCH MISSION CRITICAL   APPLICATION, YOU SHALL INDEMNIFY AND HOLD INTEL AND ITS SUBSIDIARIES,
+SUBCONTRACTORS AND AFFILIATES, AND THE DIRECTORS, OFFICERS, AND EMPLOYEES OF   EACH, HARMLESS AGAINST ALL
+CLAIMS COSTS, DAMAGES, AND EXPENSES AND REASONABLE   ATTORNEYS' FEES ARISING OUT OF, DIRECTLY OR INDIRECTLY,
+ANY CLAIM OF PRODUCT   LIABILITY, PERSONAL INJURY, OR DEATH ARISING IN ANY WAY OUT OF SUCH MISSION CRITICAL
+APPLICATION, WHETHER OR NOT INTEL OR ITS SUBCONTRACTOR WAS NEGLIGENT IN   THE DESIGN, MANUFACTURE, OR  WARNING
+OF THE INTEL PRODUCT OR ANY OF ITS PARTS.</font></p> </font>
+
+<p><font size="-3"> Intel may make changes to specifications and product descriptions at any time,
+  without notice. Designers must not rely on the absence or characteristics of any
+  features or instructions marked "reserved" or "undefined." Intel reserves these
+  for future definition and shall have no responsibility whatsoever for conflicts
+  or incompatibilities arising from future changes to them. The information here
+  is subject to change without notice. Do not finalize a design with this
+  information. <br>
+  The products described in this document may contain design defects or errors
+  known as errata which may cause the product to deviate from published
+  specifications. Current characterized errata are available on request. <br>
+  Contact your local Intel sales office or your distributor to obtain the latest
+  specifications and before placing your product order. <br>
+  Copies of documents which have an order number and are referenced in this
+  document, or other Intel literature, may be obtained by calling 1-800-548-4725,
+  or go to:
+  http://www.intel.com/design/literature.htm<br></font></p>
+  <p><font size="-3"> Intel processor numbers are not a measure of performance. Processor numbers
+  differentiate features within each processor family, not across different
+  processor families. Go to: <a href="http://www.intel.com/products/processor_number"> http://www.intel.com/products/processor_number/</a></font></p>
+
+<p><font size="-3"> BlueMoon, BunnyPeople, Celeron, Celeron Inside, Centrino, Centrino Inside, Core Inside,
+  i960, Intel, the Intel logo, Intel Atom, Intel Atom Inside, Intel Core,
+  Intel Inside, Intel Inside logo, Intel NetBurst, Intel NetMerge,
+  Intel NetStructure, Intel SingleDriver, Intel SpeedStep,
+  Intel Sponsors of Tomorrow., the Intel Sponsors of Tomorrow. logo,
+  Intel StrataFlash, Intel Viiv, Intel vPro, Intel XScale, InTru, the InTru logo,
+  InTru soundmark, Itanium, Itanium Inside, MCS, MMX, Moblin, Pentium,
+  Pentium Inside, skoool, the skoool logo, Sound Mark, The Journey Inside,
+  vPro Inside, VTune, Xeon, and Xeon Inside
+  are trademarks of Intel Corporation in the U.S. and other countries. <br>
+  * Other names and brands may be claimed as the property of others. </font></p>
+
+<p><font size="-3"> Microsoft, Windows, Visual Studio, Visual C++, and the Windows logo are
+  trademarks, or registered trademarks of Microsoft Corporation
+  in the United States and/or other countries. </font></p>
+
+<p><font size="-3">Java is a registered trademark of Oracle and/or its affiliates. </font></p>
+
+<p><font size="-3">Copyright(C) 2014 Intel Corporation. All rights reserved.</font></p>
+
+
+
+<p id="IPP_EXAMPLES_OptNotice">
+<div class="tablenoborder">
+<table cellpadding="4" summary="" id="d3135e12" frame="border" border="1" cellspacing="0" rules="all">
+  <thead align="left">
+    <tr><th class="cellrowborder" align="left" valign="top" width="100%" id="d157258e36"><p>Optimization Notice</p></th></tr>
+  </thead>
+
+  <tbody>
+    <tr><td class="bgcolor(#ccecff)" bgcolor="#ccecff" valign="top" width="100%" headers="d157258e36 ">
+    <p>Intel's compilers may or may not optimize to the same degree for non-Intel microprocessors for optimizations that are not
+    unique to Intel microprocessors. These optimizations include SSE2, SSE3, and SSSE3 instruction sets and
+    other optimizations. Intel does not guarantee the availability, functionality, or effectiveness of
+    any optimization on microprocessors not manufactured by Intel.
+    <br>
+    <br>
+    Microprocessor-dependent optimizations in this product are intended for use with Intel microprocessors. Certain optimizations not specific to Intel microarchitecture are reserved for Intel microprocessors. Please refer to the applicable product User and Reference Guides for more information regarding the specific instruction sets covered by this notice.</p>
+    <p>Notice revision #20110804 </p>
+    </td></tr>
+  </tbody>
+</table>
+</div>
+</p>
+</div>
+</div>
+<h1 id="_license_definitions">License Definitions</h1>
+<div class="paragraph"><p>By downloading and installing this sample, you hereby agree that the
+accompanying materials are being provided to you under the terms and
+conditions of the End User License Agreement for the Intel&#174;
+Integrated Performance Primitives (Intel&#174; IPP) product previously accepted by you.
+Please refer to the file <strong>clicense</strong> in <code>&lt;installdir&gt;/Documentation/en_US</code> folder for more information.</p></div>
+<h1 id="_system_requirements">System Requirements</h1>
+<div class="paragraph"><p>Recommended hardware:</p></div>
+<div class="ulist"><ul>
+<li>
+<p>
+A system based on 2nd Generation Intel&#174; Core&#8482; i3, i5, i7 or newer processor
+</p>
+</li>
+</ul></div>
+<div class="paragraph"><p>Hardware requirements:</p></div>
+<div class="ulist"><ul>
+<li>
+<p>
+A system based on Intel&#174; Pentium&#174; processor, Intel&#174; Xeon&#174; processor, or subsequent IA-32
+architecture based system;
+</p>
+</li>
+<li>
+<p>
+A system based on a processor with Intel&#174; 64 architecture;
+</p>
+</li>
+<li>
+<p>
+A system equipped with Intel&#174; Xeon Phi&#8482; Coprocessor to run Multi-threading Example for Intel&#174; Xeon Phi&#8482; Coprocessor.
+</p>
+</li>
+</ul></div>
+<div class="paragraph"><p>Software requirements:</p></div>
+<div class="ulist"><ul>
+<li>
+<p>
+For the basic system requirements on operating system, Intel&#174; IPP library, IDE and compiler, refer to
+the corresponding Release Notes document.
+</p>
+</li>
+</ul></div>
+<div class="paragraph"><p>Product specific requirements:</p></div>
+<div class="ulist"><ul>
+<li>
+<p>
+Intel&#174; Threading Building Blocks (Intel&#174; TBB) installed as a part of Intel&#174; Parallel Studio XE Composer Edition installation, or
+installed separately from <a href="http://www.threadingbuildingblocks.org">Intel&#174; TBB Open Source site</a>;
+</p>
+</li>
+<li>
+<p>
+Intel&#174; Parallel Studio XE 2015 Composer Edition for manycore-specific example;
+</p>
+</li>
+<li>
+<p>
+Intel&#174; Manycore Platform Software Stack (Intel&#174; MPSS) 3.2.3 or newer version for systems equipped with Intel&#174; Xeon Phi&#8482;
+coprocessor from <a href="https://software.intel.com/en-us/articles/intel-manycore-platform-software-stack-mpss">Intel&#174; Developer Zone site</a>;
+</p>
+</li>
+</ul></div>
+<div class="paragraph"><p>For more information please see
+<a href="http://software.intel.com/en-us/intel-ipp/">Intel&reg; IPP System Requirements</a>.</p></div>
+<h1 id="_installation_and_build">Installation and Build</h1>
+<div class="paragraph"><p>Extract files from the examples package to the desired destination folder.
+Make sure that the directory structure is preserved.</p></div>
+<div class="sect1">
+<h2 id="_build_environment">Setting the Build Environment</h2>
+<div class="sectionbody">
+<div class="ulist"><ul>
+<li>
+<p>
+On Windows*, start command-line window; on Linux* or OS X*, start terminal emulation window.
+</p>
+</li>
+<li>
+<p>
+Set Intel&#174; Parallel Studio XE Composer Edition environment for Intel&#174; Many Integrated Core Architecture example.
+</p>
+</li>
+<li>
+<p>
+Set <code>IPPROOT</code> and, optionally, <code>TBBROOT</code> environment variables as described below.
+</p>
+</li>
+</ul></div>
+<div class="admonitionblock">
+<table><tr>
+<td class="icon">
+<div class="title">Note</div>
+</td>
+<td class="content">For Intel&#174; C/C++ compiler you may start the command-line window according to the procedure described
+in "<a href="https://software.intel.com/en-us/node/512508">Using the Command Line</a>".</td>
+</tr></table>
+</div>
+<div class="admonitionblock">
+<table><tr>
+<td class="icon">
+<div class="title">Note</div>
+</td>
+<td class="content">For Microsoft* Visual Studio* enviroment, start the command-line window using the procedure described in the
+<a href="http://msdn.microsoft.com/en-us/library/f2ccy3wt.aspx">MSDN web page</a>.</td>
+</tr></table>
+</div>
+<div class="paragraph"><p>The procedure of setting the Intel IPP enviroment is described in <a href="https://software.intel.com/en-us/node/503898">"Setting Environment Variables"</a> chapter
+of the Intel IPP User&#8217;s Guide.</p></div>
+<div class="paragraph"><p>Make sure that the <code>IPPROOT</code> environment variable defines the starting point to look for Intel IPP.</p></div>
+<div class="ulist"><ul>
+<li>
+<p>
+Include files in <code>&lt;IPPROOT&gt;/include</code>,
+</p>
+</li>
+<li>
+<p>
+Object library files in <code>&lt;IPPROOT&gt;/lib/&lt;arch&gt;</code>, and
+</p>
+</li>
+<li>
+<p>
+Dynamic library files in <code>&lt;IPPROOT&gt;/lib/&lt;arch&gt;</code> or <code>&lt;IPPROOT&gt;/../redist/&lt;arch&gt;/ipp</code> directories.
+</p>
+</li>
+</ul></div>
+<div class="admonitionblock">
+<table><tr>
+<td class="icon">
+<div class="title">Note</div>
+</td>
+<td class="content">If you start command-line window using the Intel&#174; software development toolsuite (like Intel&#174; Parallel Studio XE Composer Edition), the <code>IPPROOT</code>
+enviroment variable is set automatically. Otherwise, you need to set this variable manually using "set" or "export" commands.</td>
+</tr></table>
+</div>
+<div class="paragraph"><p>The <code>TBBROOT</code> environment variable defines the similar paths to Intel TBB files. If <code>TBBROOT</code> variable is not
+defined before the examples build process started, the system will build the example projects without
+Intel TBB support.</p></div>
+<div class="admonitionblock">
+<table><tr>
+<td class="icon">
+<div class="title">Note</div>
+</td>
+<td class="content">The procedure of setting the Intel TBB enviroment is described in <a href="https://software.intel.com/en-us/node/432576">"Defining the TBBROOT Environment Variable"</a> chapter
+of Intel&#174; parallel technology documentation.</td>
+</tr></table>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_build_procedure">Build Procedure</h2>
+<div class="sectionbody">
+<div class="paragraph"><p>Go to the Intel&#174; IPP example directory and follow the instructions below:</p></div>
+<div class="ulist"><ul>
+<li>
+<p>
+On Windows*,
+  load Visual Studio* projects directly to Microsoft* Visual Studio* or build them from command-line.<br />
+  In case of <code>ipp_thread_mic</code> example, call Windows* Microsoft Program Maintenance Utility*(NMake.exe)
+</p>
+</li>
+</ul></div>
+<div class="listingblock">
+<div class="content">
+<pre><code>  &gt; devenv &lt;example&gt;.sln /build &lt;configuration&gt;</code></pre>
+</div></div>
+<div class="listingblock">
+<div class="content">
+<pre><code>  &gt; nmake</code></pre>
+</div></div>
+<div class="ulist"><ul>
+<li>
+<p>
+On Linux*, call make
+</p>
+</li>
+</ul></div>
+<div class="listingblock">
+<div class="content">
+<pre><code>  $ make</code></pre>
+</div></div>
+<div class="ulist"><ul>
+<li>
+<p>
+On OS X*, load XCode* project directly to XCode* or build it from command-line
+</p>
+</li>
+</ul></div>
+<div class="listingblock">
+<div class="content">
+<pre><code>  $ xcodebuild -configuration &lt;configuration&gt;</code></pre>
+</div></div>
+<div class="admonitionblock">
+<table><tr>
+<td class="icon">
+<div class="title">Note</div>
+</td>
+<td class="content">By default, Intel&#174; C++ Compiler is used only by the <code>ipp_thread_mic</code> example.<br />
+Other examples use native compilers, such as Microsoft* Compiler, GCC*, or Clang*.</td>
+</tr></table>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_buildspace_structure">Buildspace Structure</h2>
+<div class="sectionbody">
+<div class="paragraph"><p>Build projects or Makefiles generate necessary work files and final executable files in
+<code>&lt;example&gt;/build</code> directory.</p></div>
+</div>
+</div>
+<h1 id="_examples">Examples</h1>
+<div class="paragraph"><p>The "-T &lt;CPU&gt;" command line option in all examples allows to turn on specific CPU architecture optimization.
+Together with timing
+this option helps to see the difference in performance of specific functions for different CPU architectures.</p></div>
+<div class="tableblock">
+<table rules="all"
+width="80%"
+frame="border"
+cellspacing="0" cellpadding="4">
+<col width="25%" />
+<col width="75%" />
+<thead>
+<tr>
+<th align="left" valign="top">Option     </th>
+<th align="left" valign="top"> Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left" valign="top"><p class="table"><code>-T SSE</code></p></td>
+<td align="left" valign="top"><p class="table">Basic optimization for all IA-32/Intel&#174; 64 processors (<strong>px</strong>/<strong>mx</strong> code)</p></td>
+</tr>
+<tr>
+<td align="left" valign="top"><p class="table"><code>-T SSE3</code></p></td>
+<td align="left" valign="top"><p class="table">Intel&#174; Streaming SIMD Extensions 3 (Intel&#174; SSE3) optimization (<strong>t7</strong>/<strong>m7</strong> code)</p></td>
+</tr>
+<tr>
+<td align="left" valign="top"><p class="table"><code>-T SSSE3</code></p></td>
+<td align="left" valign="top"><p class="table">Intel&#174; Supplemental Streaming SIMD Extensions 3 (Intel&#174; SSSE3) optimization (<strong>s8</strong>/<strong>n8</strong> code on
+               Intel&#174; Atom&#8482; processors)</p></td>
+</tr>
+<tr>
+<td align="left" valign="top"><p class="table"><code>-T SSE41</code></p></td>
+<td align="left" valign="top"><p class="table">Intel&#174; Streamind SIMD Extensions 4.1 (Intel&#174; SSE4.1) optimization (<strong>v8</strong>/<strong>u8</strong> code)</p></td>
+</tr>
+<tr>
+<td align="left" valign="top"><p class="table"><code>-T SSE42</code></p></td>
+<td align="left" valign="top"><p class="table">Intel&#174; Streaming SIMD Extensions 4.2 (Intel&#174; SSE4.2) optimization (<strong>v8</strong>/<strong>u8</strong> code)</p></td>
+</tr>
+<tr>
+<td align="left" valign="top"><p class="table"><code>-T AES</code></p></td>
+<td align="left" valign="top"><p class="table">Intel&#174; AES New Instructions (Intel&#174; AES-NI) optimization
+              (<strong>p8</strong>/<strong>y8</strong> code)</p></td>
+</tr>
+<tr>
+<td align="left" valign="top"><p class="table"><code>-T AVX</code></p></td>
+<td align="left" valign="top"><p class="table">Intel&#174; Advanced Vector Extensions (Intel&#174; AVX) optimization (<strong>g9</strong>/<strong>e9</strong> code)</p></td>
+</tr>
+<tr>
+<td align="left" valign="top"><p class="table"><code>-T AVX2</code></p></td>
+<td align="left" valign="top"><p class="table">Intel&#174; Advanced Vector Extensions 2 (Intel&#174; AVX2) optimization (<strong>h9</strong>/<strong>l9</strong> code)</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="admonitionblock">
+<table><tr>
+<td class="icon">
+<div class="title">Note</div>
+</td>
+<td class="content">This options are absent in Intel&#174; IPP external threading example for Intel&#174; Xeon Phi&#8482; coprocessor because
+Intel&#174; MIC Architecture is the only available architecture in this example.</td>
+</tr></table>
+</div>
+<div class="paragraph"><p>Help on command line can be obtained using "-h" option.</p></div>
+<div class="sect1">
+<h2 id="_ipp_resize_mt">Multi-thread Image Resize Example (ipp_resize_mt)</h2>
+<div class="sectionbody">
+<div class="paragraph"><p>This Intel IPP example shows how to use the <code>ippiResize</code> functionality in single- and multi-thread mode. For
+external multi-threading, Intel TBB tool is used, specificially, the
+<code>parallel_for</code> loop functionality.</p></div>
+<div class="listingblock">
+<div class="content"><!-- Generator: GNU source-highlight 3.1.1
+by Lorenzo Bettini
+http://www.lorenzobettini.it
+http://www.gnu.org/software/src-highlite -->
+<pre><tt><span style="color: #000000">CTBBResize</span><span style="color: #000000"> </span><span style="color: #000000">tbbResize</span><span style="color: #000000">(&amp;</span><span style="color: #000000">resizer</span><span style="color: #000000">);</span>
+<span style="color: #000000">blocked_range2d&lt;Ipp32u, Ipp32u&gt;</span><span style="color: #000000"> </span><span style="color: #000000">range</span><span style="color: #000000">(</span><span style="color: #000000">0</span><span style="color: #000000">,</span><span style="color: #000000"> dstData</span><span style="color: #000000">.</span><span style="color: #000000">m_iHeight</span><span style="color: #000000">,</span><span style="color: #000000"> iGrainH</span><span style="color: #000000">,</span><span style="color: #000000"> </span><span style="color: #000000">0</span><span style="color: #000000">,</span><span style="color: #000000"> dstData</span><span style="color: #000000">.</span><span style="color: #000000">m_iWidth</span><span style="color: #000000">,</span><span style="color: #000000"> iGrainW</span><span style="color: #000000">);</span></tt></pre></div></div>
+<div class="sect2">
+<h3 id="_ctbbresize_class">CTBBResize Class</h3>
+<div class="paragraph"><p>The core of <code>ipp_resize_mt</code> example is <code>CTBBResize</code> class declared as</p></div>
+<div class="listingblock">
+<div class="content"><!-- Generator: GNU source-highlight 3.1.1
+by Lorenzo Bettini
+http://www.lorenzobettini.it
+http://www.gnu.org/software/src-highlite -->
+<pre><tt><span style="color: #0000ff">class</span><span style="color: #000000"> </span><span style="color: #000000">CTBBResize</span>
+<span style="color: #000000">{</span>
+<span style="color: #0000ff">public</span><span style="color: #000000">:</span>
+<span style="color: #000000">    </span><span style="color: #000000">CTBBResize</span><span style="color: #000000">(</span><span style="color: #000000">CResizer</span><span style="color: #000000"> </span><span style="color: #000000">*</span><span style="color: #000000">pResizer</span><span style="color: #000000">)</span>
+<span style="color: #000000">    </span><span style="color: #000000">{</span>
+<span style="color: #000000">        m_pResizer </span><span style="color: #000000">=</span><span style="color: #000000"> pResizer</span><span style="color: #000000">;</span>
+<span style="color: #000000">    </span><span style="color: #000000">}</span>
+<span style="color: #000000">    </span><span style="color: #000000">~</span><span style="color: #000000">CTBBResize</span><span style="color: #000000">()</span><span style="color: #000000"> </span><span style="color: #000000">{}</span><span style="color: #000000">;</span>
+
+<span style="color: #000000">    </span><span style="color: #0000ff">void</span><span style="color: #000000"> </span><span style="color: #0000ff">operator</span><span style="color: #000000">()(</span><span style="color: #000000">blocked_range2d&lt;Ipp32u, Ipp32u&gt;</span><span style="color: #000000"> </span><span style="color: #000000">&amp;</span><span style="color: #000000">r</span><span style="color: #000000">)</span><span style="color: #000000"> </span><span style="color: #0000ff">const</span>
+<span style="color: #000000">    </span><span style="color: #000000">{</span>
+<span style="color: #000000">        m_pResizer</span><span style="color: #000000">-&gt;</span><span style="color: #000000">Resize</span><span style="color: #000000">(</span><span style="color: #000000">r</span><span style="color: #000000">.</span><span style="color: #000000">cols</span><span style="color: #000000">().</span><span style="color: #000000">begin</span><span style="color: #000000">(),</span><span style="color: #000000"> r</span><span style="color: #000000">.</span><span style="color: #000000">rows</span><span style="color: #000000">().</span><span style="color: #000000">begin</span><span style="color: #000000">(),</span><span style="color: #000000"> r</span><span style="color: #000000">.</span><span style="color: #000000">cols</span><span style="color: #000000">().</span><span style="color: #000000">end</span><span style="color: #000000">()</span><span style="color: #000000"> </span><span style="color: #000000">-</span><span style="color: #000000"> r</span><span style="color: #000000">.</span><span style="color: #000000">cols</span><span style="color: #000000">().</span><span style="color: #000000">begin</span><span style="color: #000000">(),</span>
+<span style="color: #000000">                    r</span><span style="color: #000000">.</span><span style="color: #000000">rows</span><span style="color: #000000">().</span><span style="color: #000000">end</span><span style="color: #000000">()</span><span style="color: #000000"> </span><span style="color: #000000">-</span><span style="color: #000000"> r</span><span style="color: #000000">.</span><span style="color: #000000">rows</span><span style="color: #000000">().</span><span style="color: #000000">begin</span><span style="color: #000000">());</span>
+<span style="color: #000000">    </span><span style="color: #000000">}</span>
+
+<span style="color: #0000ff">private</span><span style="color: #000000">:</span>
+<span style="color: #000000">    </span><span style="color: #000000">CResizer</span><span style="color: #000000">   </span><span style="color: #000000">*</span><span style="color: #000000">m_pResizer</span><span style="color: #000000">;</span>
+<span style="color: #000000">}</span><span style="color: #000000">;</span></tt></pre></div></div>
+<div class="paragraph"><p>Actually, this class does nothing, but provides <code>operator()</code> functionality using the <code>blocked_range2d</code>
+Intel TBB class argument.
+The <code>operator()</code> function determines the boundaries of image tile assigned to a particual instance of
+an object, such as <code>r.cols().begin()</code>, <code>r.rows().end()</code>, etc, and call <code>Resize</code> function of
+<code>CTBBResize::m_pResizer</code> data member.
+<code>CTBBResize</code> is designed as much simple as possible to hide all Intel IPP specifics in the <code>CResizer</code> class.</p></div>
+</div>
+<div class="sect2">
+<h3 id="_cresizer_class">CResizer Class</h3>
+<div class="paragraph"><p><code>CResizer</code> is an auxiliary class declared as</p></div>
+<div class="listingblock">
+<div class="content"><!-- Generator: GNU source-highlight 3.1.1
+by Lorenzo Bettini
+http://www.lorenzobettini.it
+http://www.gnu.org/software/src-highlite -->
+<pre><tt><span style="color: #0000ff">class</span><span style="color: #000000"> </span><span style="color: #000000">CResizer</span>
+<span style="color: #000000">{</span>
+<span style="color: #0000ff">public</span><span style="color: #000000">:</span>
+<span style="color: #000000">    </span><span style="color: #000000">CResizer</span><span style="color: #000000">();</span>
+<span style="color: #000000">    </span><span style="color: #000000">~</span><span style="color: #000000">CResizer</span><span style="color: #000000">();</span>
+<span style="color: #000000">    </span><span style="color: #0000ff">void</span><span style="color: #000000"> </span><span style="color: #000000">Init</span><span style="color: #000000">(</span><span style="color: #000000">Image</span><span style="color: #000000"> </span><span style="color: #000000">*</span><span style="color: #000000">pSrcData</span><span style="color: #000000">,</span><span style="color: #000000"> </span><span style="color: #000000">Image</span><span style="color: #000000"> </span><span style="color: #000000">*</span><span style="color: #000000">pDstData</span><span style="color: #000000">,</span><span style="color: #000000"> </span><span style="color: #000000">IppiInterpolationType</span><span style="color: #000000"> interpolation</span><span style="color: #000000">,</span><span style="color: #000000"> </span><span style="color: #000000">Ipp32u</span><span style="color: #000000"> iThreads </span><span style="color: #000000">=</span><span style="color: #000000"> </span><span style="color: #000000">1</span><span style="color: #000000">);</span>
+<span style="color: #000000">    </span><span style="color: #0000ff">void</span><span style="color: #000000"> </span><span style="color: #000000">Resize</span><span style="color: #000000">(</span><span style="color: #0000ff">int</span><span style="color: #000000"> iRangeX</span><span style="color: #000000">,</span><span style="color: #000000"> </span><span style="color: #0000ff">int</span><span style="color: #000000"> iRangeY</span><span style="color: #000000">,</span><span style="color: #000000"> </span><span style="color: #0000ff">int</span><span style="color: #000000"> iRangeWidth</span><span style="color: #000000">,</span><span style="color: #000000"> </span><span style="color: #0000ff">int</span><span style="color: #000000"> iRangeHeight</span><span style="color: #000000">,</span><span style="color: #000000"> </span><span style="color: #000000">Ipp32u</span><span style="color: #000000"> iThread </span><span style="color: #000000">=</span><span style="color: #000000"> </span><span style="color: #000000">0</span><span style="color: #000000">);</span>
+<span style="color: #0000ff">private</span><span style="color: #000000">:</span>
+<span style="color: #000000">    </span><span style="color: #000000">Image</span><span style="color: #000000">  </span><span style="color: #000000">*</span><span style="color: #000000">m_pSrcData</span><span style="color: #000000">;</span>
+<span style="color: #000000">    </span><span style="color: #000000">Image</span><span style="color: #000000">  </span><span style="color: #000000">*</span><span style="color: #000000">m_pDstData</span><span style="color: #000000">;</span>
+<span style="color: #000000">    </span><span style="color: #000000">Ipp32u</span><span style="color: #000000">  m_iThreads</span><span style="color: #000000">;</span>
+<span style="color: #000000">    </span><span style="color: #000000">IppiInterpolationType</span><span style="color: #000000"> m_interpolation</span><span style="color: #000000">;</span>
+
+<span style="color: #000000">    </span><span style="color: #000000">IppiResizeSpec_32f</span><span style="color: #000000"> </span><span style="color: #000000">*</span><span style="color: #000000">m_pSpec</span><span style="color: #000000">;</span>
+<span style="color: #000000">    </span><span style="color: #000000">Ipp32s</span><span style="color: #000000">              m_iSpecSize</span><span style="color: #000000">;</span>
+<span style="color: #000000">    </span><span style="color: #000000">Ipp8u</span><span style="color: #000000">              </span><span style="color: #000000">*</span><span style="color: #000000">m_pInitBuffer</span><span style="color: #000000">;</span>
+<span style="color: #000000">    </span><span style="color: #000000">Ipp32s</span><span style="color: #000000">              m_iInitSize</span><span style="color: #000000">;</span>
+<span style="color: #000000">}</span><span style="color: #000000">;</span></tt></pre></div></div>
+<div class="paragraph"><p>Prior to actual work, you need to initialize the <code>CResizer</code> object by calling the <code>CResizer::Init</code> function. Within
+<code>Init</code> function the <code>ippiResize</code> context structure (<code>IppiResizeSpec_32f *CResize::m_pSpec</code>) is allocated and
+initialized. This structure is used further in <code>CResizer::Resize</code> function. The space allocation is done with
+respect to image size and resizing algorithm.</p></div>
+</div>
+<div class="sect2">
+<h3 id="_ipp_resize_mt_command_line_options">Command Line Options</h3>
+<div class="paragraph"><p>The command line options for <code>ipp_resize_mt</code> are:</p></div>
+<div class="listingblock">
+<div class="content">
+<pre><code>Usage: ipp_resize_mt [-i] InputFile [[-o] OutputFile] -r DstWidth DstHeight [Options]
+Options:
+  -i &lt;1 arg&gt;  input file name
+  -o &lt;1 arg&gt;  output file name
+  -r &lt;2 args&gt; destination resolution (width height)
+  -k          do not keep aspect ratio
+  -t &lt;1 arg&gt;  number of threads (0 - auto, 0 by default)
+  -p &lt;1 arg&gt;  interpolation:
+              0 - Nearest
+              1 - Linear (default)
+              2 - Cubic
+              3 - Lanczos
+
+  -w &lt;1 arg&gt;  minimum test time in seconds
+  -l &lt;1 arg&gt;  number of loops (overrides test time)
+  -T &lt;1 arg&gt;  target Intel(R) IPP optimization (SSE, SSE2, SSE3, SSSE3, SSE41, SSE42, AES, AVX, AVX2)
+  -h          print help and exit</code></pre>
+</div></div>
+<div class="paragraph"><p>The mandatory options are "-i" and "-r". All other options can be omitted.</p></div>
+<div class="paragraph"><p>Currently <code>ipp_resize_mt</code> example works only with bitmap (BMP) files.</p></div>
+<div class="paragraph"><p>The options are as follows:</p></div>
+<div class="tableblock">
+<table rules="all"
+width="80%"
+frame="border"
+cellspacing="0" cellpadding="4">
+<col width="25%" />
+<col width="75%" />
+<thead>
+<tr>
+<th align="left" valign="top">Option      </th>
+<th align="left" valign="top"> Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left" valign="top"><p class="table"><code>-i &lt;arg&gt;</code></p></td>
+<td align="left" valign="top"><p class="table">The name of the source image BMP file to process. Here "-i" is optional.</p></td>
+</tr>
+<tr>
+<td align="left" valign="top"><p class="table"><code>-o &lt;arg&gt;</code></p></td>
+<td align="left" valign="top"><p class="table">The name of the output BMP file with corners detected.</p></td>
+</tr>
+<tr>
+<td align="left" valign="top"><p class="table"><code>-r &lt;2 args&gt;</code></p></td>
+<td align="left" valign="top"><p class="table">Destination image resolution in format "-r width height". Note: without "-k" option (see
+               below) the example tries to keep aspect ratio of the source image. It means that without "-k"
+               only first "-r" argument - width is effective. The height of destination image is calculated
+               as <code>destination_height = destination_width * source_aspect_ratio</code>, where
+               <code>source_aspect_ratio</code> is <code>source_height / source_width</code>, i.e. destination image keeps source
+               image proportions.</p></td>
+</tr>
+<tr>
+<td align="left" valign="top"><p class="table"><code>-k</code></p></td>
+<td align="left" valign="top"><p class="table">Do not kee aspect ratio. With this option the example creates destination image with resolution
+               specified in "-r width height" command line option.</p></td>
+</tr>
+<tr>
+<td align="left" valign="top"><p class="table"><code>-t &lt;1 arg&gt;</code></p></td>
+<td align="left" valign="top"><p class="table">The number of execution threads that will be used in resizing. By default, "-t 0" number of
+                threads is equal to the number of CPU cores.</p></td>
+</tr>
+<tr>
+<td align="left" valign="top"><p class="table"><code>-p &lt;1 arg&gt;</code></p></td>
+<td align="left" valign="top"><p class="table">Resizing interpolation method. One-digit number from 0 to 3.</p></td>
+</tr>
+<tr>
+<td align="left" valign="top"><p class="table"><code>-w &lt;1 arg&gt;</code></p></td>
+<td align="left" valign="top"><p class="table">This option  specifies the execution time. The execution time affects
+               performance measurement accuracy. This option has similar effect with "-l &lt;arg&gt;" option (see
+               below). Time is specified as a floating point value in seconds (e.g. "-w 3.5").</p></td>
+</tr>
+<tr>
+<td align="left" valign="top"><p class="table"><code>-l &lt;1 arg&gt;</code></p></td>
+<td align="left" valign="top"><p class="table">This option  specifies the number of internal execution loops. This option also affects
+               performance measurement accuracy. &lt;arg&gt; is an integer positive value.</p></td>
+</tr>
+<tr>
+<td align="left" valign="top"><p class="table"><code>-h</code></p></td>
+<td align="left" valign="top"><p class="table">This option shows the above help message.</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_ipp_resize_mt_output">Example Output</h3>
+<div class="paragraph"><p>The output messages during example execution show the number of resizing threads used, source and destination
+image resolutions, the number of loops executed, and execution time in seconds and CPE (CPU clocks per image
+element) like in the example below:</p></div>
+<div class="listingblock">
+<div class="content">
+<pre><code>Threads: 4
+Src size: 1200x900
+Dst size: 1024x768
+
+Loops:      1
+Time total: 0.003735s
+Loop avg:   0.003735s
+CPE total:  2.917901
+CPE avg:    2.917901</code></pre>
+</div></div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_ipp_fft">Image Linear Transform Example (ipp_fft)</h2>
+<div class="sectionbody">
+<div class="paragraph"><p>Intel IPP image linear transform (<code>ipp_fft</code>) example shows how to use the Intel IPP image linear transforms:
+Fourier transforms (fast and discrete) and discrete cosine transform (DCT).</p></div>
+<div class="sect2">
+<h3 id="_ipp_fft_structure">Example Structure</h3>
+<div class="paragraph"><p>The example contains 3 classes - <code>FFT</code>, <code>DFT</code> and <code>DCT</code> - inherited from the base class <code>Transform</code>. Each
+class implements its own, specific  <code>Init</code>, <code>Forward</code>, and <code>Inverse</code> methods with corresponding
+functionalities.</p></div>
+<div class="paragraph"><p>Additionally, the <code>ipp_fft</code> example has source code for performance mesurement and performance statistics
+output.</p></div>
+</div>
+<div class="sect2">
+<h3 id="_ipp_fft_command_line_options">Command Line Options</h3>
+<div class="paragraph"><p>To display help for the <code>ipp_fft</code> command line options, call the example with "-h" option.</p></div>
+<div class="listingblock">
+<div class="content">
+<pre><code>Usage: ipp_fft [-i] InputFile [[-o] OutputFile] [Options]
+Options:
+  -i &lt;1 arg&gt;  input file name
+  -o &lt;1 arg&gt;  output file name
+  -d &lt;1 arg&gt;  save coefficients matrix
+  -x &lt;1 arg&gt;  create coefficients map image
+  -m &lt;1 arg&gt;  image transform method: FFT (default), DFT, DCT
+  -b &lt;2 args&gt; apply transform by blocks (width height, 0 0 by default)
+              block size will be set to first lower power of 2 value
+
+  -n &lt;1 arg&gt;  algorithm mode: 0 - default, 1 - fast, 2 - accurate
+  -w &lt;1 arg&gt;  minimum test time in seconds
+  -l &lt;1 arg&gt;  number of loops (overrides test time)
+  -T &lt;1 arg&gt;  target Intel IPP optimization (SSE, SSE2, SSE3, SSSE3, SSE41, SSE42, AES, AVX, AVX2)
+  -h          print help and exit</code></pre>
+</div></div>
+<div class="paragraph"><p>All command line switches except source image file name are optional.</p></div>
+<div class="paragraph"><p>The options are as follows:</p></div>
+<div class="tableblock">
+<table rules="all"
+width="80%"
+frame="border"
+cellspacing="0" cellpadding="4">
+<col width="25%" />
+<col width="75%" />
+<thead>
+<tr>
+<th align="left" valign="top">Option     </th>
+<th align="left" valign="top"> Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left" valign="top"><p class="table"><code>-i &lt;1 arg&gt;</code></p></td>
+<td align="left" valign="top"><p class="table">The name of the source image BMP file to process. Here "-i" is optional.</p></td>
+</tr>
+<tr>
+<td align="left" valign="top"><p class="table"><code>-o &lt;1 arg&gt;</code></p></td>
+<td align="left" valign="top"><p class="table">The name of the output BMP file with corners detected.</p></td>
+</tr>
+<tr>
+<td align="left" valign="top"><p class="table"><code>-d &lt;1 arg&gt;</code></p></td>
+<td align="left" valign="top"><p class="table">The name of a binary file to save the transformation coefficients. They are saved as 32-bit
+                 floating-point values.</p></td>
+</tr>
+<tr>
+<td align="left" valign="top"><p class="table"><code>-x &lt;1 arg&gt;</code></p></td>
+<td align="left" valign="top"><p class="table">The name of the output file for transformation coefficients. The coefficients are saved
+                 normalized in bitmap BMP format.</p></td>
+</tr>
+<tr>
+<td align="left" valign="top"><p class="table"><code>-m &lt;1 arg&gt;</code></p></td>
+<td align="left" valign="top"><p class="table">Linear transform method to use. Examples: "-m FFT", "-m DFT", "-m DCT".</p></td>
+</tr>
+<tr>
+<td align="left" valign="top"><p class="table"><code>-b &lt;2 args&gt;</code></p></td>
+<td align="left" valign="top"><p class="table">Use image blocks (tiles) to linear transformation. By default, block is equal to the whole image.
+                 Blocks are defined by "-b width height" argument (-b 128 128 for example). Using of image
+                 tiles for transformation can improve overall performance, because with small tiles all
+                 required data is stored in CPU cache.</p></td>
+</tr>
+<tr>
+<td align="left" valign="top"><p class="table"><code>-n &lt;1 arg&gt;</code></p></td>
+<td align="left" valign="top"><p class="table">Linear transform algorithm hint (default, fast, or accurate).</p></td>
+</tr>
+<tr>
+<td align="left" valign="top"><p class="table"><code>-w &lt;1 arg&gt;</code></p></td>
+<td align="left" valign="top"><p class="table">This option  specifies the execution time. The execution time affects
+                 performance measurement accuracy. This option has similar effect with "-l &lt;arg&gt;" option
+                 (see below). Time is specified as a floating point value in seconds (e.g. "-w 3.5").</p></td>
+</tr>
+<tr>
+<td align="left" valign="top"><p class="table"><code>-l &lt;1 arg&gt;</code></p></td>
+<td align="left" valign="top"><p class="table">This option specifies the number of internal execution loops. This option also
+                 affects performance measurement accuracy. &lt;arg&gt; is an integer positive value.</p></td>
+</tr>
+<tr>
+<td align="left" valign="top"><p class="table"><code>-T &lt;1 arg&gt;</code></p></td>
+<td align="left" valign="top"><p class="table">Target Intel IPP optimization.</p></td>
+</tr>
+<tr>
+<td align="left" valign="top"><p class="table"><code>-h</code></p></td>
+<td align="left" valign="top"><p class="table">This option shows the above help message.</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_ipp_thread">External Threading Example (ipp_thread)</h2>
+<div class="sectionbody">
+<div class="paragraph"><p>As internal threading is deprecated in Intel IPP functions
+(see Intel&#174; IPP deprecation strategy at <a href="http://software.intel.com/sites/products/ipp-deprecated-features-feedback">http://software.intel.com/sites/products/ipp-deprecated-features-feedback</a>), it is
+important to know
+how generic Intel IPP function can be threaded externally. This is the purpose of the Intel IPP external
+threading example (<code>ipp_thread</code>).</p></div>
+<div class="paragraph"><p>This example shows threading of image harmonization filter. The harmonization filter steps are</p></div>
+<div class="ulist"><ul>
+<li>
+<p>
+Generate gray image (src);
+</p>
+</li>
+<li>
+<p>
+Filterbox 7x7 with anchor 1,1 (tmp = filterbox(src));
+</p>
+</li>
+<li>
+<p>
+Multiply by constant 255 (tmp = tmp * 255);
+</p>
+</li>
+<li>
+<p>
+Subtract from source (dst = tmp - src);
+</p>
+</li>
+<li>
+<p>
+Multiply by constant 205 (dst = dst * 205);
+</p>
+</li>
+<li>
+<p>
+Threshold &lt; 6 or &gt; 250 (dst = threshold(6, 250).
+</p>
+</li>
+</ul></div>
+<div class="paragraph"><p>The example demonstrates 3 methods of harmonization filtering:</p></div>
+<div class="ulist"><ul>
+<li>
+<p>
+Direct (serial) execution of above steps on the whole image.
+</p>
+</li>
+<li>
+<p>
+Using native threads. On Windows*, WinAPI threads are used, on Linux* OS and OS X* <code>pthreads</code> are used.
+</p>
+</li>
+<li>
+<p>
+Intel TBB usage model.
+</p>
+</li>
+</ul></div>
+<div class="paragraph"><p>The threading methods use simple data-parallel aproach when source image is splitted into slices and each
+slice is processed in a separate thread in parallel mode. It is possible because there is no data dependency
+between the slices.</p></div>
+<div class="sect2">
+<h3 id="_ipp_thread_structure">Example Structure</h3>
+<div class="paragraph"><p>In general, the <code>ipp_thread</code> example consists of <code>main</code> function and three processing functions -
+<code>HarmonizeSerial</code>, <code>HarmonizeNativeParallel</code>, and <code>HarmonizeTBBParallel</code>.</p></div>
+<div class="paragraph"><p>Before the source image gets to filtering, the source data is copied into a bigger image to set up border around
+source image data (necessary for <code>ippiFilterBox_8u_C1R</code> function).</p></div>
+<div class="sect3">
+<h4 id="_threading_using_native_threads">Threading Using Native Threads</h4>
+<div class="paragraph"><p>In the <code>HarmonizeNativeParallel</code> function, thread control is organized using <code>VM</code> library functions to hide
+operating system specifics.</p></div>
+<div class="paragraph"><p>The main thread processing function is named <code>HarmonizeNativeSlice</code>. It does exactly the same job as the
+<code>HarmonizeSerial</code> function but on a source image slice only.</p></div>
+<div class="paragraph"><p>Synchronization of threads is done using <code>mutex</code> and <code>event</code> objects. When the last thread is finishing, it
+sets <code>vm_event* ThreadParam::pLastThreadStop</code> flag notifying the thread controlling function that it can continue
+execution.</p></div>
+</div>
+<div class="sect3">
+<h4 id="_threading_using_intel_174_tbb">Threading Using Intel&#174; TBB</h4>
+<div class="paragraph"><p>The <code>HarmonizeTBBParallel</code> function is quite simple. The Intel TBB class for <code>parallel_for</code> construction is</p></div>
+<div class="listingblock">
+<div class="content"><!-- Generator: GNU source-highlight 3.1.1
+by Lorenzo Bettini
+http://www.lorenzobettini.it
+http://www.gnu.org/software/src-highlite -->
+<pre><tt><span style="color: #0000ff">class</span><span style="color: #000000"> </span><span style="color: #000000">SliceHarmonize</span><span style="color: #000000"> </span><span style="color: #000000">{</span>
+<span style="color: #0000ff">public</span><span style="color: #000000">:</span>
+<span style="color: #000000">    </span><span style="color: #000000">SliceHarmonize</span><span style="color: #000000">(</span><span style="color: #0000ff">int</span><span style="color: #000000"> numIter</span><span style="color: #000000">,</span><span style="color: #000000"> </span><span style="color: #000000">Image</span><span style="color: #000000"> </span><span style="color: #000000">&amp;</span><span style="color: #000000">srcBorder</span><span style="color: #000000">,</span><span style="color: #000000"> </span><span style="color: #000000">Image</span><span style="color: #000000"> </span><span style="color: #000000">&amp;</span><span style="color: #000000">tmpImage</span><span style="color: #000000">,</span>
+<span style="color: #000000">        </span><span style="color: #000000">IppiSize</span><span style="color: #000000"> srcRoi</span><span style="color: #000000">,</span><span style="color: #000000"> </span><span style="color: #000000">Image</span><span style="color: #000000"> </span><span style="color: #000000">&amp;</span><span style="color: #000000">srcImage</span><span style="color: #000000">,</span><span style="color: #000000"> </span><span style="color: #000000">Image</span><span style="color: #000000"> </span><span style="color: #000000">&amp;</span><span style="color: #000000">dstImage</span><span style="color: #000000">)</span><span style="color: #000000"> </span><span style="color: #000000">:</span>
+<span style="color: #000000">            </span><span style="color: #000000">m_numIter</span><span style="color: #000000">(</span><span style="color: #000000">numIter</span><span style="color: #000000">),</span>
+<span style="color: #000000">            </span><span style="color: #000000">m_srcBorder</span><span style="color: #000000">(</span><span style="color: #000000">srcBorder</span><span style="color: #000000">),</span>
+<span style="color: #000000">            </span><span style="color: #000000">m_tmpImage</span><span style="color: #000000">(</span><span style="color: #000000">tmpImage</span><span style="color: #000000">),</span>
+<span style="color: #000000">            </span><span style="color: #000000">m_srcRoi</span><span style="color: #000000">(</span><span style="color: #000000">srcRoi</span><span style="color: #000000">),</span>
+<span style="color: #000000">            </span><span style="color: #000000">m_srcImage</span><span style="color: #000000">(</span><span style="color: #000000">srcImage</span><span style="color: #000000">),</span>
+<span style="color: #000000">            </span><span style="color: #000000">m_dstImage</span><span style="color: #000000">(</span><span style="color: #000000">dstImage</span><span style="color: #000000">)</span><span style="color: #000000"> </span><span style="color: #000000">{</span><span style="color: #000000"> </span><span style="color: #000000">}</span>
+<span style="color: #000000">    </span><span style="color: #0000ff">void</span><span style="color: #000000"> </span><span style="color: #0000ff">operator</span><span style="color: #000000">()</span><span style="color: #000000"> </span><span style="color: #000000">(</span><span style="color: #0000ff">const</span><span style="color: #000000"> tbb</span><span style="color: #000000">::</span><span style="color: #000000">blocked_range</span><span style="color: #000000">&lt;</span><span style="color: #0000ff">int</span><span style="color: #000000">&gt;&amp;</span><span style="color: #000000"> height</span><span style="color: #000000">)</span><span style="color: #000000"> </span><span style="color: #0000ff">const</span><span style="color: #000000">;</span>
+
+<span style="color: #0000ff">protected</span><span style="color: #000000">:</span>
+<span style="color: #000000">    </span><span style="color: #000000">Image</span><span style="color: #000000">           </span><span style="color: #000000">&amp;</span><span style="color: #000000">m_srcBorder</span><span style="color: #000000">;</span>
+<span style="color: #000000">    </span><span style="color: #000000">Image</span><span style="color: #000000">           </span><span style="color: #000000">&amp;</span><span style="color: #000000">m_tmpImage</span><span style="color: #000000">;</span>
+<span style="color: #000000">    </span><span style="color: #000000">Image</span><span style="color: #000000">           </span><span style="color: #000000">&amp;</span><span style="color: #000000">m_srcImage</span><span style="color: #000000">;</span>
+<span style="color: #000000">    </span><span style="color: #000000">Image</span><span style="color: #000000">           </span><span style="color: #000000">&amp;</span><span style="color: #000000">m_dstImage</span><span style="color: #000000">;</span>
+<span style="color: #000000">    </span><span style="color: #0000ff">int</span><span style="color: #000000">             m_numIter</span><span style="color: #000000">;</span>
+<span style="color: #000000">    </span><span style="color: #000000">IppiSize</span><span style="color: #000000">        m_srcRoi</span><span style="color: #000000">;</span>
+<span style="color: #000000">}</span><span style="color: #000000">;</span></tt></pre></div></div>
+<div class="paragraph"><p>Filtering is done in the <code>SliceHarmonize::operator()</code> function the same way as in serial and native methods on
+slices defined by the <code>tbb::blocked_range&lt;int&gt;&amp; height</code> function argument.</p></div>
+<div class="paragraph"><p>In Intel TBB model, thread synchronization is done automatically.</p></div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_ipp_thread_command_line_options">Command Line Options</h3>
+<div class="paragraph"><p>Command line options can be obtained by "-h" option as follows:</p></div>
+<div class="listingblock">
+<div class="content">
+<pre><code>Usage: ipp_thread [-i] InputFile [[-o] OutputFile] [Options]
+Options:
+  -i &lt;1 arg&gt; input file name
+  -o &lt;1 arg&gt; output file name
+  -m &lt;1 arg&gt; threading method: tbb (default), native
+  -t &lt;1 arg&gt; number of threads (0 - auto, 0 by default)
+  -w &lt;1 arg&gt; minimum test time in seconds
+  -l &lt;1 arg&gt; number of loops (overrides test time)
+  -T &lt;1 arg&gt; target Intel(R)  optimization (SSE, SSE2, SSE3, SSSE3, SSE41, SSE42, AES, AVX, AVX2)
+  -h         print help and exit</code></pre>
+</div></div>
+<div class="paragraph"><p>The options are as follows:</p></div>
+<div class="tableblock">
+<table rules="all"
+width="80%"
+frame="border"
+cellspacing="0" cellpadding="4">
+<col width="25%" />
+<col width="75%" />
+<thead>
+<tr>
+<th align="left" valign="top">Option      </th>
+<th align="left" valign="top"> Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left" valign="top"><p class="table"><code>-i &lt;1 arg&gt;</code></p></td>
+<td align="left" valign="top"><p class="table">The name of the source image BMP file to process. Here "-i" is optional.</p></td>
+</tr>
+<tr>
+<td align="left" valign="top"><p class="table"><code>-o &lt;1 arg&gt;</code></p></td>
+<td align="left" valign="top"><p class="table">Output bitmap BMP file name (optional).</p></td>
+</tr>
+<tr>
+<td align="left" valign="top"><p class="table"><code>-m &lt;1 arg&gt;</code></p></td>
+<td align="left" valign="top"><p class="table">Threading method. "-m tbb" starts parallelization using Intel TBB,
+               "-m native" starts parallelization using native OS methods.</p></td>
+</tr>
+<tr>
+<td align="left" valign="top"><p class="table"><code>-t &lt;1 arg&gt;</code></p></td>
+<td align="left" valign="top"><p class="table">The number of threads to be used in paralelization.</p></td>
+</tr>
+<tr>
+<td align="left" valign="top"><p class="table"><code>-w &lt;1 arg&gt;</code></p></td>
+<td align="left" valign="top"><p class="table">This option specifies the  execution time. The execution time affects
+               performance measurement accuracy. This option has similar effect with "-l &lt;arg&gt;" option (see
+               below). Time is specified as a floating point value in seconds (e.g. "-w 3.5").</p></td>
+</tr>
+<tr>
+<td align="left" valign="top"><p class="table"><code>-l &lt;1 arg&gt;</code></p></td>
+<td align="left" valign="top"><p class="table">This option specifies the number of internal execution loops. This option also affects
+               performance measurement accuracy. &lt;arg&gt; is an integer positive value.</p></td>
+</tr>
+<tr>
+<td align="left" valign="top"><p class="table"><code>-T &lt;1 arg&gt;</code></p></td>
+<td align="left" valign="top"><p class="table">Target Intel IPP optimization.</p></td>
+</tr>
+<tr>
+<td align="left" valign="top"><p class="table"><code>-h</code></p></td>
+<td align="left" valign="top"><p class="table">This option shows the above help message.</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_multi_threading_example_for_intel_174_xeon_phi_8482_coprocessor_ipp_thread_mic">Multi-threading Example for Intel&#174; Xeon Phi&#8482; Coprocessor (ipp_thread_mic)</h2>
+<div class="sectionbody">
+<div class="paragraph"><p>Starting with Intel&#174; C++ Composer 2015, the Intel&#174; software development tools support Intel&#174; Xeon
+Phi&#8482; manycore processor accelerators. The Intel&#174; Manycore Processor Software Stack (Intel&#174; MPSS) SDK contains
+libraries and cross-compilation tools to prepare native and "offload" executables for Intel&#174; Many
+Integrated Core Architecture (Intel&#174; MIC Architecture).</p></div>
+<div class="paragraph"><p>Intel&#174; IPP libraries along with IA-32 and Intel&#174; 64 versions
+contain native Intel MIC Architecture libraries, which allow to build the applications running totally
+(natively) or particularly (offload) on Intel MIC Architecture.</p></div>
+<div class="sect2">
+<h3 id="_native_applications">Native Applications</h3>
+<div class="paragraph"><p>The process of building Intel&#174; MIC Architecture application is similar to building ordinary Intel&#174; IPP-based
+applications. The differences are in additional compiler options ("<code>-mmic</code>" for Linux* OS and "<code>-Qmic</code>"  for
+Windows*) and in Intel IPP libraries used during linking phase.</p></div>
+<div class="paragraph"><p>In Intel&#174; C++ Compiler the required directories with Intel MIC Architecture-specific libraries are included
+automatically with Intel MIC-specific compiler options. For example, suppose that we have the <code>test.c</code> C-source code file
+with Intel IPP functions calls. With "<code>-mmic</code>" and "<code>-ipp=common</code>" options the final Linux* compiler options are:</p></div>
+<div class="listingblock">
+<div class="content">
+<pre><code> $ icc -# -mmic -ipp=common test.c 2&gt;&amp;1 | grep ipp
+     -I/opt/intel/composer_xe_2013_sp1.1.106/ipp/include \
+    "-mGLOB_options_string=-# -mmic -ipp=common" \
+    -lipp \
+    -lippcore \
+    -L/opt/intel/composer_xe_2013_sp1.1.106/ipp/lib/mic \
+ $</code></pre>
+</div></div>
+<div class="paragraph"><p>Here,</p></div>
+<div class="ulist"><ul>
+<li>
+<p>
+"<code>-I/opt/intel/composer_xe_2013_sp1.1.106/ipp/include</code>" compiler option is used for additional "<code>.h</code>" files search
+path;
+</p>
+</li>
+<li>
+<p>
+"<code>-lippcore</code>" option is to add <code>libippcore.a</code> and <code>libippcore.so</code> library files.
+</p>
+</li>
+<li>
+<p>
+"<code>-L/opt/intel/composer_xe_2013_sp1.1.106/ipp/lib/mic</code>" is for additional library search path;
+</p>
+</li>
+</ul></div>
+<div class="paragraph"><p>The linker options correspond to <code>x86_64-k1om-linux-ld</code> cross-linker, one of the Intel&#174; MPSS cross-compilation tools.
+Your Intel&#174; Parallel Studio XE Composer Edition install directory may differ from the one mentioned in the example above.</p></div>
+<div class="sect3">
+<h4 id="_example_of_intel_174_ipp_for_intel_174_xeon_phi_8482_build_on_linux_os">Example of Intel&#174; IPP for Intel&#174; Xeon Phi&#8482; Build on Linux* OS</h4>
+<div class="paragraph"><p>This chapter explains how to build and execute the following example for Intel&#174; Xeon Phi&#8482; on Linux* OS.</p></div>
+<div class="listingblock">
+<div class="content"><!-- Generator: GNU source-highlight 3.1.1
+by Lorenzo Bettini
+http://www.lorenzobettini.it
+http://www.gnu.org/software/src-highlite -->
+<pre><tt><span style="color: #0000ff">#include</span><span style="color: #000000"> </span><span style="color: #A31515">&lt;stdio.h&gt;</span>
+<span style="color: #0000ff">#include</span><span style="color: #000000"> </span><span style="color: #A31515">"ipps.h"</span>
+<span style="color: #0000ff">const</span><span style="color: #000000"> </span><span style="color: #0000ff">char</span><span style="color: #000000">*</span><span style="color: #000000"> test_str </span><span style="color: #000000">=</span><span style="color: #000000"> </span><span style="color: #A31515">"Hello Intel(R) IPP on Intel(R) Xeon Phi(TM)!"</span><span style="color: #000000">;</span>
+<span style="color: #0000ff">int</span><span style="color: #000000"> </span><span style="color: #000000">main</span><span style="color: #000000">()</span>
+<span style="color: #000000">{</span>
+<span style="color: #000000">    </span><span style="color: #0000ff">int</span><span style="color: #000000"> len</span><span style="color: #000000">;</span>
+<span style="color: #000000">    Ipp8u</span><span style="color: #000000">*</span><span style="color: #000000"> ipp_buf</span><span style="color: #000000">;</span>
+
+<span style="color: #000000">    len </span><span style="color: #000000">=</span><span style="color: #000000"> </span><span style="color: #000000">strlen</span><span style="color: #000000">((</span><span style="color: #0000ff">void</span><span style="color: #000000">*)</span><span style="color: #000000">test_str</span><span style="color: #000000">);</span>
+<span style="color: #000000">    ipp_buf </span><span style="color: #000000">=</span><span style="color: #000000"> </span><span style="color: #000000">ippsMalloc_8u</span><span style="color: #000000">(</span><span style="color: #000000">len</span><span style="color: #000000">+</span><span style="color: #000000">1</span><span style="color: #000000">);</span>
+<span style="color: #000000">    </span><span style="color: #000000">ippsCopy_8u</span><span style="color: #000000">((</span><span style="color: #0000ff">const</span><span style="color: #000000"> Ipp8u</span><span style="color: #000000">*)</span><span style="color: #000000">test_str</span><span style="color: #000000">,</span><span style="color: #000000"> ipp_buf</span><span style="color: #000000">,</span><span style="color: #000000"> len</span><span style="color: #000000">);</span>
+<span style="color: #000000">    ipp_buf</span><span style="color: #000000">[</span><span style="color: #000000"> len</span><span style="color: #000000">+</span><span style="color: #000000">1</span><span style="color: #000000"> </span><span style="color: #000000">]</span><span style="color: #000000"> </span><span style="color: #000000">=</span><span style="color: #000000"> </span><span style="color: #000000">0</span><span style="color: #000000">;</span>
+<span style="color: #000000">    </span><span style="color: #000000">printf</span><span style="color: #000000">(</span><span style="color: #A31515">"Test string: %s</span><span style="color: #A31515">\n</span><span style="color: #A31515">"</span><span style="color: #000000">,</span><span style="color: #000000"> ipp_buf</span><span style="color: #000000">);</span>
+<span style="color: #000000">    </span><span style="color: #000000">ippsFree</span><span style="color: #000000">(</span><span style="color: #000000">ipp_buf</span><span style="color: #000000">);</span>
+<span style="color: #000000">}</span></tt></pre></div></div>
+<div class="paragraph"><p>To build this example, you need to execute the following command on Linux* OS:</p></div>
+<div class="listingblock">
+<div class="content">
+<pre><code>  $ icc -mmic -ipp=common test.c</code></pre>
+</div></div>
+<div class="paragraph"><p>The output executable file <code>a.out</code> is Intel MIC Architecture-native application
+task. To execute this application on Intel&#174; Xeon Phi&#8482;, you need to copy it to the coprocessor file
+system:</p></div>
+<div class="listingblock">
+<div class="content">
+<pre><code>  $ scp a.out mic0:</code></pre>
+</div></div>
+<div class="paragraph"><p>Then, go to Intel&#174; Xeon Phi&#8482; coprocessor and execute it:</p></div>
+<div class="listingblock">
+<div class="content">
+<pre><code>  $ ssh mic0:
+  $ ./a.out
+  Test string: Hello Intel(R) IPP on Intel(R) Xeon Phi(TM)!
+  $</code></pre>
+</div></div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_offload_applications">Offload Applications</h3>
+<div class="paragraph"><p>There is another Intel&#174; MIC Architecture programming technique based on Intel&#174; C/C++ Compiler offload feature (see
+<a href="https://software.intel.com/en-us/node/512541">Intel&#174; Many Integrated Core Architecture (Intel&#174; MIC Architecture)</a> chapter).</p></div>
+<div class="paragraph"><p>From the user point of view, the offload compilation and execution means that you can declare a  part of your
+application as offload, i.e. oriented for execution off the central CPU, build  the corresponding application
+and start it for execution on computer "host" system.</p></div>
+<div class="paragraph"><p>The offload run-time system and compiler pragma provide automatic methods to transfer Intel MIC
+Architecture-targeted executable parts of binary code and related data to/from Intel&#174; Xeon Phi&#8482;
+coprocessor. Basically, you only need to specify which parts of your application (including data) are targeted
+for Intel&#174; Xeon Phi&#8482;.</p></div>
+<div class="paragraph"><p>In practice, however, it is more complicated. The main problem is that offload data transferring interface is
+intended for simple, ordinal objects (scalar ordinal variables, plain arrays and so on).  This means that the
+variables used to transfer data between host CPU (memory) and Intel&#174; Xeon Phi&#8482; should be simple,
+countable, understandable for compiler and bitwise-copyable (i.e. should be treated equally on both sides of
+CPU-Intel&#174; Xeon Phi&#8482; interconnection).</p></div>
+<div class="paragraph"><p>This means that in general  you cannot have, for example, C++ class in which the part of function/data members
+are offload and the rest of class is not.</p></div>
+<div class="listingblock">
+<div class="content"><!-- Generator: GNU source-highlight 3.1.1
+by Lorenzo Bettini
+http://www.lorenzobettini.it
+http://www.gnu.org/software/src-highlite -->
+<pre><tt><span style="color: #0000ff">class</span><span style="color: #000000"> </span><span style="color: #000000">foo</span><span style="color: #000000"> </span><span style="color: #000000">{</span>
+<span style="color: #0000ff">public</span><span style="color: #000000">:</span>
+<span style="color: #000000">    </span><span style="color: #000000">foo</span><span style="color: #000000">();</span>
+<span style="color: #000000">    </span><span style="color: #000000">~</span><span style="color: #000000">foo</span><span style="color: #000000">();</span>
+
+<span style="color: #000000">    </span><span style="color: #0000ff">void</span><span style="color: #000000"> </span><span style="color: #000000">host_function</span><span style="color: #000000">();</span>
+<span style="color: #000000">    </span><span style="color: #000000">__declare</span><span style="color: #000000">(</span><span style="color: #000000">target</span><span style="color: #000000">(</span><span style="color: #000000">mic</span><span style="color: #000000">))</span><span style="color: #000000"> </span><span style="color: #0000ff">void</span><span style="color: #000000"> </span><span style="color: #000000">mic_function</span><span style="color: #000000">();</span>
+<span style="color: #0000ff">private</span><span style="color: #000000">:</span>
+<span style="color: #000000">    </span><span style="color: #0000ff">int</span><span style="color: #000000"> cpu_hosted</span><span style="color: #000000">;</span>
+<span style="color: #000000">    </span><span style="color: #000000">__declare</span><span style="color: #000000">(</span><span style="color: #000000">target</span><span style="color: #000000">(</span><span style="color: #000000">mic</span><span style="color: #000000">))</span><span style="color: #000000"> </span><span style="color: #0000ff">int</span><span style="color: #000000"> mic_hosted</span><span style="color: #000000">;</span>
+<span style="color: #000000">}</span><span style="color: #000000">;</span></tt></pre></div></div>
+<div class="paragraph"><p>Currently, the above class is impossible in offload environment because you cannot describe the necessary
+data transfers in terms of compiler "<code>#pragma offload</code>" clauses. If you want to have C++ classes in offload
+application, you need to place the corresponding objects either on host (CPU) side of application or on
+Intel&#174; Xeon Phi&#8482; side.</p></div>
+<div class="sect3">
+<h4 id="_compiler_command_line_options_for_offload_compilation">Compiler Command Line Options for Offload Compilation</h4>
+<div class="paragraph"><p>The Intel&#174; C++ Compiler recognizes "offload" source code and undertakes specific action to build the
+complete application with "offload" feature. If you want to build some applications manually, or, if this
+application requires Intel&#174; MIC Architecture-specific libraries, you can use the command below.</p></div>
+<div class="admonitionblock">
+<table><tr>
+<td class="icon">
+<div class="title">Note</div>
+</td>
+<td class="content">Intel&#174; C++ Compiler has a specific switch to pass the desired options to offload linker. For
+example, on Linux* OS the following command line can be used for application that calls both Intel IPP
+functions for CPU and Intel IPP functions for Intel MIC Architecture (in offload parts of code):</td>
+</tr></table>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre><code>  $ icc -I$IPPROOT/include -L$IPPROOT/lib/intel64 -lipps -lippcore \
+        -qoffload-option,mic,compiler,"-L$IPPROOT/lib/mic -lippi -lipps -lippcore" test.cpp</code></pre>
+</div></div>
+<div class="paragraph"><p>This command uses different sets of Intel IPP libraries:</p></div>
+<div class="ulist"><ul>
+<li>
+<p>
+<code>libipps.a</code> and <code>libippcore.a</code> from <code>$IPPROOT/lib/intel64</code> for CPU part;
+</p>
+</li>
+<li>
+<p>
+<code>libippi.a</code>, <code>libipps.a</code> and <code>libippcore.a</code> from <code>$IPPROOT/lib/mic</code> for offload code.
+</p>
+</li>
+</ul></div>
+<div class="paragraph"><p>If your application uses Intel IPP function calls only in offload parts, you do not need to link to Intel  IPP
+libraries for CPU and the command line is simpler:</p></div>
+<div class="listingblock">
+<div class="content">
+<pre><code>  $ icc -I$IPPROOT/include -qoffload-option,mic,compiler,"-L$IPPROOT/lib/mic -lippi -lipps -lippcore" test.cpp</code></pre>
+</div></div>
+<div class="paragraph"><p>In the command line above only Intel MIC Architecture libraries are specified for linking.</p></div>
+<div class="paragraph"><p>Another hint is to use the
+following option to detect unresolved external references in your object file(s) before you try to run offload
+application on Intel&#174; Xeon Phi&#8482;:</p></div>
+<div class="listingblock">
+<div class="content">
+<pre><code>-Qoption,link,"--no-undefined"</code></pre>
+</div></div>
+<div class="paragraph"><p>On Windows, the corresponding Intel&#174; C++ Compiler option is:</p></div>
+<div class="listingblock">
+<div class="content">
+<pre><code>  &gt; icl -I$IPPROOT/include /Qoffload-option,mic,link,"-L$IPPROOT/lib/mic -lippi -lipps -lippcore" test.cpp</code></pre>
+</div></div>
+<div class="admonitionblock">
+<table><tr>
+<td class="icon">
+<div class="title">Note</div>
+</td>
+<td class="content">The compiler option syntax in quotes is of Linux style, because the cross-compilation tools for  Intel&#174;
+MIC Architecture on Windows are still Linux-like.</td>
+</tr></table>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_modifying_intel_174_ipp_threading_example_for_offload_mode">Modifying Intel&#174; IPP Threading Example for Offload Mode</h3>
+<div class="paragraph"><p>To adjust the example provided in <a href="#_ipp_thread">External Threading Example (ipp_thread)</a> for use in
+offload mode, complete the following steps:</p></div>
+<div class="olist arabic"><ol class="arabic">
+<li>
+<p>
+Remove Intel&#174; TBB parts to make the example more clear and C-like.
+To do this, delete the source code lines within the following constructions:
+</p>
+</li>
+</ol></div>
+<div class="listingblock">
+<div class="content"><!-- Generator: GNU source-highlight 3.1.1
+by Lorenzo Bettini
+http://www.lorenzobettini.it
+http://www.gnu.org/software/src-highlite -->
+<pre><tt><span style="color: #0000ff">#ifdef</span><span style="color: #000000"> USE_TBB</span>
+<span style="color: #000000">...</span>
+<span style="color: #0000ff">#endif</span></tt></pre></div></div>
+<div class="olist arabic"><ol class="arabic" start="2">
+<li>
+<p>
+Separate the Intel MIC Architecture and host CPU source Code. Intel&#174; C++ Compiler has a special macro
+definition <code>&#x5f;&#x5f;MIC&#x5f;&#x5f;</code> to distinguish between CPU and Intel&#174; MIC Architecture compilation phases. It
+enables co-existence of both source code parts in a single source code file. For example:
+</p>
+</li>
+</ol></div>
+<div class="listingblock">
+<div class="content"><!-- Generator: GNU source-highlight 3.1.1
+by Lorenzo Bettini
+http://www.lorenzobettini.it
+http://www.gnu.org/software/src-highlite -->
+<pre><tt><span style="color: #000000">...</span>
+<span style="color: #0000ff">#if</span><span style="color: #000000"> </span><span style="color: #000000">defined</span><span style="color: #000000">(</span><span style="color: #000000">__MIC__</span><span style="color: #000000">)</span>
+<span style="color: #0000ff">static</span><span style="color: #000000"> </span><span style="color: #0000ff">int</span><span style="color: #000000"> mic_specific_variable</span><span style="color: #000000">;</span>
+<span style="color: #0000ff">#endif</span>
+<span style="color: #000000">...</span>
+<span style="color: #0000ff">#if</span><span style="color: #000000"> </span><span style="color: #000000">!</span><span style="color: #000000">defined</span><span style="color: #000000">(</span><span style="color: #000000">__MIC__</span><span style="color: #000000">)</span>
+<span style="color: #0000ff">static</span><span style="color: #000000"> </span><span style="color: #0000ff">int</span><span style="color: #000000"> host_specific_variable</span><span style="color: #000000">;</span>
+<span style="color: #0000ff">#endif</span></tt></pre></div></div>
+<div class="paragraph"><p>Remember that offload compiler performs two source file compilation passes:</p></div>
+<div class="ulist"><ul>
+<li>
+<p>
+Compiles source file for host CPU with <code>&#x5f;&#x5f;MIC&#x5f;&#x5f;</code> macro <strong>undefined</strong> and produces ordinary object file;
+</p>
+</li>
+<li>
+<p>
+Compiles the same source file as for Intel MIC Architecture with <code>&#x5f;&#x5f;MIC&#x5f;&#x5f;</code> macro <strong>defined</strong> and produces
+Intel MIC Architecture operating system&#8217;s object file with <code>&lt;obj_file_name&gt;MIC.o</code> name.
+</p>
+</li>
+</ul></div>
+<div class="paragraph"><p>In our example we are going to have all Intel&#174; IPP functions and data on Intel&#174; Xeon Phi&#8482; side, so we need
+to declare Intel IPP specifics as offload. It can be done in the following way:</p></div>
+<div class="listingblock">
+<div class="content"><!-- Generator: GNU source-highlight 3.1.1
+by Lorenzo Bettini
+http://www.lorenzobettini.it
+http://www.gnu.org/software/src-highlite -->
+<pre><tt><span style="color: #0000ff">#pragma</span><span style="color: #000000"> </span><span style="color: #000000">offload_attribute</span><span style="color: #000000">(</span><span style="color: #000000">push</span><span style="color: #000000">,</span><span style="color: #000000"> </span><span style="color: #000000">target</span><span style="color: #000000">(</span><span style="color: #000000">mic</span><span style="color: #000000">))</span>
+<span style="color: #0000ff">#include</span><span style="color: #000000"> </span><span style="color: #A31515">"ipp.h"</span>
+<span style="color: #0000ff">#pragma</span><span style="color: #000000"> </span><span style="color: #000000">offload_attribute</span><span style="color: #000000">(</span><span style="color: #000000">pop</span><span style="color: #000000">)</span></tt></pre></div></div>
+<div class="paragraph"><p>Then, we want to put the example classes <code>Harmonize</code> and <code>HarmonizeVM</code> to Intel&#174; Xeon Phi&#8482; side by</p></div>
+<div class="listingblock">
+<div class="content"><!-- Generator: GNU source-highlight 3.1.1
+by Lorenzo Bettini
+http://www.lorenzobettini.it
+http://www.gnu.org/software/src-highlite -->
+<pre><tt><span style="color: #0000ff">#pragma</span><span style="color: #000000"> </span><span style="color: #000000">offload_attribute</span><span style="color: #000000">(</span><span style="color: #000000">push</span><span style="color: #000000">,</span><span style="color: #000000"> </span><span style="color: #000000">target</span><span style="color: #000000">(</span><span style="color: #000000">mic</span><span style="color: #000000">))</span>
+<span style="color: #0000ff">class</span><span style="color: #000000"> </span><span style="color: #000000">Harmonize</span>
+<span style="color: #000000">{</span>
+<span style="color: #0000ff">public</span><span style="color: #000000">:</span>
+<span style="color: #000000">    </span><span style="color: #000000">Harmonize</span><span style="color: #000000">()</span>
+<span style="color: #000000">...</span>
+<span style="color: #000000">}</span><span style="color: #000000">;</span>
+<span style="color: #0000ff">class</span><span style="color: #000000"> </span><span style="color: #000000">HarmonizeVM</span>
+<span style="color: #000000">{</span>
+<span style="color: #000000">...</span>
+<span style="color: #000000">}</span><span style="color: #000000">;</span>
+<span style="color: #0000ff">#pragma</span><span style="color: #000000"> </span><span style="color: #000000">offload_attribute</span><span style="color: #000000">(</span><span style="color: #000000">pop</span><span style="color: #000000">)</span></tt></pre></div></div>
+<div class="paragraph"><p>These classes should not be visible from host side of application, otherwise you can face problems  with
+offload compiler behavior.</p></div>
+<div class="paragraph"><p>If so, we need to move</p></div>
+<div class="listingblock">
+<div class="content"><!-- Generator: GNU source-highlight 3.1.1
+by Lorenzo Bettini
+http://www.lorenzobettini.it
+http://www.gnu.org/software/src-highlite -->
+<pre><tt><span style="color: #0000ff">int</span><span style="color: #000000"> </span><span style="color: #000000">main</span><span style="color: #000000">()</span>
+<span style="color: #000000">...</span>
+<span style="color: #000000">    </span><span style="color: #000000">Harmonize</span><span style="color: #000000"> </span><span style="color: #000000">*</span><span style="color: #000000">pHarmonize </span><span style="color: #000000">=</span><span style="color: #000000"> </span><span style="color: #000000">0</span><span style="color: #000000">;</span></tt></pre></div></div>
+<div class="paragraph"><p>variable from <code>main()</code> local storage to static variable space of coprocessor.</p></div>
+<div class="listingblock">
+<div class="content"><!-- Generator: GNU source-highlight 3.1.1
+by Lorenzo Bettini
+http://www.lorenzobettini.it
+http://www.gnu.org/software/src-highlite -->
+<pre><tt><span style="color: #0000ff">__declspec</span><span style="color: #000000">(</span><span style="color: #000000">target</span><span style="color: #000000">(</span><span style="color: #000000">mic</span><span style="color: #000000">))</span><span style="color: #000000"> </span><span style="color: #000000">Harmonize</span><span style="color: #000000"> </span><span style="color: #000000">*</span><span style="color: #000000">pHarmonize </span><span style="color: #000000">=</span><span style="color: #000000"> </span><span style="color: #000000">0</span><span style="color: #000000">;</span>
+<span style="color: #0000ff">int</span><span style="color: #000000"> </span><span style="color: #000000">main</span><span style="color: #000000">()</span>
+<span style="color: #000000">...</span></tt></pre></div></div>
+<div class="olist arabic"><ol class="arabic" start="3">
+<li>
+<p>
+Add offload functions with simple interface and arguments to control harmonization objects from the host:
+</p>
+</li>
+</ol></div>
+<div class="listingblock">
+<div class="content"><!-- Generator: GNU source-highlight 3.1.1
+by Lorenzo Bettini
+http://www.lorenzobettini.it
+http://www.gnu.org/software/src-highlite -->
+<pre><tt><span style="color: #0000ff">#if</span><span style="color: #000000"> </span><span style="color: #000000">defined</span><span style="color: #000000">(</span><span style="color: #000000">__MIC__</span><span style="color: #000000">)</span>
+<span style="color: #008000">// Definition of function to create harmonization objects on coprocessor</span>
+<span style="color: #0000ff">__declspec</span><span style="color: #000000">(</span><span style="color: #000000">target</span><span style="color: #000000">(</span><span style="color: #000000">mic</span><span style="color: #000000">))</span><span style="color: #000000"> </span><span style="color: #0000ff">void</span><span style="color: #000000"> </span><span style="color: #000000">Create</span><span style="color: #000000">(</span><span style="color: #000000">ParallelMethod</span><span style="color: #000000"> par_method</span><span style="color: #000000">,</span><span style="color: #000000"> </span><span style="color: #0000ff">int</span><span style="color: #000000"> threads</span><span style="color: #000000">,</span><span style="color: #000000"> </span><span style="color: #0000ff">unsigned</span><span style="color: #000000"> </span><span style="color: #0000ff">int</span><span style="color: #000000"> width</span><span style="color: #000000">,</span>
+<span style="color: #000000">                        </span><span style="color: #0000ff">unsigned</span><span style="color: #000000"> </span><span style="color: #0000ff">int</span><span style="color: #000000"> height</span><span style="color: #000000">,</span><span style="color: #000000"> </span><span style="color: #0000ff">unsigned</span><span style="color: #000000"> </span><span style="color: #0000ff">int</span><span style="color: #000000"> step</span><span style="color: #000000">,</span><span style="color: #000000"> </span><span style="color: #0000ff">unsigned</span><span style="color: #000000"> </span><span style="color: #0000ff">int</span><span style="color: #000000"> samples</span><span style="color: #000000">)</span>
+<span style="color: #000000">{</span>
+<span style="color: #000000">    </span><span style="color: #0000ff">switch</span><span style="color: #000000">(</span><span style="color: #000000">par_method</span><span style="color: #000000">)</span><span style="color: #000000"> </span><span style="color: #000000">{</span>
+<span style="color: #000000">    </span><span style="color: #0000ff">case</span><span style="color: #000000"> PAR_SEQ</span><span style="color: #000000">:</span>
+<span style="color: #000000">        Create</span><span style="color: #000000">&lt;</span><span style="color: #000000">Harmonize</span><span style="color: #000000">&gt;(</span><span style="color: #000000">threads</span><span style="color: #000000">,</span><span style="color: #000000"> width</span><span style="color: #000000">,</span><span style="color: #000000"> height</span><span style="color: #000000">,</span><span style="color: #000000"> step</span><span style="color: #000000">,</span><span style="color: #000000"> samples</span><span style="color: #000000">);</span>
+<span style="color: #000000">        </span><span style="color: #0000ff">break</span><span style="color: #000000">;</span>
+<span style="color: #000000">    </span><span style="color: #0000ff">case</span><span style="color: #000000"> PAR_VM</span><span style="color: #000000">:</span>
+<span style="color: #000000">        Create</span><span style="color: #000000">&lt;</span><span style="color: #000000">HarmonizeVM</span><span style="color: #000000">&gt;(</span><span style="color: #000000">threads </span><span style="color: #000000">&gt;</span><span style="color: #000000"> </span><span style="color: #000000">0</span><span style="color: #000000">?</span><span style="color: #000000"> threads </span><span style="color: #000000">:</span><span style="color: #000000"> VM_THREADS</span><span style="color: #000000">,</span><span style="color: #000000"> width</span><span style="color: #000000">,</span><span style="color: #000000"> height</span><span style="color: #000000">,</span><span style="color: #000000"> step</span><span style="color: #000000">,</span><span style="color: #000000"> samples</span><span style="color: #000000">);</span>
+<span style="color: #000000">        </span><span style="color: #0000ff">break</span><span style="color: #000000">;</span>
+<span style="color: #000000">    </span><span style="color: #000000">}</span>
+<span style="color: #000000">}</span>
+<span style="color: #0000ff">#else</span>
+<span style="color: #008000">// We need to declare "Create" function as "offload" function on host side</span>
+<span style="color: #0000ff">__declspec</span><span style="color: #000000">(</span><span style="color: #000000">target</span><span style="color: #000000">(</span><span style="color: #000000">mic</span><span style="color: #000000">))</span><span style="color: #000000"> </span><span style="color: #0000ff">void</span><span style="color: #000000"> </span><span style="color: #000000">Create</span><span style="color: #000000">(</span><span style="color: #000000">ParallelMethod</span><span style="color: #000000"> par_method</span><span style="color: #000000">,</span><span style="color: #000000"> </span><span style="color: #0000ff">int</span><span style="color: #000000"> threads</span><span style="color: #000000">,</span><span style="color: #000000"> </span><span style="color: #0000ff">unsigned</span><span style="color: #000000"> </span><span style="color: #0000ff">int</span><span style="color: #000000"> width</span><span style="color: #000000">,</span>
+<span style="color: #000000">                        </span><span style="color: #0000ff">unsigned</span><span style="color: #000000"> </span><span style="color: #0000ff">int</span><span style="color: #000000"> height</span><span style="color: #000000">,</span><span style="color: #000000"> </span><span style="color: #0000ff">unsigned</span><span style="color: #000000"> </span><span style="color: #0000ff">int</span><span style="color: #000000"> step</span><span style="color: #000000">,</span><span style="color: #000000"> </span><span style="color: #0000ff">unsigned</span><span style="color: #000000"> </span><span style="color: #0000ff">int</span><span style="color: #000000"> samples</span><span style="color: #000000">);</span>
+<span style="color: #0000ff">#endif</span>
+<span style="color: #000000">...</span>
+<span style="color: #0000ff">int</span><span style="color: #000000"> </span><span style="color: #000000">main</span><span style="color: #000000">()</span>
+<span style="color: #000000">...</span>
+<span style="color: #0000ff">#pragma</span><span style="color: #000000"> </span><span style="color: #000000">offload</span><span style="color: #000000"> </span><span style="color: #000000">target</span><span style="color: #000000">(</span><span style="color: #000000">mic</span><span style="color: #000000">)</span><span style="color: #000000"> </span><span style="color: #000000">in</span><span style="color: #000000">(</span><span style="color: #000000">iThreads</span><span style="color: #000000">,</span><span style="color: #000000"> mic_width</span><span style="color: #000000">,</span><span style="color: #000000"> mic_height</span><span style="color: #000000">,</span><span style="color: #000000"> mic_step</span><span style="color: #000000">,</span><span style="color: #000000"> mic_samples</span><span style="color: #000000">)</span>
+<span style="color: #000000">            </span><span style="color: #000000">Create</span><span style="color: #000000">(</span><span style="color: #000000">PAR_SEQ</span><span style="color: #000000">,</span><span style="color: #000000"> iThreads</span><span style="color: #000000">,</span><span style="color: #000000"> mic_width</span><span style="color: #000000">,</span><span style="color: #000000"> mic_height</span><span style="color: #000000">,</span><span style="color: #000000"> mic_step</span><span style="color: #000000">,</span><span style="color: #000000"> mic_samples</span><span style="color: #000000">);</span>
+<span style="color: #000000">...</span></tt></pre></div></div>
+<div class="paragraph"><p>Then we will need the functions to:</p></div>
+<div class="ulist"><ul>
+<li>
+<p>
+Pass image parameters (host memory address, size) to Intel&#174; Xeon Phi&#8482; (function <code>SetImages</code>);
+</p>
+</li>
+<li>
+<p>
+Start harmonization on Intel&#174; Xeon Phi&#8482; (function <code>HarmonizeImage</code>);
+</p>
+</li>
+<li>
+<p>
+Clear <code>Harmonize</code> objects on Intel&#174; Xeon Phi&#8482; to release dynamic memory (function
+<code>ClearHarmonizeObject</code>).
+</p>
+</li>
+</ul></div>
+<div class="paragraph"><p>All these functions have simple C-like parameters like ordinal variables and plain arrays.</p></div>
+<div class="sect3">
+<h4 id="_data_transfer_hints">Data Transfer Hints</h4>
+<div class="paragraph"><p>One of the factors that mostly affects heterogeneous application performance is transfer rate of  user data
+over system bus between main computer memory and GPU (in our case, Intel&#174; Xeon Phi&#8482; coprocessor). While
+the transfer itself has quite good rate - tens of GBs per second - the initiation of transfer operation is
+very expensive. Therefore one of the most important tasks in heterogeneous development is to minimize data transfer transactions.</p></div>
+<div class="paragraph"><p>In case of offload compilation the data transfers between host and Intel&#174; Xeon Phi&#8482; are not always
+visible, the compiler generates the data transfers, memory buffer allocations and de-allocations implicitly
+and it is important to keep control over this activity.</p></div>
+<div class="paragraph"><p>For example, assume the following pseudo-code program:</p></div>
+<div class="listingblock">
+<div class="content"><!-- Generator: GNU source-highlight 3.1.1
+by Lorenzo Bettini
+http://www.lorenzobettini.it
+http://www.gnu.org/software/src-highlite -->
+<pre><tt><span style="color: #008000">// Offload and host part initializations</span>
+<span style="color: #000000">...</span>
+<span style="color: #008000">// Offload objects creation</span>
+<span style="color: #0000ff">#pragma</span><span style="color: #000000"> </span><span style="color: #000000">offload</span><span style="color: #000000">(</span><span style="color: #000000">target</span><span style="color: #000000">(</span><span style="color: #000000">mic</span><span style="color: #000000">))</span><span style="color: #000000"> </span><span style="color: #000000">out</span><span style="color: #000000">(</span><span style="color: #000000">status</span><span style="color: #000000">)</span>
+<span style="color: #000000">    status </span><span style="color: #000000">=</span><span style="color: #000000"> </span><span style="color: #000000">CreateObjects</span><span style="color: #000000">();</span>
+<span style="color: #000000">...</span>
+<span style="color: #0000ff">#pragma</span><span style="color: #000000"> </span><span style="color: #000000">offload</span><span style="color: #000000">(</span><span style="color: #000000">target</span><span style="color: #000000">(</span><span style="color: #000000">mic</span><span style="color: #000000">))</span><span style="color: #000000"> </span><span style="color: #000000">in</span><span style="color: #000000">(</span><span style="color: #000000">host_image_src_ptr </span><span style="color: #000000">:</span><span style="color: #000000"> </span><span style="color: #000000">length</span><span style="color: #000000">(</span><span style="color: #000000">src_size</span><span style="color: #000000">))</span><span style="color: #000000"> </span><span style="color: #000000">in</span><span style="color: #000000">(</span><span style="color: #000000">src_src</span><span style="color: #000000">)</span>
+<span style="color: #000000">    status </span><span style="color: #000000">=</span><span style="color: #000000"> </span><span style="color: #000000">SetImages</span><span style="color: #000000">(</span><span style="color: #000000">host_image_src_ptr</span><span style="color: #000000">,</span><span style="color: #000000"> src_size</span><span style="color: #000000">);</span>
+<span style="color: #000000">...</span>
+<span style="color: #000000">    </span><span style="color: #0000ff">for</span><span style="color: #000000">(</span><span style="color: #0000ff">int</span><span style="color: #000000"> i</span><span style="color: #000000">=</span><span style="color: #000000">0</span><span style="color: #000000">;</span><span style="color: #000000"> i </span><span style="color: #000000">&lt;</span><span style="color: #000000"> num_loops</span><span style="color: #000000">;</span><span style="color: #000000"> i</span><span style="color: #000000">++)</span><span style="color: #000000"> </span><span style="color: #000000">{</span>
+<span style="color: #0000ff">#pragma</span><span style="color: #000000"> </span><span style="color: #000000">offload</span><span style="color: #000000">(</span><span style="color: #000000">target</span><span style="color: #000000">(</span><span style="color: #000000">mic</span><span style="color: #000000">))</span><span style="color: #000000"> </span><span style="color: #000000">in</span><span style="color: #000000">(</span><span style="color: #000000">dst_size</span><span style="color: #000000">)</span><span style="color: #000000"> </span><span style="color: #000000">out</span><span style="color: #000000">(</span><span style="color: #000000">host_image_dst_ptr </span><span style="color: #000000">:</span><span style="color: #000000"> </span><span style="color: #000000">length</span><span style="color: #000000">(</span><span style="color: #000000">dst_size</span><span style="color: #000000">))</span><span style="color: #000000"> </span><span style="color: #000000">out</span><span style="color: #000000">(</span><span style="color: #000000">status</span><span style="color: #000000">)</span>
+<span style="color: #000000">        status </span><span style="color: #000000">=</span><span style="color: #000000"> </span><span style="color: #000000">HarmonizeImage</span><span style="color: #000000">(</span><span style="color: #000000">host_image_dst_ptr</span><span style="color: #000000">,</span><span style="color: #000000"> dst_size</span><span style="color: #000000">);</span>
+<span style="color: #000000">        </span><span style="color: #008000">// host_image_dst_ptr buffer is not really used at host side</span>
+<span style="color: #000000">        </span><span style="color: #000000">...</span>
+<span style="color: #000000">    </span><span style="color: #000000">}</span></tt></pre></div></div>
+<div class="paragraph"><p>The problems with data transfers in the example are:</p></div>
+<div class="ulist"><ul>
+<li>
+<p>
+Before execution on Intel&#174; Xeon Phi&#8482; the <code>SetImages</code> function creates temporary buffer <code>dst_size</code>
+bytes long on Intel&#174; Xeon Phi&#8482; side and copies host data from <code>host_image_src_ptr</code> to that temporary
+buffer. The coprocessor portion of <code>SetImages</code> executes on Intel&#174; Xeon Phi&#8482; with address of that
+temporary buffer. If you copy the buffer address somewhere to coprocessor static storage in order to use it
+later,
+</p>
+</li>
+</ul></div>
+<div class="listingblock">
+<div class="content"><!-- Generator: GNU source-highlight 3.1.1
+by Lorenzo Bettini
+http://www.lorenzobettini.it
+http://www.gnu.org/software/src-highlite -->
+<pre><tt><span style="color: #0000ff">__declspec</span><span style="color: #000000">(</span><span style="color: #000000">target</span><span style="color: #000000">(</span><span style="color: #000000">mic</span><span style="color: #000000">))</span><span style="color: #000000"> </span><span style="color: #0000ff">static</span><span style="color: #000000"> </span><span style="color: #0000ff">void</span><span style="color: #000000">*</span><span style="color: #000000"> saved_ptr</span><span style="color: #000000">;</span>
+
+<span style="color: #0000ff">__declspec</span><span style="color: #000000">(</span><span style="color: #000000">target</span><span style="color: #000000">(</span><span style="color: #000000">mic</span><span style="color: #000000">))</span><span style="color: #000000"> </span><span style="color: #000000">SetImages</span><span style="color: #000000">(</span><span style="color: #0000ff">void</span><span style="color: #000000">*</span><span style="color: #000000"> ptr_from_host</span><span style="color: #000000">,</span><span style="color: #000000"> </span><span style="color: #0000ff">int</span><span style="color: #000000"> buf_size</span><span style="color: #000000">)</span>
+<span style="color: #000000">{</span>
+<span style="color: #000000">    saved_ptr </span><span style="color: #000000">=</span><span style="color: #000000"> ptr_from_host</span><span style="color: #000000">;</span>
+<span style="color: #000000">}</span>
+<span style="color: #0000ff">__declspec</span><span style="color: #000000">(</span><span style="color: #000000">target</span><span style="color: #000000">(</span><span style="color: #000000">mic</span><span style="color: #000000">))</span><span style="color: #000000"> </span><span style="color: #000000">OtherMicFunction</span><span style="color: #000000">()</span>
+<span style="color: #000000">{</span>
+<span style="color: #000000">    </span><span style="color: #000000">local_mic_function</span><span style="color: #000000">(</span><span style="color: #000000">saved_ptr</span><span style="color: #000000">);</span>
+<span style="color: #000000">}</span></tt></pre></div></div>
+<div class="paragraph"><p>you will get segmentation violation fault, because after <code>SetImages</code> function exits, the <code>ptr_from_host</code> buffer
+does not exist anymore, unless you undertake special actions like</p></div>
+<div class="listingblock">
+<div class="content"><!-- Generator: GNU source-highlight 3.1.1
+by Lorenzo Bettini
+http://www.lorenzobettini.it
+http://www.gnu.org/software/src-highlite -->
+<pre><tt><span style="color: #0000ff">#pragma</span><span style="color: #000000"> </span><span style="color: #000000">offload</span><span style="color: #000000">(</span><span style="color: #000000">target</span><span style="color: #000000">(</span><span style="color: #000000">mic</span><span style="color: #000000">))</span><span style="color: #000000"> </span><span style="color: #000000">in</span><span style="color: #000000">(</span><span style="color: #000000">host_image_src_ptr </span><span style="color: #000000">:</span><span style="color: #000000"> </span><span style="color: #000000">length</span><span style="color: #000000">(</span><span style="color: #000000">src_size</span><span style="color: #000000">)</span><span style="color: #000000"> </span><span style="color: #000000">free_if</span><span style="color: #000000">(</span><span style="color: #000000">0</span><span style="color: #000000">))</span><span style="color: #000000"> </span><span style="color: #000000">in</span><span style="color: #000000">(</span><span style="color: #000000">src_src</span><span style="color: #000000">)</span>
+<span style="color: #000000">    status </span><span style="color: #000000">=</span><span style="color: #000000"> </span><span style="color: #000000">SetImages</span><span style="color: #000000">(</span><span style="color: #000000">host_image_src_ptr</span><span style="color: #000000">,</span><span style="color: #000000"> src_size</span><span style="color: #000000">);</span></tt></pre></div></div>
+<div class="ulist"><ul>
+<li>
+<p>
+The second problem is in the statement
+</p>
+</li>
+</ul></div>
+<div class="listingblock">
+<div class="content"><!-- Generator: GNU source-highlight 3.1.1
+by Lorenzo Bettini
+http://www.lorenzobettini.it
+http://www.gnu.org/software/src-highlite -->
+<pre><tt><span style="color: #0000ff">#pragma</span><span style="color: #000000"> </span><span style="color: #000000">offload</span><span style="color: #000000">(</span><span style="color: #000000">target</span><span style="color: #000000">(</span><span style="color: #000000">mic</span><span style="color: #000000">))</span><span style="color: #000000"> </span><span style="color: #000000">in</span><span style="color: #000000">(</span><span style="color: #000000">dst_size</span><span style="color: #000000">)</span><span style="color: #000000"> </span><span style="color: #000000">out</span><span style="color: #000000">(</span><span style="color: #000000">host_image_dst_ptr </span><span style="color: #000000">:</span><span style="color: #000000"> </span><span style="color: #000000">length</span><span style="color: #000000">(</span><span style="color: #000000">dst_size</span><span style="color: #000000">))</span><span style="color: #000000"> </span><span style="color: #000000">out</span><span style="color: #000000">(</span><span style="color: #000000">status</span><span style="color: #000000">)</span>
+<span style="color: #000000">        status </span><span style="color: #000000">=</span><span style="color: #000000"> </span><span style="color: #000000">HarmonizeImage</span><span style="color: #000000">(</span><span style="color: #000000">host_image_dst_ptr</span><span style="color: #000000">,</span><span style="color: #000000"> dst_size</span><span style="color: #000000">);</span>
+<span style="color: #000000">        </span><span style="color: #008000">// host_image_dst_ptr buffer is not really used at host side</span></tt></pre></div></div>
+<div class="paragraph"><p>Even if you do not use <code>host_image_dst_ptr</code> at the host site, the compiler generates buffer allocation for
+transfer data from Intel&#174; Xeon Phi&#8482; to <code>host_image_dst_ptr buffer</code>. The loop, that should accumulate the
+time of Intel&#174; MIC Architecture function execution  includes also the time of data transfer, which you may not
+need. The decision could be to not specify output buffer in <code>HarmonizeImage</code> call, but to move final data
+transfer from Intel&#174; Xeon Phi&#8482; to the last function <code>ClearHarmonizeObject</code>. In this case another helpful
+decision could be to specify output buffer address as an argument to function <code>SetImages</code> with attribute
+<code>free_if(0)</code>, which forces offload compiler to keep temporary buffer and its pointer.</p></div>
+<div class="paragraph"><p>The final <code>SetImages</code> function call from host looks like</p></div>
+<div class="listingblock">
+<div class="content"><!-- Generator: GNU source-highlight 3.1.1
+by Lorenzo Bettini
+http://www.lorenzobettini.it
+http://www.gnu.org/software/src-highlite -->
+<pre><tt><span style="color: #0000ff">#pragma</span><span style="color: #000000"> </span><span style="color: #000000">offload</span><span style="color: #000000"> </span><span style="color: #000000">target</span><span style="color: #000000">(</span><span style="color: #000000">mic</span><span style="color: #000000">)</span><span style="color: #000000"> </span><span style="color: #000000">in</span><span style="color: #000000">(</span><span style="color: #000000">pmicSrc</span><span style="color: #000000">:</span><span style="color: #000000"> </span><span style="color: #000000">length</span><span style="color: #000000">(</span><span style="color: #000000">srcData</span><span style="color: #000000">.</span><span style="color: #000000">m_iBufferSize</span><span style="color: #000000">)</span><span style="color: #000000"> RETAIN</span><span style="color: #000000">)</span><span style="color: #000000"> </span><span style="color: #000000">\</span>
+<span style="color: #000000">                            </span><span style="color: #000000">out</span><span style="color: #000000">(</span><span style="color: #000000">pmicDst</span><span style="color: #000000">:</span><span style="color: #000000"> </span><span style="color: #000000">length</span><span style="color: #000000">(</span><span style="color: #000000">dstData</span><span style="color: #000000">.</span><span style="color: #000000">m_iBufferSize</span><span style="color: #000000">)</span><span style="color: #000000"> RETAIN</span><span style="color: #000000">)</span>
+<span style="color: #000000">        </span><span style="color: #000000">SetImages</span><span style="color: #000000">(</span><span style="color: #000000">pmicSrc</span><span style="color: #000000">,</span><span style="color: #000000"> pmicDst</span><span style="color: #000000">);</span></tt></pre></div></div>
+<div class="paragraph"><p>where <code>RETAIN</code> is a macro which name is more understandable than <code>free_if(0)</code>.</p></div>
+<div class="listingblock">
+<div class="content"><!-- Generator: GNU source-highlight 3.1.1
+by Lorenzo Bettini
+http://www.lorenzobettini.it
+http://www.gnu.org/software/src-highlite -->
+<pre><tt><span style="color: #0000ff">#define</span><span style="color: #000000"> </span><span style="color: #000000">RETAIN</span><span style="color: #000000">  </span><span style="color: #000000">free_if</span><span style="color: #000000">(</span><span style="color: #000000">0</span><span style="color: #000000">)</span></tt></pre></div></div>
+<div class="paragraph"><p>Finally, we need to transfer the harmonized data from Intel&#174; Xeon Phi&#8482; to the host. It is done with
+last function call</p></div>
+<div class="listingblock">
+<div class="content"><!-- Generator: GNU source-highlight 3.1.1
+by Lorenzo Bettini
+http://www.lorenzobettini.it
+http://www.gnu.org/software/src-highlite -->
+<pre><tt><span style="color: #008000">// Get output image from coprocessor</span>
+<span style="color: #0000ff">#pragma</span><span style="color: #000000"> </span><span style="color: #000000">offload</span><span style="color: #000000"> </span><span style="color: #000000">target</span><span style="color: #000000">(</span><span style="color: #000000">mic</span><span style="color: #000000">)</span><span style="color: #000000"> </span><span style="color: #000000">out</span><span style="color: #000000">(</span><span style="color: #000000">pmicDst</span><span style="color: #000000">:</span><span style="color: #000000"> </span><span style="color: #000000">length</span><span style="color: #000000">(</span><span style="color: #000000">dstData</span><span style="color: #000000">.</span><span style="color: #000000">m_iBufferSize</span><span style="color: #000000">)</span><span style="color: #000000"> FREE</span><span style="color: #000000">)</span>
+<span style="color: #000000">        </span><span style="color: #000000">ClearHarmonizeObject</span><span style="color: #000000">(</span><span style="color: #000000">pmicDst</span><span style="color: #000000">);</span></tt></pre></div></div>
+<div class="paragraph"><p><code>FREE</code> here is the macro</p></div>
+<div class="listingblock">
+<div class="content"><!-- Generator: GNU source-highlight 3.1.1
+by Lorenzo Bettini
+http://www.lorenzobettini.it
+http://www.gnu.org/software/src-highlite -->
+<pre><tt><span style="color: #0000ff">#define</span><span style="color: #000000"> </span><span style="color: #000000">FREE</span><span style="color: #000000">    </span><span style="color: #000000">free_if</span><span style="color: #000000">(</span><span style="color: #000000">1</span><span style="color: #000000">)</span></tt></pre></div></div>
+</div>
+<div class="sect3">
+<h4 id="_including_vm_functions_into_main_function_source_file">Including VM Functions into Main Function Source File</h4>
+<div class="paragraph"><p>In fact, it is not necessary to have all offloaded functions in a single source file. You can split Intel&#174; MIC
+Architecture-related components in the following way:</p></div>
+<div class="paragraph"><p>File <code>foo.c</code></p></div>
+<div class="listingblock">
+<div class="content"><!-- Generator: GNU source-highlight 3.1.1
+by Lorenzo Bettini
+http://www.lorenzobettini.it
+http://www.gnu.org/software/src-highlite -->
+<pre><tt><span style="color: #0000ff">__declspec</span><span style="color: #000000">(</span><span style="color: #000000">target</span><span style="color: #000000">(</span><span style="color: #000000">mic</span><span style="color: #000000">))</span><span style="color: #000000"> </span><span style="color: #0000ff">void</span><span style="color: #000000"> </span><span style="color: #000000">foo</span><span style="color: #000000">()</span>
+<span style="color: #000000">{</span>
+<span style="color: #000000">    </span><span style="color: #008000">// Do something on Intel(R) Xeon Phi(TM)</span>
+<span style="color: #000000">}</span></tt></pre></div></div>
+<div class="paragraph"><p>File <code>main.c</code></p></div>
+<div class="listingblock">
+<div class="content"><!-- Generator: GNU source-highlight 3.1.1
+by Lorenzo Bettini
+http://www.lorenzobettini.it
+http://www.gnu.org/software/src-highlite -->
+<pre><tt><span style="color: #0000ff">__declspec</span><span style="color: #000000">(</span><span style="color: #000000">target</span><span style="color: #000000">(</span><span style="color: #000000">mic</span><span style="color: #000000">))</span><span style="color: #000000"> </span><span style="color: #0000ff">void</span><span style="color: #000000"> </span><span style="color: #000000">foo</span><span style="color: #000000">();</span><span style="color: #000000"> </span><span style="color: #008000">// External Intel(R) MIC function declaration</span>
+<span style="color: #000000">...</span>
+<span style="color: #0000ff">int</span><span style="color: #000000"> </span><span style="color: #000000">main</span><span style="color: #000000">()</span><span style="color: #000000"> </span><span style="color: #000000">{</span>
+<span style="color: #000000">...</span>
+<span style="color: #0000ff">#pragma</span><span style="color: #000000"> </span><span style="color: #000000">offload</span><span style="color: #000000"> </span><span style="color: #000000">target</span><span style="color: #000000">(</span><span style="color: #000000">mic</span><span style="color: #000000">)</span>
+<span style="color: #000000">    </span><span style="color: #000000">foo</span><span style="color: #000000">();</span><span style="color: #000000">                          </span><span style="color: #008000">// Call 'foo' at Intel(R) Xeon Phi(TM)</span>
+<span style="color: #000000">...</span>
+<span style="color: #000000">}</span></tt></pre></div></div>
+<div class="paragraph"><p>All functions in our example were combined into a single source code file to simplify build scripts for Intel&#174; IPP examples
+build system. The "<code>vm_*</code>" functions are the same as for the <code>ipp_thread</code> example with the
+following changes:</p></div>
+<div class="ulist"><ul>
+<li>
+<p>
+Attribute <code>__declspec(target(mic))</code> added to function definitions;
+</p>
+</li>
+<li>
+<p>
+Only Linux*/Unix* OS version of source code remains, because Intel MIC Architecture compiler pass is Linux-based.
+The target operating system running on Intel&#174; Xeon Phi&#8482; coprocessor is Linux-clone;
+</p>
+</li>
+<li>
+<p>
+All function definitions are under <code>#if defined(&#x5f;&#x5f;MIC&#x5f;&#x5f;)</code> conditional compilation statements.
+</p>
+</li>
+</ul></div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_building_intel_174_ipp_threading_example_for_intel_174_xeon_phi_8482_coprocessor">Building Intel&#174; IPP Threading Example for Intel&#174; Xeon Phi&#8482; Coprocessor</h3>
+<div class="paragraph"><p>To build the Intel MIC&#174; Architecture example, you need to execute build script as described in
+<a href="#_build_procedure">Build Procedure</a> chapter with the following specifics.</p></div>
+<div class="sect3">
+<h4 id="_linux_os">Linux* OS</h4>
+<div class="ulist"><ul>
+<li>
+<p>
+Set build environment for examples as specified in
+<a href="#_build_environment">Setting the Build Environment</a>
+</p>
+</li>
+<li>
+<p>
+Go to ipp_thread_mic directory
+</p>
+</li>
+<li>
+<p>
+Execute <code>make</code>:
+</p>
+</li>
+</ul></div>
+<div class="listingblock">
+<div class="content">
+<pre><code>$ make</code></pre>
+</div></div>
+</div>
+<div class="sect3">
+<h4 id="_windows_os">Windows* OS</h4>
+<div class="ulist"><ul>
+<li>
+<p>
+Set build environment for examples as specified in
+<a href="#_build_environment">Setting the Build Environment</a>
+</p>
+</li>
+<li>
+<p>
+Go to ipp_thread_mic directory
+</p>
+</li>
+<li>
+<p>
+Execute <code>nmake</code>:
+</p>
+</li>
+</ul></div>
+<div class="listingblock">
+<div class="content">
+<pre><code>&gt; nmake</code></pre>
+</div></div>
+<div class="paragraph"><p>Since <code>ipp_thread_mic</code> is the only example targeted for Intel&#174; Xeon Phi&#8482;,<br />
+the only one executable file is generated in <code>ipp_thread_mic/build</code> directory.</p></div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_executing_intel_174_ipp_threading_example_on_intel_174_xeon_phi_8482">Executing Intel&#174; IPP Threading Example on Intel&#174; Xeon Phi&#8482;</h3>
+<div class="paragraph"><p>To execute the example, place a source bitmap file in the directory where <code>ipp_thread_mic</code>
+resides and execute the command specified in <a href="#_ipp_thread_command_line_options">Command Line Options</a>.
+The following has been changed in the command-line options:</p></div>
+<div class="ulist"><ul>
+<li>
+<p>
+"-T" option has been removed as Intel&#174; MIC Architecture is the only CPU architecture available for this
+example;
+</p>
+</li>
+<li>
+<p>
+"-m &lt;1 arg&gt;" option has been removed as "native" is currently the only one threading method.
+</p>
+</li>
+</ul></div>
+<div class="paragraph"><p>The default number of threads on Intel&#174; Xeon Phi&#8482; is 32.</p></div>
+</div>
+</div>
+</div>
+<h1 id="_technical_support">Technical Support</h1>
+<div class="paragraph"><p>If you did not register your Intel&#174; software product during
+installation, please do so now at the Intel&#174; Software Development
+Products Registration Center. Registration entitles you to free
+technical support, product updates and upgrades for the duration of the
+support term.</p></div>
+<div class="paragraph"><p>For general information about Intel technical support, product updates,
+user forums, FAQs, tips and tricks, and other support questions, please
+visit (<a href="http://www.intel.com/software/products/support">http://www.intel.com/software/products/support</a>).</p></div>
+<div class="admonitionblock">
+<table><tr>
+<td class="icon">
+<div class="title">Note</div>
+</td>
+<td class="content">If your distributor provides technical  support for this product, please contact
+them rather than Intel.</td>
+</tr></table>
+</div>
+<div class="paragraph"><p>For technical information about the Intel&#174; IPP library, including FAQ&#8217;s,
+tips and tricks, and other support information, please visit the
+Intel&#174; IPP forum: (<a href="http://software.intel.com/en-us/forums/intel-integrated-performance-primitives">http://software.intel.com/en-us/forums/intel-integrated-performance-primitives</a>)
+and browse the Intel&#174; IPP knowledge  base:
+(<a href="http://software.intel.com/en-us/articles/intel-ipp-kb/all">http://software.intel.com/en-us/articles/intel-ipp-kb/all</a>).</p></div>
+</div>
+<div id="footnotes"><hr /></div>
+<div id="footer">
+<div id="footer-text">
+</div>
+</div>
+</body>
+</html>

@@ -1,0 +1,25 @@
+# workload name
+workload = histogramlocals
+
+# execution target device (values: offload_on/offload_off/cpu )
+exec = offload_on
+
+# iterations count (values: uint)
+iterations = 1
+
+# perform validation (values: true/false)
+validate = true
+
+# perform validation on first iteration only (values: true/false)
+single.validate = false
+
+# workload specific properties
+szMatrix = 2097152 #(small dataset)
+GFX_MAX_THREAD_COUNT = 1024 #(small dataset)
+szGlobalWorkStep = 256 #(small dataset)
+# szMatrix = 8388608 #(medium dataset)
+# GFX_MAX_THREAD_COUNT = 1024 #(medium dataset)
+# szGlobalWorkStep = 256 #(medium dataset)
+# szMatrix = 33554432 #(large dataset)
+# GFX_MAX_THREAD_COUNT = 1024 #(large dataset)
+# szGlobalWorkStep = 256 #(large dataset)
