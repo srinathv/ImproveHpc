@@ -37,9 +37,13 @@
 program main
   implicit none
   real :: res, mysum
+  integer :: i
   integer, parameter :: n=1000
   real, dimension(n) :: a
+
+  do i = 1, 1000
   call init(a, n)
   res = mysum(a, n)
+  enddo
   print *, res
 end program main
