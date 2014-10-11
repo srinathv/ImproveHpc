@@ -1,0 +1,8 @@
+ifort: command line remark #10010: option '-vec-report6' is deprecated and will be removed in a future release. See '-help deprecated'
+ifort: remark #10346: optimization reporting will be enabled at link time when performing interprocedural optimizations
+ifort: warning #10145: no action performed for file 'ipo_sample_init.o'
+
+
+ 1089  ifort -ipo -c ipo_sample_main.f90
+ 1090  ifort -ipo ipo_sample_main.o ipo_sample_sum.o ipo_sample_init.o -o
+run.out -vec-report6

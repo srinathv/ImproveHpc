@@ -1,0 +1,29 @@
+
+Begin optimization report for: MYSUM
+
+    Report from: Vector optimizations [vec]
+
+
+LOOP BEGIN at ipo_sample_sum.f90(55,3)
+<Peeled>
+LOOP END
+
+LOOP BEGIN at ipo_sample_sum.f90(55,3)
+   remark #15388: vectorization support: reference a has aligned access   [ ipo_sample_sum.f90(56,5) ]
+   remark #15388: vectorization support: reference a has aligned access   [ ipo_sample_sum.f90(56,5) ]
+   remark #15399: vectorization support: unroll factor set to 2
+   remark #15300: LOOP WAS VECTORIZED
+   remark #15442: entire loop may be executed in remainder
+   remark #15448: unmasked aligned unit stride loads: 1 
+   remark #15475: --- begin vector loop cost summary ---
+   remark #15476: scalar loop cost: 9 
+   remark #15477: vector loop cost: 4.500 
+   remark #15478: estimated potential speedup: 3.630 
+   remark #15479: lightweight vector operations: 9 
+   remark #15488: --- end vector loop cost summary ---
+LOOP END
+
+LOOP BEGIN at ipo_sample_sum.f90(55,3)
+<Remainder>
+LOOP END
+===========================================================================

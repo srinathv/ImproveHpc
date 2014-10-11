@@ -1,0 +1,18 @@
+
+Begin optimization report for: INIT
+
+    Report from: Vector optimizations [vec]
+
+
+LOOP BEGIN at ipo_sample_init.f90(45,3)
+<Peeled>
+LOOP END
+
+LOOP BEGIN at ipo_sample_init.f90(45,3)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at ipo_sample_init.f90(45,3)
+<Remainder>
+LOOP END
+===========================================================================

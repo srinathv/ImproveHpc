@@ -1,0 +1,50 @@
+
+Begin optimization report for: MAIN__
+
+    Report from: Vector optimizations [vec]
+
+
+LOOP BEGIN at ipo_sample_main.f90(44,3)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at ipo_sample_init.f90(45,3) inlined into ipo_sample_main.f90(45,8)
+      remark #15388: vectorization support: reference A has aligned access   [ ipo_sample_init.f90(46,5) ]
+      remark #15399: vectorization support: unroll factor set to 4
+      remark #15300: LOOP WAS VECTORIZED
+      remark #15449: unmasked aligned unit stride stores: 1 
+      remark #15475: --- begin vector loop cost summary ---
+      remark #15476: scalar loop cost: 4 
+      remark #15477: vector loop cost: 4.000 
+      remark #15478: estimated potential speedup: 3.900 
+      remark #15479: lightweight vector operations: 4 
+      remark #15487: type converts: 1 
+      remark #15488: --- end vector loop cost summary ---
+   LOOP END
+
+   LOOP BEGIN at ipo_sample_init.f90(45,3) inlined into ipo_sample_main.f90(45,8)
+   <Remainder>
+      remark #15388: vectorization support: reference A has aligned access   [ ipo_sample_init.f90(46,5) ]
+      remark #15301: REMAINDER LOOP WAS VECTORIZED
+   LOOP END
+
+   LOOP BEGIN at ipo_sample_sum.f90(55,3) inlined into ipo_sample_main.f90(46,9)
+      remark #15388: vectorization support: reference A has aligned access   [ ipo_sample_sum.f90(56,5) ]
+      remark #15388: vectorization support: reference A has aligned access   [ ipo_sample_sum.f90(56,5) ]
+      remark #15399: vectorization support: unroll factor set to 4
+      remark #15300: LOOP WAS VECTORIZED
+      remark #15448: unmasked aligned unit stride loads: 1 
+      remark #15475: --- begin vector loop cost summary ---
+      remark #15476: scalar loop cost: 9 
+      remark #15477: vector loop cost: 9.000 
+      remark #15478: estimated potential speedup: 3.850 
+      remark #15479: lightweight vector operations: 9 
+      remark #15488: --- end vector loop cost summary ---
+   LOOP END
+
+   LOOP BEGIN at ipo_sample_sum.f90(55,3) inlined into ipo_sample_main.f90(46,9)
+   <Remainder>
+      remark #15388: vectorization support: reference A has aligned access   [ ipo_sample_sum.f90(56,5) ]
+      remark #15388: vectorization support: reference A has aligned access   [ ipo_sample_sum.f90(56,5) ]
+   LOOP END
+LOOP END
+===========================================================================
