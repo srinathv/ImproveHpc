@@ -16,4 +16,4 @@ do
     echo -host $a-ib -n $1 $3
   fi
   i=$(($i+1))
-done >> configFile.$PBS_JOBID
+done >> configfile.$PBS_JOBID
