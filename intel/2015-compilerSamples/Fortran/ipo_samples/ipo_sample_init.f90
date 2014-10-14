@@ -38,6 +38,7 @@
 !   This function is not inlined due to compiler heuristics
 !   for initialization routines.
 subroutine init(a, n)
+!$omp declare simd(init)
   implicit none
   integer, intent(in) :: n
   real, intent(inout) :: a(n) 
