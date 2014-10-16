@@ -92,7 +92,7 @@ def main(argv):
     print "***Running  " + exe + " ***"
     command3='./' + exe
     errorMessage=' Failed to run ' + exe
-    shellCommand(command3,,errorMessage)
+    shellCommand(command3,errorMessage)
 #    print command3
 
 if __name__ == "__main__":
