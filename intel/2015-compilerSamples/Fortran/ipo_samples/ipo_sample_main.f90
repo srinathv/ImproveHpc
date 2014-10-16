@@ -38,7 +38,8 @@ program main
   implicit none
   interface
     subroutine init(a, n)
-!$omp declare simd (init) uniform(n) simdlen(4)
+!$omp declare simd (init) uniform(n) 
+!!$omp declare simd (init) uniform(n) simdlen(4)
       integer, intent(in) :: n
       real, intent(inout) :: a(n)
     end subroutine init 
