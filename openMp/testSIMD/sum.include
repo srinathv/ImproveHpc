@@ -7,12 +7,12 @@
 #elif SIMDL
 !$omp declare simd(mysum) simdlen(4)
 #elif SIMDA
-!$omp declare simd(mysum) alinged(a)
+!$omp declare simd(mysum) aligned(a:32)
 #elif SIMDAU
-!$omp declare simd(mysum) alinged(a) uniform(n) 
+!$omp declare simd(mysum) aligned(a:32) uniform(n) 
 #elif SIMDAL
-!$omp declare simd(mysum) simdlen(4) alinged(a) 
+!$omp declare simd(mysum) simdlen(4) aligned(a:32) 
 #elif SIMDAUL
-!$omp declare simd(mysum) simdlen(4) alinged(a) uniform(n) 
+!$omp declare simd(mysum) simdlen(4) aligned(a:32) uniform(n) 
 #endif
 
