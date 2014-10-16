@@ -5,8 +5,7 @@
 #create an object file namespaced
 #link object files namespaced to namespaced executable
 
-#after all are built, run them in suquence writing out their name first
-
+#after each build then run
 ##ifdef SIMD
 #!$omp declare simd(init)
 ##ifdef SIMDU
@@ -39,8 +38,8 @@ def shellCommand(command,errorMessage):
   return
 
 
-ifdefs=['SIMD','SIMDU','SIMDUL','SIMDL','SIMDA','SIMDAU','SIMDAL','SIMDAUL','NONE']
-files=['init','sum','main']
+ifdefsList=['SIMD','SIMDU','SIMDUL','SIMDL','SIMDA','SIMDAU','SIMDAL','SIMDAUL','NONE']
+filesList=['init','sum','main']
 
 def main(argv):
   howToUse = 'just run it and it will make and run the variants'
@@ -55,7 +54,39 @@ def main(argv):
          print howToUse
          sys.exit()
   print 'Exectuting build and run system'
-  caseName = '' #initialize
+  fileName = '' #initialize
+  
+  for ifdef in ifdefsList:
+    if ifdef == 'NONE':
+       ifdefMacro = ' '
+       cmdBase='ifort'
+    else:
+       ifdefMacro = '-D' + ifdef
+       cmdBase='ifort -openmp'
+
+    objFileList=[]
+
+    for fileBase in filesList:
+      
+      objFile=fileBase + '_'+ ifdef + '.o'
+      objFileList.append(objFile)
+      command1 = cmdBase + ' ' + ifdefMacro + ' -o ' + objFile
+      errorMessage = ' compilation failed for ' + objFile
+      shellCommand(command1,errorMessage)
+#      print command1
+    command2 = cmdBase
+
+    for obj in objFileList:
+      command2 = command2 + ' ' +obj
+    exe =  'main_' + ifdef
+    command2= command2 + ' -o ' + exe
+    errorMessage=' Linking failed for ' + exe
+    shellCommand(command2,errorMessage)
+    print command2
+    
+    print "***Running  " + exe + " ***"
+    command3='./' + exe
+    errorMessage=' Failed to run ' + exe
 
 
 if __name__ == "__main__":
