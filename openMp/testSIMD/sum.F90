@@ -8,7 +8,7 @@ end function add3
 ! This function will be inlined into external callers by
 ! interprocedural optimization (IPO).
 function mysum(a, n)
-include ifdef.include
+#include "ifdef.include"
   implicit none
   real :: mysum, add3
   integer, intent(in) :: n

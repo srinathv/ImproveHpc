@@ -1,18 +1,18 @@
 #ifdef SIMD
 !$omp declare simd(init)
-#ifdef SIMDU
+#elif SIMDU
 !$omp declare simd(init) uniform(n) 
-#ifdef SIMDUL
+#elif SIMDUL
 !$omp declare simd(init) uniform(n) simdlen(4)
-#ifdef SIMDL
+#elif SIMDL
 !$omp declare simd(init) simdlen(4)
-#ifdef SIMDA
+#elif SIMDA
 !$omp declare simd(init) alinged(a)
-#ifdef SIMDAU
+#elif SIMDAU
 !$omp declare simd(init) alinged(a) uniform(n) simdlen(4)
-#ifdef SIMDAL
+#elif SIMDAL
 !$omp declare simd(init) alinged(a) simdlen(4)
-#ifdef SIMDAUL
+#elif SIMDAUL
 !$omp declare simd(init) alinged(a) uniform(n) simdlen(4)
 #endif
 
