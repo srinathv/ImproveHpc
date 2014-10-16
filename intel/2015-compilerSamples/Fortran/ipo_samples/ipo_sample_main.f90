@@ -36,11 +36,26 @@
 
 program main
   implicit none
-  real :: res, mysum
+  interface
+    subroutine init(a, n)
+!$omp declare simd (init) uniform(n) simdlen(4)
+      integer, intent(in) :: n
+      real, intent(inout) :: a(n)
+    end subroutine init 
+
+    real function mysum(a, n)
+!$omp declare simd (mysum) uniform(n)
+      integer, intent(in) :: n
+      real, intent(inout) :: a(n)
+    end function mysum
+  end interface
+
+  real :: res   !!, mysum
   integer :: i
   integer, parameter :: n=1000
   real, dimension(n) :: a
 
+!$omp simd private(a)
   do i = 1, 1000
   call init(a, n)
   res = mysum(a, n)
