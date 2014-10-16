@@ -3,16 +3,16 @@
 #elif SIMDU
 !$omp declare simd(mysum) uniform(n) 
 #elif SIMDUL
-!$omp declare simd(mysum) uniform(n) simdlen(4)
+!$omp declare simd(mysum) simdlen(4) uniform(n) 
 #elif SIMDL
 !$omp declare simd(mysum) simdlen(4)
 #elif SIMDA
 !$omp declare simd(mysum) alinged(a)
 #elif SIMDAU
-!$omp declare simd(mysum) alinged(a) uniform(n) simdlen(4)
+!$omp declare simd(mysum) alinged(a) uniform(n) 
 #elif SIMDAL
-!$omp declare simd(mysum) alinged(a) simdlen(4)
+!$omp declare simd(mysum) simdlen(4) alinged(a) 
 #elif SIMDAUL
-!$omp declare simd(mysum) alinged(a) uniform(n) simdlen(4)
+!$omp declare simd(mysum) simdlen(4) alinged(a) uniform(n) 
 #endif
 
