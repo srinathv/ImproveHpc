@@ -36,35 +36,19 @@
 
 program main
   implicit none
-  interface
-    subroutine init(a, n)
-!!$omp declare simd (init) uniform(n) 
-!$omp declare simd (init) uniform(n) simdlen(4)
-      integer, intent(in) :: n
-      real, intent(inout) :: a(n)
-    end subroutine init 
 
-    real function mysum(a, n)
-!!$omp declare simd (mysum) uniform(n)
-!$omp declare simd (init) uniform(n) simdlen(4)
-      integer, intent(in) :: n
-      real, intent(inout) :: a(n)
-    end function mysum
-  end interface
+  real :: res,mysum
 
-  real :: res   !!, mysum
   integer :: i
   integer, parameter :: n=10000
   real, dimension(n) :: a
-  integer ( kind = 4 ) clock_count
+   integer ( kind = 4 ) clock_count
   integer ( kind = 4 ) clock_count1
   integer ( kind = 4 ) clock_count2
   integer ( kind = 4 ) clock_max
   integer ( kind = 4 ) clock_rate
-  
-  print *, "USING SIMD"
+
   call system_clock(clock_count,clock_rate,clock_max)
-!$omp simd private(a)
   do i = 1, n
   call init(a, n)
   res = mysum(a, n)
