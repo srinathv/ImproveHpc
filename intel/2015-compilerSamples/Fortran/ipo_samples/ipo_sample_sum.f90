@@ -46,7 +46,6 @@ end function add3
 ! This function will be inlined into external callers by
 ! interprocedural optimization (IPO).
 function mysum(a, n)
-!$omp declare simd(mysum) uniform(n) simdlen(4)
   implicit none
   real :: mysum, add3
   integer, intent(in) :: n
