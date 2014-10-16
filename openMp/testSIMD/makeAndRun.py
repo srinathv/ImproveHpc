@@ -38,6 +38,7 @@ def shellCommand(command,errorMessage):
   return
 
 
+#ifdefsList=['SIMD']
 ifdefsList=['SIMD','SIMDU','SIMDUL','SIMDL','SIMDA','SIMDAU','SIMDAL','SIMDAUL','NONE','AVX']
 filesList=['init','sum','main']
 
@@ -75,7 +76,7 @@ def main(argv):
       
       objFile=fileBase + '_'+ ifdef + '.o'
       objFileList.append(objFile)
-      command1 = cmdBase + ' ' + ifdefMacro + ' ' + fileBase+'.F90' + ' -o ' + objFile
+      command1 = cmdBase + ' ' + ifdefMacro + ' -c ' + fileBase+'.F90' + ' -o ' + objFile
       errorMessage = ' compilation failed for ' + objFile
       shellCommand(command1,errorMessage)
 #      print command1

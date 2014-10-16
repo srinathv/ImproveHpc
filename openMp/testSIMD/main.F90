@@ -17,7 +17,7 @@ program main
 
   real :: res   !!, mysum
   integer :: i
-  integer, parameter :: n=100000
+  integer, parameter :: n=10000
   real, dimension(n) :: a
   integer ( kind = 4 ) clock_count
   integer ( kind = 4 ) clock_count1

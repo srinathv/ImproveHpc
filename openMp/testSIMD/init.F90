@@ -1,5 +1,5 @@
 subroutine init(a, n)
-#include "ifdef.include"
+#include "init.include"
 
   implicit none
   integer, intent(in) :: n
