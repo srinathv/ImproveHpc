@@ -77,8 +77,8 @@ def main(argv):
       objFileList.append(objFile)
       command1 = cmdBase + ' ' + ifdefMacro + ' ' + fileBase+'.f90' + ' -o ' + objFile
       errorMessage = ' compilation failed for ' + objFile
-#      shellCommand(command1,errorMessage)
-      print command1
+      shellCommand(command1,errorMessage)
+#      print command1
     command2 = cmdBase
 
     for obj in objFileList:
@@ -86,14 +86,14 @@ def main(argv):
     exe =  'main_' + ifdef
     command2= command2 + ' -o ' + exe
     errorMessage=' Linking failed for ' + exe
-#    shellCommand(command2,errorMessage)
-    print command2
+    shellCommand(command2,errorMessage)
+#    print command2
     
     print "***Running  " + exe + " ***"
     command3='./' + exe
     errorMessage=' Failed to run ' + exe
-#    shellCommand(command3,,errorMessage)
-    print command3
+    shellCommand(command3,,errorMessage)
+#    print command3
 
 if __name__ == "__main__":
    main(sys.argv[1:])
