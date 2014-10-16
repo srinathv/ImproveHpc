@@ -34,18 +34,27 @@
 ! Linux* and OS X*: -ipo
 !
 
-! Initialize array 'a' to REALs.
-!   This function is not inlined due to compiler heuristics
-!   for initialization routines.
-subroutine init(a, n)
-!$omp declare simd(init) uniform(n) simdlen(4)
+program main
   implicit none
-  integer, intent(in) :: n
-  real, intent(inout) :: a(n) 
+
+  real :: res,mysum
+
   integer :: i
-  do i = 1, n 
-    a(i) = real(i) 
-  end do 
-end subroutine init
+  integer, parameter :: n=10000
+  real, dimension(n) :: a
+   integer ( kind = 4 ) clock_count
+  integer ( kind = 4 ) clock_count1
+  integer ( kind = 4 ) clock_count2
+  integer ( kind = 4 ) clock_max
+  integer ( kind = 4 ) clock_rate
 
-
+  call system_clock(clock_count,clock_rate,clock_max)
+  do i = 1, n
+  call init(a, n)
+  res = mysum(a, n)
+  enddo
+  call system_clock(clock_count1,clock_rate,clock_max)
+  print *, "result is ", res
+  print *, clock_count1, clock_count, clock_rate
+  print *, "time in seconds = ", (clock_count1-clock_count)/real(clock_rate)
+end program main
