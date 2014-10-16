@@ -3,13 +3,13 @@ program main
   implicit none
   interface
     subroutine init(a, n)
-#include "ifdef.include"
+#include "init.include"
       integer, intent(in) :: n
       real, intent(inout) :: a(n)
     end subroutine init 
 
     real function mysum(a, n)
-#include "ifdef.include"
+#include "sum.include"
       integer, intent(in) :: n
       real, intent(inout) :: a(n)
     end function mysum
