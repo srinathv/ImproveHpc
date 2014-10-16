@@ -3,46 +3,13 @@ program main
   implicit none
   interface
     subroutine init(a, n)
-#ifdef SIMD
-!$omp declare simd(init)
-#ifdef SIMDU
-!$omp declare simd(init) uniform(n) 
-#ifdef SIMDUL
-!$omp declare simd(init) uniform(n) simdlen(4)
-#ifdef SIMDL
-!$omp declare simd(init) simdlen(4)
-#ifdef SIMDA
-!$omp declare simd(init) alinged(a)
-#ifdef SIMDAU
-!$omp declare simd(init) alinged(a) uniform(n) simdlen(4)
-#ifdef SIMDAL
-!$omp declare simd(init) alinged(a) simdlen(4)
-#ifdef SIMDAUL
-!$omp declare simd(init) alinged(a) uniform(n) simdlen(4)
-#endif
-
+include ifdef.include
       integer, intent(in) :: n
       real, intent(inout) :: a(n)
     end subroutine init 
 
     real function mysum(a, n)
-#ifdef SIMD
-!$omp declare simd(init)
-#ifdef SIMDU
-!$omp declare simd(init) uniform(n) 
-#ifdef SIMDUL
-!$omp declare simd(init) uniform(n) simdlen(4)
-#ifdef SIMDL
-!$omp declare simd(init) simdlen(4)
-#ifdef SIMDA
-!$omp declare simd(init) alinged(a)
-#ifdef SIMDAU
-!$omp declare simd(init) alinged(a) uniform(n) simdlen(4)
-#ifdef SIMDAL
-!$omp declare simd(init) alinged(a) simdlen(4)
-#ifdef SIMDAUL
-!$omp declare simd(init) alinged(a) uniform(n) simdlen(4)
-#endif
+include ifdef.include
       integer, intent(in) :: n
       real, intent(inout) :: a(n)
     end function mysum
