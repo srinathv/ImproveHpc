@@ -38,8 +38,8 @@ def shellCommand(command,errorMessage):
   return
 
 
-ifdefsList=['AVX','SIMDAULX','NOVEC']
-#ifdefsList=['SIMD','SIMDU','SIMDUL','SIMDL','SIMDA','SIMDAU','SIMDAL','SIMDAUL','NONE','AVX','SIMDAULX']
+#ifdefsList=['AVX','SIMDAULX','NOVEC']
+ifdefsList=['SIMD','SIMDU','SIMDUL','SIMDL','SIMDA','SIMDAU','SIMDAL','SIMDAUL','NONE','AVX','SIMDAULX','NOVEC']
 filesList=['init','sum','main']
 
 def main(argv):
