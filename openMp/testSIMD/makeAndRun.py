@@ -38,8 +38,8 @@ def shellCommand(command,errorMessage):
   return
 
 
-#ifdefsList=['AVX','SIMDAULX']
-ifdefsList=['SIMD','SIMDU','SIMDUL','SIMDL','SIMDA','SIMDAU','SIMDAL','SIMDAUL','NONE','AVX','SIMDAULX']
+ifdefsList=['AVX','SIMDAULX','NOVEC']
+#ifdefsList=['SIMD','SIMDU','SIMDUL','SIMDL','SIMDA','SIMDAU','SIMDAL','SIMDAUL','NONE','AVX','SIMDAULX']
 filesList=['init','sum','main']
 
 def main(argv):
@@ -61,10 +61,15 @@ def main(argv):
     if ifdef == 'NONE':
        ifdefMacro = ' '
        cmdBase='ifort'
-    elif (ifdef == 'AVX') or (ifdef == 'SIMDAULX'):
+    elif ifdef == 'AVX' :
        ifdefMacro = ' '
        cmdBase='ifort -xAVX'
-
+    elif ifdef == 'NOVEC' :
+       ifdefMacro = ' '
+       cmdBase='ifort -no-vec -no-simd'
+    elif ifdef == 'SIMDAULX' :
+       ifdefMacro = '-D' + ifdef
+       cmdBase='ifort -openmp -xAVX'
     else:
        ifdefMacro = '-D' + ifdef
        cmdBase='ifort -openmp'
@@ -73,10 +78,11 @@ def main(argv):
     exe=''
 
     for fileBase in filesList:
-      
+            
+      reportFlag = ' -vec-report6 -opt-report-file=' + fileBase + '_' + ifdef + '.vecrpt '
       objFile=fileBase + '_'+ ifdef + '.o'
       objFileList.append(objFile)
-      command1 = cmdBase + ' ' + ifdefMacro + ' -c ' + fileBase+'.F90' + ' -o ' + objFile
+      command1 = cmdBase + ' ' + ifdefMacro + reportFlag + ' -c ' + fileBase+'.F90' + ' -o ' + objFile
       errorMessage = ' compilation failed for ' + objFile
       shellCommand(command1,errorMessage)
 #      print command1
