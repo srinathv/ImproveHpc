@@ -38,8 +38,8 @@ def shellCommand(command,errorMessage):
   return
 
 
-#ifdefsList=['SIMD']
-ifdefsList=['SIMD','SIMDU','SIMDUL','SIMDL','SIMDA','SIMDAU','SIMDAL','SIMDAUL','NONE','AVX']
+#ifdefsList=['AVX','SIMDAULX']
+ifdefsList=['SIMD','SIMDU','SIMDUL','SIMDL','SIMDA','SIMDAU','SIMDAL','SIMDAUL','NONE','AVX','SIMDAULX']
 filesList=['init','sum','main']
 
 def main(argv):
@@ -61,7 +61,7 @@ def main(argv):
     if ifdef == 'NONE':
        ifdefMacro = ' '
        cmdBase='ifort'
-    elif ifdef == 'AVX':
+    elif (ifdef == 'AVX') or (ifdef == 'SIMDAULX'):
        ifdefMacro = ' '
        cmdBase='ifort -xAVX'
 
