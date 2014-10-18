@@ -12,7 +12,7 @@
 !$omp declare simd(init) aligned(a:32) uniform(n) 
 #elif SIMDAL
 !$omp declare simd(init) simdlen(4) aligned(a:32) 
-#elif SIMDAUL
+#elif SIMDAUL || SIMDAULX
 !$omp declare simd(init) simdlen(4) aligned(a:32) uniform(n) 
 #endif
 

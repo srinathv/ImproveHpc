@@ -12,7 +12,7 @@
 !$omp declare simd(mysum) aligned(a:32) uniform(n) 
 #elif SIMDAL
 !$omp declare simd(mysum) simdlen(4) aligned(a:32) 
-#elif SIMDAUL
+#elif SIMDAUL || SIMDAULX
 !$omp declare simd(mysum) simdlen(4) aligned(a:32) uniform(n) 
 #endif
 
