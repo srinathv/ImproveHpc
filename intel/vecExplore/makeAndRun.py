@@ -60,7 +60,7 @@ def main(argv):
 
     for fileBase in filesList:
             
-      reportFlag = ' -qvec-report=5 -opt-report-file=' + fileBase + '_' + ifdef + '.optrpt '
+      reportFlag = ' -opt-report=5 -opt-report-file=' + fileBase + '_' + ifdef + '.optrpt '
       objFile=fileBase + '_'+ ifdef + '.o'
       objFileList.append(objFile)
       command1 = cmdBase + ' ' + ifdefMacro + reportFlag + ' -c ' + fileBase+'.F90' + ' -o ' + objFile
