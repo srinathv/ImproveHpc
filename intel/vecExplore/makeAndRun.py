@@ -20,7 +20,7 @@ def shellCommand(command,errorMessage):
   return
 
 
-ifdefsList=['NONE','UNROLL','AVX','NOVEC']
+ifdefsList=['NONE','DUNROLL','AVX','NOVEC']
 filesList=['reductLoop']
 
 def main(argv):

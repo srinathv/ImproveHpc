@@ -27,7 +27,7 @@
     do n=1,np
       do m=1,np
         div(m,n)=0
-#ifdef UNROLL
+#ifdef DUNROLL
 !DIR$ UNROLL(4)
 #endif
         do j=1,np
