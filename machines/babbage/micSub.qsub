@@ -1,0 +1,13 @@
+#PBS -q regular
+#PBS -l nodes=2
+#PBS -l walltime=02:00:00
+#PBS -N my_job
+#PBS -e my_job.$PBS_JOBID.err
+#PBS -o my_job.$PBS_JOBID.out
+#PBS -V
+
+cd $PBS_O_WORKDIR
+export OMP_NUM_THREADS=30
+export KMP_AFFINITY=balanced
+get_micfile 
+mpirun.mic -n 4 -hostfile micfile.$PBS_JOBID -ppn 1 ./myexe.mic  
