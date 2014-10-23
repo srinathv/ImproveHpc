@@ -20,7 +20,7 @@ def shellCommand(command,errorMessage):
   return
 
 
-ifdefsList=['NONE','UNROLL','AVX','NOVEC']
+ifdefsList=['NONE','DUNROLL','AVX','NOVEC','FAST','FAST2']
 filesList=['reductLoop']
 
 def main(argv):
@@ -48,19 +48,25 @@ def main(argv):
     elif ifdef == 'NOVEC' :
        ifdefMacro = ' '
        cmdBase='ifort -no-vec -no-simd'
+    elif ifdef == 'FAST' :
+       ifdefMacro = '-D' + ifdef
+       cmdBase='ifort -fp-model fast'
+    elif ifdef == 'FAST2' :
+       ifdefMacro = '-D' + ifdef
+       cmdBase='ifort -fp-model fast=2'
     elif ifdef == 'SIMDAULX' :
        ifdefMacro = '-D' + ifdef
-       cmdBase='ifort -openmp -xAVX'
+       cmdBase='ifort -xAVX'
     else:
        ifdefMacro = '-D' + ifdef
-       cmdBase='ifort -openmp'
+       cmdBase='ifort '
 
     objFileList=[]
     exe=''
 
     for fileBase in filesList:
             
-      reportFlag = ' -qvec-report=5 -opt-report-file=' + fileBase + '_' + ifdef + '.optrpt '
+      reportFlag = ' -opt-report=5 -opt-report-file=' + fileBase + '_' + ifdef + '.optrpt '
       objFile=fileBase + '_'+ ifdef + '.o'
       objFileList.append(objFile)
       command1 = cmdBase + ' ' + ifdefMacro + reportFlag + ' -c ' + fileBase+'.F90' + ' -o ' + objFile
