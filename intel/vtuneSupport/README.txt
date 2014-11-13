@@ -1,6 +1,6 @@
 $ icc -g -c -I /opt/intel/vtune_amplifier_xe_2011/include api_fortran_itt.c
 
-$ ifort -g -f itt_fortran.f90
+$ ifort -g -c itt_fortran.f90
 $ ifort -g -c fortran_vtune.f90
 
 $ ifort -g -o test_itt.ifort api_fortran_itt.o itt_fortran.mod fortran_vtune.o /opt/intel/vtune_amplifier_xe_2011/lib64/libittnotify.a
