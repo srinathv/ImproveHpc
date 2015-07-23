@@ -1,0 +1,19 @@
+on Stampede with intel15 compiler:
+
+
+login3.stampede(60)$ ./ins_cyc_test.no_read.O0
+  papi_FP_INS is                      0
+  PAPI_TOT_CYC is                   6673
+  PAPI_BR_MSP is                     57
+login3.stampede(61)$ ./ins_cyc_test.no_read
+  papi_FP_INS is                      0
+  PAPI_TOT_CYC is                   6455
+  PAPI_BR_MSP is                     57
+login3.stampede(62)$ ifort -O3 ins_cyc_test.no_read.F90 -I${TACC_PAPI_INC} -L${TACC_PAPI_LIB} -lpapi -o ins_cyc_test.no_read.O3
+login3.stampede(63)$ ./ins_cyc_test.no_read.O3
+  papi_FP_INS is                      0
+  PAPI_TOT_CYC is                   7194
+  PAPI_BR_MSP is                     64
+
+
+So the compiler optimization is not invoking significanltly different number of branch instructions in the blank region, thouch the assembly files are different.
