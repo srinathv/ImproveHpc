@@ -1,4 +1,5 @@
 #!/bin/bash
+#SBATCH -A TG-ASC090010
 #SBATCH -J tau_symm           # job name
 #SBATCH -o tau_symm.o%j       # output and error file name (%j expands to jobID)
 #SBATCH -n 2 # total number of mpi tasks requested for Sandybridge E5 cpus
