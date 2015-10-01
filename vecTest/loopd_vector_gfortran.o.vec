@@ -1,0 +1,1590 @@
+
+loopd.f:149: note: not vectorized: inner-loop count not invariant.
+loopd.f:150: note: Detected single element interleaving (*a_93(D))[D.23012_114] step 16
+loopd.f:150: note: Detected single element interleaving (*b_94(D))[D.23009_117] step 16
+loopd.f:150: note: not vectorized: complicated access pattern.
+loopd.f:136: note: vectorized 0 loops in function.
+
+loopd.f:175: note: not vectorized: inner-loop count not invariant.
+loopd.f:176: note: Unknown alignment for access: *a_92(D)
+loopd.f:176: note: Unknown alignment for access: *b_93(D)
+loopd.f:176: note: Unknown alignment for access: *a_92(D)
+loopd.f:176: note: dependence distance  = 1.
+loopd.f:176: note: dependence distance >= VF or negative.
+loopd.f:176: note: not vectorized: complicated access pattern.
+loopd.f:162: note: vectorized 0 loops in function.
+
+loopd.f:201: note: not vectorized: inner-loop count not invariant.
+loopd.f:202: note: not vectorized: unhandled data-ref 
+loopd.f:188: note: vectorized 0 loops in function.
+
+loopd.f:227: note: not vectorized: multiple nested loops.
+loopd.f:228: note: not vectorized: inner-loop count not invariant.
+loopd.f:229: note: not vectorized: data ref analysis failed D.22864_121 = (*aa_98(D))[D.22863_120];
+
+loopd.f:214: note: vectorized 0 loops in function.
+
+loopd.f:255: note: not vectorized: multiple nested loops.
+loopd.f:256: note: not vectorized: inner-loop count not invariant.
+loopd.f:257: note: not vectorized: unhandled data-ref 
+loopd.f:242: note: vectorized 0 loops in function.
+
+loopd.f:282: note: not vectorized: unexpected loop form.
+loopd.f:282: note: not vectorized: Bad inner loop.
+loopd.f:283: note: not vectorized: unexpected loop form.
+loopd.f:270: note: vectorized 0 loops in function.
+
+loopd.f:312: note: not vectorized: multiple nested loops.
+loopd.f:313: note: not vectorized: inner-loop count not invariant.
+loopd.f:314: note: not vectorized: unhandled data-ref 
+loopd.f:299: note: vectorized 0 loops in function.
+
+loopd.f:340: note: not vectorized: multiple nested loops.
+loopd.f:341: note: not vectorized: unexpected loop form.
+loopd.f:342: note: Unknown alignment for access: *aa_98(D)
+loopd.f:342: note: Unknown alignment for access: *bb_99(D)
+loopd.f:342: note: Unknown alignment for access: *aa_98(D)
+loopd.f:342: note: versioning for alias required: can't determine dependence between (*aa_98(D))[D.22610_121] and (*aa_98(D))[D.22603_114]
+loopd.f:342: note: mark for run-time aliasing test between (*aa_98(D))[D.22610_121] and (*aa_98(D))[D.22603_114]
+loopd.f:342: note: Vectorizing an unaligned access.
+loopd.f:342: note: Vectorizing an unaligned access.
+loopd.f:342: note: Vectorizing an unaligned access.
+loopd.f:342: note: vect_model_load_cost: unaligned supported by hardware.
+loopd.f:342: note: vect_model_load_cost: inside_cost = 2, outside_cost = 0 .
+loopd.f:342: note: vect_model_load_cost: unaligned supported by hardware.
+loopd.f:342: note: vect_model_load_cost: inside_cost = 2, outside_cost = 0 .
+loopd.f:342: note: vect_model_simple_cost: inside_cost = 1, outside_cost = 0 .
+loopd.f:342: note: vect_model_store_cost: inside_cost = 1, outside_cost = 0 .
+loopd.f:342: note: cost model: Adding cost of checks for loop versioning aliasing.
+
+loopd.f:342: note: cost model: epilogue peel iters set to vf/2 because loop iterations are unknown .
+loopd.f:342: note: Cost model analysis: 
+  Vector inside of loop cost: 6
+  Vector outside of loop cost: 14
+  Scalar iteration cost: 4
+  Scalar outside cost: 1
+  prologue iterations: 0
+  epilogue iterations: 1
+  Calculated minimum iters for profitability: 11
+
+loopd.f:342: note:   Profitability threshold = 10
+
+loopd.f:342: note: Profitability threshold is 10 loop iterations.
+loopd.f:342: note: create runtime check for data references (*aa_98(D))[D.22610_121] and (*aa_98(D))[D.22603_114]
+loopd.f:342: note: created 1 versioning for alias checks.
+
+loopd.f:342: note: LOOP VECTORIZED.
+loopd.f:327: note: vectorized 1 loops in function.
+
+loopd.f:368: note: not vectorized: inner-loop count not invariant.
+loopd.f:369: note: dependence distance  = 1.
+loopd.f:369: note: dependence distance >= VF or negative.
+loopd.f:369: note: Vectorizing an unaligned access.
+loopd.f:369: note: Vectorizing an unaligned access.
+loopd.f:369: note: Vectorizing an unaligned access.
+loopd.f:369: note: vect_model_load_cost: unaligned supported by hardware.
+loopd.f:369: note: vect_model_load_cost: inside_cost = 2, outside_cost = 0 .
+loopd.f:369: note: vect_model_load_cost: unaligned supported by hardware.
+loopd.f:369: note: vect_model_load_cost: inside_cost = 2, outside_cost = 0 .
+loopd.f:369: note: vect_model_simple_cost: inside_cost = 1, outside_cost = 0 .
+loopd.f:369: note: vect_model_store_cost: inside_cost = 1, outside_cost = 0 .
+loopd.f:369: note: cost model: epilogue peel iters set to vf/2 because loop iterations are unknown .
+loopd.f:369: note: Cost model analysis: 
+  Vector inside of loop cost: 6
+  Vector outside of loop cost: 10
+  Scalar iteration cost: 4
+  Scalar outside cost: 6
+  prologue iterations: 0
+  epilogue iterations: 1
+  Calculated minimum iters for profitability: 2
+
+loopd.f:369: note:   Profitability threshold = 1
+
+loopd.f:369: note: Profitability threshold is 1 loop iterations.
+loopd.f:369: note: LOOP VECTORIZED.
+loopd.f:355: note: vectorized 1 loops in function.
+
+loopd.f:395: note: not vectorized: inner-loop count not invariant.
+loopd.f:398: note: not vectorized: data ref analysis failed D.22502_127 = (*a_94(D))[D.22501_126];
+
+loopd.f:382: note: vectorized 0 loops in function.
+
+loopd.f:424: note: not vectorized: control flow in loop.
+loopd.f:424: note: not vectorized: Bad inner loop.
+loopd.f:426: note: not vectorized: control flow in loop.
+loopd.f:411: note: vectorized 0 loops in function.
+
+loopd.f:456: note: not vectorized: control flow in loop.
+loopd.f:456: note: not vectorized: Bad inner loop.
+loopd.f:458: note: not vectorized: control flow in loop.
+loopd.f:443: note: vectorized 0 loops in function.
+
+loopd.f:492: note: not vectorized: multiple nested loops.
+loopd.f:494: note: not vectorized: unexpected loop form.
+loopd.f:495: note: Unknown alignment for access: *aa_101(D)
+loopd.f:495: note: Unknown alignment for access: *bb_102(D)
+loopd.f:495: note: Unknown alignment for access: *cc_103(D)
+loopd.f:495: note: Unknown alignment for access: cdata
+loopd.f:495: note: Vectorizing an unaligned access.
+loopd.f:495: note: Vectorizing an unaligned access.
+loopd.f:495: note: Vectorizing an unaligned access.
+loopd.f:495: note: Vectorizing an unaligned access.
+loopd.f:495: note: vect_model_load_cost: unaligned supported by hardware.
+loopd.f:495: note: vect_model_load_cost: inside_cost = 2, outside_cost = 0 .
+loopd.f:495: note: vect_model_load_cost: unaligned supported by hardware.
+loopd.f:495: note: vect_model_load_cost: inside_cost = 2, outside_cost = 0 .
+loopd.f:495: note: vect_model_load_cost: unaligned supported by hardware.
+loopd.f:495: note: vect_model_load_cost: inside_cost = 2, outside_cost = 0 .
+loopd.f:495: note: vect_model_simple_cost: inside_cost = 1, outside_cost = 0 .
+loopd.f:495: note: vect_model_simple_cost: inside_cost = 1, outside_cost = 0 .
+loopd.f:495: note: vect_model_store_cost: inside_cost = 1, outside_cost = 0 .
+loopd.f:495: note: cost model: epilogue peel iters set to vf/2 because loop iterations are unknown .
+loopd.f:495: note: Cost model analysis: 
+  Vector inside of loop cost: 9
+  Vector outside of loop cost: 12
+  Scalar iteration cost: 6
+  Scalar outside cost: 6
+  prologue iterations: 0
+  epilogue iterations: 1
+  Calculated minimum iters for profitability: 2
+
+loopd.f:495: note:   Profitability threshold = 1
+
+loopd.f:495: note: Profitability threshold is 1 loop iterations.
+loopd.f:495: note: LOOP VECTORIZED.
+loopd.f:476: note: vectorized 1 loops in function.
+
+loopd.f:524: note: not vectorized: multiple nested loops.
+loopd.f:526: note: not vectorized: control flow in loop.
+loopd.f:527: note: not vectorized: data ref analysis failed D.22262_125 = (*bb_102(D))[D.22261_124];
+
+loopd.f:509: note: vectorized 0 loops in function.
+
+loopd.f:555: note: not vectorized: inner-loop count not invariant.
+loopd.f:557: note: Detected interleaving (*a_93(D))[D.22197_111] and (*a_93(D))[D.22197_125]
+loopd.f:557: note: vect_model_store_cost: inside_cost = 1, outside_cost = 0 .
+loopd.f:557: note: vect_model_simple_cost: inside_cost = 1, outside_cost = 0 .
+loopd.f:557: note: Vectorizing an unaligned access.
+loopd.f:557: note: Vectorizing an unaligned access.
+loopd.f:557: note: Vectorizing an unaligned access.
+loopd.f:557: note: Vectorizing an unaligned access.
+loopd.f:557: note: Vectorizing an unaligned access.
+loopd.f:557: note: vect_model_load_cost: unaligned supported by hardware.
+loopd.f:557: note: vect_model_load_cost: inside_cost = 2, outside_cost = 0 .
+loopd.f:557: note: vect_model_load_cost: unaligned supported by hardware.
+loopd.f:557: note: vect_model_load_cost: inside_cost = 2, outside_cost = 0 .
+loopd.f:557: note: vect_model_load_cost: unaligned supported by hardware.
+loopd.f:557: note: vect_model_load_cost: inside_cost = 2, outside_cost = 0 .
+loopd.f:557: note: vect_model_simple_cost: inside_cost = 1, outside_cost = 0 .
+loopd.f:557: note: vect_model_simple_cost: inside_cost = 1, outside_cost = 0 .
+loopd.f:557: note: vect_model_store_cost: strided group_size = 2 .
+loopd.f:557: note: vect_model_store_cost: inside_cost = 3, outside_cost = 0 .
+loopd.f:557: note: vect_model_load_cost: unaligned supported by hardware.
+loopd.f:557: note: vect_model_load_cost: inside_cost = 2, outside_cost = 0 .
+loopd.f:557: note: vect_model_simple_cost: inside_cost = 1, outside_cost = 0 .
+loopd.f:557: note: vect_model_simple_cost: inside_cost = 1, outside_cost = 0 .
+loopd.f:557: note: vect_model_store_cost: inside_cost = 1, outside_cost = 0 .
+loopd.f:557: note: cost model: epilogue peel iters set to vf/2 because loop iterations are unknown .
+loopd.f:557: note: Cost model analysis: 
+  Vector inside of loop cost: 16
+  Vector outside of loop cost: 16
+  Scalar iteration cost: 10
+  Scalar outside cost: 6
+  prologue iterations: 0
+  epilogue iterations: 1
+  Calculated minimum iters for profitability: 2
+
+loopd.f:557: note:   Profitability threshold = 1
+
+loopd.f:557: note: Profitability threshold is 1 loop iterations.
+loopd.f:557: note: LOOP VECTORIZED.
+loopd.f:542: note: vectorized 1 loops in function.
+
+loopd.f:585: note: not vectorized: inner-loop count not invariant.
+loopd.f:587: note: dependence distance  = 0.
+loopd.f:587: note: accesses have the same alignment.
+loopd.f:587: note: dependence distance modulo vf == 0 between (*b_94(D))[D.22146_113] and (*b_94(D))[D.22146_113]
+loopd.f:587: note: Detected single element interleaving (*b_94(D))[D.22146_113] step 16
+loopd.f:587: note: Detected single element interleaving (*c_95(D))[D.22146_113] step 16
+loopd.f:587: note: not vectorized: complicated access pattern.
+loopd.f:572: note: vectorized 0 loops in function.
+
+loopd.f:619: note: not vectorized: inner-loop count not invariant.
+loopd.f:620: note: dependence distance  = 1.
+loopd.f:620: note: dependence distance >= VF or negative.
+loopd.f:620: note: Vectorizing an unaligned access.
+loopd.f:620: note: Vectorizing an unaligned access.
+loopd.f:620: note: Vectorizing an unaligned access.
+loopd.f:620: note: vect_model_load_cost: unaligned supported by hardware.
+loopd.f:620: note: vect_model_load_cost: inside_cost = 2, outside_cost = 0 .
+loopd.f:620: note: vect_model_load_cost: unaligned supported by hardware.
+loopd.f:620: note: vect_model_load_cost: inside_cost = 2, outside_cost = 0 .
+loopd.f:620: note: vect_model_simple_cost: inside_cost = 1, outside_cost = 0 .
+loopd.f:620: note: vect_model_store_cost: inside_cost = 1, outside_cost = 0 .
+loopd.f:620: note: cost model: epilogue peel iters set to vf/2 because loop iterations are unknown .
+loopd.f:620: note: Cost model analysis: 
+  Vector inside of loop cost: 6
+  Vector outside of loop cost: 10
+  Scalar iteration cost: 4
+  Scalar outside cost: 6
+  prologue iterations: 0
+  epilogue iterations: 1
+  Calculated minimum iters for profitability: 2
+
+loopd.f:620: note:   Profitability threshold = 1
+
+loopd.f:620: note: Profitability threshold is 1 loop iterations.
+loopd.f:620: note: LOOP VECTORIZED.
+loopd.f:602: note: vectorized 1 loops in function.
+
+loopd.f:648: note: not vectorized: inner-loop count not invariant.
+loopd.f:649: note: Unknown alignment for access: *aa_100(D)
+loopd.f:649: note: Unknown alignment for access: *aa_100(D)
+loopd.f:649: note: versioning for alias required: can't determine dependence between (*aa_100(D))[D.22040_118] and (*aa_100(D))[D.22034_112]
+loopd.f:649: note: mark for run-time aliasing test between (*aa_100(D))[D.22040_118] and (*aa_100(D))[D.22034_112]
+loopd.f:649: note: Vectorizing an unaligned access.
+loopd.f:649: note: Vectorizing an unaligned access.
+loopd.f:649: note: Vectorizing an unaligned access.
+loopd.f:649: note: vect_model_load_cost: unaligned supported by hardware.
+loopd.f:649: note: vect_model_load_cost: inside_cost = 2, outside_cost = 0 .
+loopd.f:649: note: vect_model_load_cost: unaligned supported by hardware.
+loopd.f:649: note: vect_model_load_cost: inside_cost = 2, outside_cost = 0 .
+loopd.f:649: note: vect_model_simple_cost: inside_cost = 1, outside_cost = 1 .
+loopd.f:649: note: vect_model_simple_cost: inside_cost = 1, outside_cost = 0 .
+loopd.f:649: note: vect_model_store_cost: inside_cost = 1, outside_cost = 0 .
+loopd.f:649: note: cost model: Adding cost of checks for loop versioning aliasing.
+
+loopd.f:649: note: cost model: epilogue peel iters set to vf/2 because loop iterations are unknown .
+loopd.f:649: note: Cost model analysis: 
+  Vector inside of loop cost: 7
+  Vector outside of loop cost: 16
+  Scalar iteration cost: 5
+  Scalar outside cost: 1
+  prologue iterations: 0
+  epilogue iterations: 1
+  Calculated minimum iters for profitability: 8
+
+loopd.f:649: note:   Profitability threshold = 7
+
+loopd.f:649: note: Profitability threshold is 7 loop iterations.
+loopd.f:649: note: create runtime check for data references (*aa_100(D))[D.22040_118] and (*aa_100(D))[D.22034_112]
+loopd.f:649: note: created 1 versioning for alias checks.
+
+loopd.f:649: note: LOOP VECTORIZED.
+loopd.f:632: note: vectorized 1 loops in function.
+
+loopd.f:677: note: not vectorized: multiple nested loops.
+loopd.f:678: note: not vectorized: inner-loop count not invariant.
+loopd.f:680: note: not vectorized: data ref analysis failed D.21980_120 = cdata.array[D.21979_119];
+
+loopd.f:661: note: vectorized 0 loops in function.
+
+loopd.f:707: note: not vectorized: unhandled data-ref 
+loopd.f:694: note: vectorized 0 loops in function.
+
+loopd.f:720: note: Unknown alignment for access: *a_31(D)
+loopd.f:720: note: versioning for alias required: can't determine dependence between (*a_31(D))[D.21906_30] and (*a_31(D))[D.21902_34]
+loopd.f:720: note: mark for run-time aliasing test between (*a_31(D))[D.21906_30] and (*a_31(D))[D.21902_34]
+loopd.f:720: note: Vectorizing an unaligned access.
+loopd.f:720: note: Vectorizing an unaligned access.
+loopd.f:720: note: Vectorizing an unaligned access.
+loopd.f:720: note: vect_model_load_cost: unaligned supported by hardware.
+loopd.f:720: note: vect_model_load_cost: inside_cost = 2, outside_cost = 0 .
+loopd.f:720: note: vect_model_load_cost: unaligned supported by hardware.
+loopd.f:720: note: vect_model_load_cost: inside_cost = 2, outside_cost = 0 .
+loopd.f:720: note: vect_model_simple_cost: inside_cost = 1, outside_cost = 0 .
+loopd.f:720: note: vect_model_store_cost: inside_cost = 1, outside_cost = 0 .
+loopd.f:720: note: cost model: Adding cost of checks for loop versioning aliasing.
+
+loopd.f:720: note: cost model: epilogue peel iters set to vf/2 because loop iterations are unknown .
+loopd.f:720: note: Cost model analysis: 
+  Vector inside of loop cost: 6
+  Vector outside of loop cost: 14
+  Scalar iteration cost: 4
+  Scalar outside cost: 1
+  prologue iterations: 0
+  epilogue iterations: 1
+  Calculated minimum iters for profitability: 11
+
+loopd.f:720: note:   Profitability threshold = 10
+
+loopd.f:720: note: Profitability threshold is 10 loop iterations.
+loopd.f:720: note: create runtime check for data references (*a_31(D))[D.21906_30] and (*a_31(D))[D.21902_34]
+loopd.f:720: note: created 1 versioning for alias checks.
+
+loopd.f:720: note: LOOP VECTORIZED.
+loopd.f:717: note: vectorized 1 loops in function.
+
+loopd.f:739: note: not vectorized: number of iterations cannot be computed.
+loopd.f:739: note: not vectorized: Bad inner loop.
+loopd.f:740: note: not vectorized: number of iterations cannot be computed.
+loopd.f:726: note: vectorized 0 loops in function.
+
+loopd.f:773: note: not vectorized: control flow in loop.
+loopd.f:773: note: not vectorized: Bad inner loop.
+loopd.f:774: note: not vectorized: control flow in loop.
+loopd.f:759: note: vectorized 0 loops in function.
+
+loopd.f:802: note: not vectorized: inner-loop count not invariant.
+loopd.f:804: note: Unknown alignment for access: *a_92(D)
+loopd.f:804: note: versioning for alias required: can't determine dependence between (*a_92(D))[D.21758_113] and (*a_92(D))[D.21755_116]
+loopd.f:804: note: mark for run-time aliasing test between (*a_92(D))[D.21758_113] and (*a_92(D))[D.21755_116]
+loopd.f:804: note: Vectorizing an unaligned access.
+loopd.f:804: note: Vectorizing an unaligned access.
+loopd.f:804: note: Vectorizing an unaligned access.
+loopd.f:804: note: Vectorizing an unaligned access.
+loopd.f:804: note: vect_model_load_cost: unaligned supported by hardware.
+loopd.f:804: note: vect_model_load_cost: inside_cost = 2, outside_cost = 0 .
+loopd.f:804: note: vect_model_load_cost: unaligned supported by hardware.
+loopd.f:804: note: vect_model_load_cost: inside_cost = 2, outside_cost = 0 .
+loopd.f:804: note: vect_model_load_cost: unaligned supported by hardware.
+loopd.f:804: note: vect_model_load_cost: inside_cost = 2, outside_cost = 0 .
+loopd.f:804: note: vect_model_simple_cost: inside_cost = 1, outside_cost = 0 .
+loopd.f:804: note: vect_model_simple_cost: inside_cost = 1, outside_cost = 0 .
+loopd.f:804: note: vect_model_store_cost: inside_cost = 1, outside_cost = 0 .
+loopd.f:804: note: cost model: Adding cost of checks for loop versioning aliasing.
+
+loopd.f:804: note: cost model: epilogue peel iters set to vf/2 because loop iterations are unknown .
+loopd.f:804: note: Cost model analysis: 
+  Vector inside of loop cost: 9
+  Vector outside of loop cost: 16
+  Scalar iteration cost: 6
+  Scalar outside cost: 1
+  prologue iterations: 0
+  epilogue iterations: 1
+  Calculated minimum iters for profitability: 8
+
+loopd.f:804: note:   Profitability threshold = 7
+
+loopd.f:804: note: Profitability threshold is 7 loop iterations.
+loopd.f:804: note: create runtime check for data references (*a_92(D))[D.21758_113] and (*a_92(D))[D.21755_116]
+loopd.f:804: note: created 1 versioning for alias checks.
+
+loopd.f:804: note: LOOP VECTORIZED.
+loopd.f:789: note: vectorized 1 loops in function.
+
+loopd.f:830: note: not vectorized: inner-loop count not invariant.
+loopd.f:831: note: not vectorized: data ref analysis failed D.21707_114 = (*a_92(D))[D.21706_113];
+
+loopd.f:817: note: vectorized 0 loops in function.
+
+loopd.f:856: note: not vectorized: inner-loop count not invariant.
+loopd.f:857: note: not vectorized: data ref analysis failed D.21661_123 = (*a_93(D))[D.21660_122];
+
+loopd.f:843: note: vectorized 0 loops in function.
+
+loopd.f:883: note: not vectorized: inner-loop count not invariant.
+loopd.f:884: note: Unknown alignment for access: *a_94(D)
+loopd.f:884: note: versioning for alias required: can't determine dependence between (*a_94(D))[D.21605_113] and (*a_94(D))[D.21603_111]
+loopd.f:884: note: mark for run-time aliasing test between (*a_94(D))[D.21605_113] and (*a_94(D))[D.21603_111]
+loopd.f:884: note: Vectorizing an unaligned access.
+loopd.f:884: note: Vectorizing an unaligned access.
+loopd.f:884: note: Vectorizing an unaligned access.
+loopd.f:884: note: vect_model_load_cost: unaligned supported by hardware.
+loopd.f:884: note: vect_model_load_cost: inside_cost = 2, outside_cost = 0 .
+loopd.f:884: note: vect_model_load_cost: unaligned supported by hardware.
+loopd.f:884: note: vect_model_load_cost: inside_cost = 2, outside_cost = 0 .
+loopd.f:884: note: vect_model_simple_cost: inside_cost = 1, outside_cost = 0 .
+loopd.f:884: note: vect_model_store_cost: inside_cost = 1, outside_cost = 0 .
+loopd.f:884: note: cost model: Adding cost of checks for loop versioning aliasing.
+
+loopd.f:884: note: cost model: epilogue peel iters set to vf/2 because loop iterations are unknown .
+loopd.f:884: note: Cost model analysis: 
+  Vector inside of loop cost: 6
+  Vector outside of loop cost: 14
+  Scalar iteration cost: 4
+  Scalar outside cost: 1
+  prologue iterations: 0
+  epilogue iterations: 1
+  Calculated minimum iters for profitability: 11
+
+loopd.f:884: note:   Profitability threshold = 10
+
+loopd.f:884: note: Profitability threshold is 10 loop iterations.
+loopd.f:884: note: create runtime check for data references (*a_94(D))[D.21605_113] and (*a_94(D))[D.21603_111]
+loopd.f:884: note: created 1 versioning for alias checks.
+
+loopd.f:884: note: LOOP VECTORIZED.
+loopd.f:869: note: vectorized 1 loops in function.
+
+loopd.f:909: note: not vectorized: inner-loop count not invariant.
+loopd.f:910: note: Unknown alignment for access: *a_92(D)
+loopd.f:910: note: versioning for alias required: can't determine dependence between (*a_92(D))[D.21557_113] and (*a_92(D))[D.21553_116]
+loopd.f:910: note: mark for run-time aliasing test between (*a_92(D))[D.21557_113] and (*a_92(D))[D.21553_116]
+loopd.f:910: note: Vectorizing an unaligned access.
+loopd.f:910: note: Vectorizing an unaligned access.
+loopd.f:910: note: Vectorizing an unaligned access.
+loopd.f:910: note: vect_model_load_cost: unaligned supported by hardware.
+loopd.f:910: note: vect_model_load_cost: inside_cost = 2, outside_cost = 0 .
+loopd.f:910: note: vect_model_load_cost: unaligned supported by hardware.
+loopd.f:910: note: vect_model_load_cost: inside_cost = 2, outside_cost = 0 .
+loopd.f:910: note: vect_model_simple_cost: inside_cost = 1, outside_cost = 0 .
+loopd.f:910: note: vect_model_store_cost: inside_cost = 1, outside_cost = 0 .
+loopd.f:910: note: cost model: Adding cost of checks for loop versioning aliasing.
+
+loopd.f:910: note: cost model: epilogue peel iters set to vf/2 because loop iterations are unknown .
+loopd.f:910: note: Cost model analysis: 
+  Vector inside of loop cost: 6
+  Vector outside of loop cost: 14
+  Scalar iteration cost: 4
+  Scalar outside cost: 1
+  prologue iterations: 0
+  epilogue iterations: 1
+  Calculated minimum iters for profitability: 11
+
+loopd.f:910: note:   Profitability threshold = 10
+
+loopd.f:910: note: Profitability threshold is 10 loop iterations.
+loopd.f:910: note: create runtime check for data references (*a_92(D))[D.21557_113] and (*a_92(D))[D.21553_116]
+loopd.f:910: note: created 1 versioning for alias checks.
+
+loopd.f:910: note: LOOP VECTORIZED.
+loopd.f:896: note: vectorized 1 loops in function.
+
+loopd.f:935: note: not vectorized: inner-loop count not invariant.
+loopd.f:936: note: not vectorized: data ref analysis failed D.21508_124 = (*a_93(D))[D.21507_123];
+
+loopd.f:922: note: vectorized 0 loops in function.
+
+loopd.f:962: note: not vectorized: multiple nested loops.
+loopd.f:963: note: not vectorized: control flow in loop.
+loopd.f:964: note: Unknown alignment for access: *b_96(D)
+loopd.f:964: note: dependence distance  = 0.
+loopd.f:964: note: accesses have the same alignment.
+loopd.f:964: note: dependence distance modulo vf == 0 between (*a_95(D))[D.21438_117] and (*a_95(D))[D.21438_117]
+loopd.f:964: note: Vectorizing an unaligned access.
+loopd.f:964: note: Vectorizing an unaligned access.
+loopd.f:964: note: Vectorizing an unaligned access.
+loopd.f:964: note: vect_model_load_cost: unaligned supported by hardware.
+loopd.f:964: note: vect_model_load_cost: inside_cost = 2, outside_cost = 0 .
+loopd.f:964: note: vect_model_load_cost: unaligned supported by hardware.
+loopd.f:964: note: vect_model_load_cost: inside_cost = 2, outside_cost = 0 .
+loopd.f:964: note: vect_model_simple_cost: inside_cost = 1, outside_cost = 1 .
+loopd.f:964: note: vect_model_simple_cost: inside_cost = 1, outside_cost = 0 .
+loopd.f:964: note: vect_model_store_cost: inside_cost = 1, outside_cost = 0 .
+loopd.f:964: note: cost model: epilogue peel iters set to vf/2 because loop iterations are unknown .
+loopd.f:964: note: Cost model analysis: 
+  Vector inside of loop cost: 7
+  Vector outside of loop cost: 12
+  Scalar iteration cost: 5
+  Scalar outside cost: 6
+  prologue iterations: 0
+  epilogue iterations: 1
+  Calculated minimum iters for profitability: 2
+
+loopd.f:964: note:   Profitability threshold = 1
+
+loopd.f:964: note: Profitability threshold is 1 loop iterations.
+loopd.f:964: note: LOOP VECTORIZED.
+loopd.f:948: note: vectorized 1 loops in function.
+
+loopd.f:996: note: not vectorized: inner-loop count not invariant.
+loopd.f:997: note: dependence distance  = 1.
+loopd.f:997: note: not vectorized, possible dependence between data-refs (*b_93(D))[D.21377_110] and (*b_93(D))[D.21374_113]
+loopd.f:983: note: vectorized 0 loops in function.
+
+loopd.f:1023: note: not vectorized: inner-loop count not invariant.
+loopd.f:1024: note: dependence distance  = 0.
+loopd.f:1024: note: accesses have the same alignment.
+loopd.f:1024: note: dependence distance modulo vf == 0 between (*a_92(D))[D.21319_109] and (*a_92(D))[D.21319_109]
+loopd.f:1024: note: dependence distance  = 1.
+loopd.f:1024: note: not vectorized, possible dependence between data-refs (*a_92(D))[D.21319_109] and (*a_92(D))[D.21326_122]
+loopd.f:1010: note: vectorized 0 loops in function.
+
+loopd.f:1050: note: not vectorized: inner-loop count not invariant.
+loopd.f:1051: note: dependence distance  = 0.
+loopd.f:1051: note: accesses have the same alignment.
+loopd.f:1051: note: dependence distance modulo vf == 0 between (*a_92(D))[D.21264_108] and (*a_92(D))[D.21264_108]
+loopd.f:1051: note: dependence distance  = 1.
+loopd.f:1051: note: not vectorized, possible dependence between data-refs (*b_93(D))[D.21272_122] and (*b_93(D))[D.21264_108]
+loopd.f:1037: note: vectorized 0 loops in function.
+
+loopd.f:1077: note: not vectorized: inner-loop count not invariant.
+loopd.f:1078: note: dependence distance  = 0.
+loopd.f:1078: note: accesses have the same alignment.
+loopd.f:1078: note: dependence distance modulo vf == 0 between (*a_92(D))[D.21208_108] and (*a_92(D))[D.21208_108]
+loopd.f:1078: note: dependence distance  = 0.
+loopd.f:1078: note: accesses have the same alignment.
+loopd.f:1078: note: dependence distance modulo vf == 0 between (*b_93(D))[D.21208_108] and (*b_93(D))[D.21208_108]
+loopd.f:1078: note: dependence distance  = 1.
+loopd.f:1078: note: not vectorized, possible dependence between data-refs (*b_93(D))[D.21216_126] and (*b_93(D))[D.21208_108]
+loopd.f:1064: note: vectorized 0 loops in function.
+
+loopd.f:1105: note: not vectorized: multiple nested loops.
+loopd.f:1106: note: not vectorized: control flow in loop.
+loopd.f:1107: note: not vectorized: data ref analysis failed D.21159_121 = (*aa_98(D))[D.21158_120];
+
+loopd.f:1092: note: vectorized 0 loops in function.
+
+loopd.f:1133: note: not vectorized: multiple nested loops.
+loopd.f:1134: note: not vectorized: inner-loop count not invariant.
+loopd.f:1135: note: Unknown alignment for access: *aa_98(D)
+loopd.f:1135: note: Unknown alignment for access: *bb_99(D)
+loopd.f:1135: note: Unknown alignment for access: *aa_98(D)
+loopd.f:1135: note: dependence distance  = 1.
+loopd.f:1135: note: not vectorized, possible dependence between data-refs (*aa_98(D))[D.21094_128] and (*aa_98(D))[D.21090_115]
+loopd.f:1120: note: vectorized 0 loops in function.
+
+loopd.f:1161: note: not vectorized: multiple nested loops.
+loopd.f:1162: note: not vectorized: multiple nested loops.
+loopd.f:1166: note: not vectorized: data ref analysis failed D.21034_145 = (*bb_100(D))[D.21033_144];
+
+loopd.f:1163: note: not vectorized: data ref analysis failed D.21017_122 = (*aa_99(D))[D.21016_121];
+
+loopd.f:1148: note: vectorized 0 loops in function.
+
+loopd.f:1192: note: not vectorized: multiple nested loops.
+loopd.f:1194: note: not vectorized: control flow in loop.
+loopd.f:1196: note: not vectorized: data ref analysis failed D.20952_121 = (*aa_98(D))[D.20951_120];
+
+loopd.f:1179: note: vectorized 0 loops in function.
+
+loopd.f:1225: note: not vectorized: multiple nested loops.
+loopd.f:1226: note: not vectorized: control flow in loop.
+loopd.f:1228: note: not vectorized: data ref analysis failed D.20891_134 = (*aa_98(D))[D.20890_133];
+
+loopd.f:1212: note: vectorized 0 loops in function.
+
+loopd.f:1254: note: not vectorized: inner-loop count not invariant.
+loopd.f:1255: note: dependence distance  = 0.
+loopd.f:1255: note: accesses have the same alignment.
+loopd.f:1255: note: dependence distance modulo vf == 0 between (*b_93(D))[D.20816_109] and (*b_93(D))[D.20816_109]
+loopd.f:1255: note: dependence distance  = 1.
+loopd.f:1255: note: not vectorized, possible dependence between data-refs (*a_92(D))[D.20816_109] and (*a_92(D))[D.20825_126]
+loopd.f:1241: note: vectorized 0 loops in function.
+
+loopd.f:1280: note: not vectorized: inner-loop count not invariant.
+loopd.f:1281: note: dependence distance  = 1.
+loopd.f:1281: note: not vectorized, possible dependence between data-refs (*a_92(D))[D.20763_109] and (*a_92(D))[D.20760_118]
+loopd.f:1268: note: vectorized 0 loops in function.
+
+loopd.f:1306: note: not vectorized: inner-loop count not invariant.
+loopd.f:1307: note: dependence distance  = 0.
+loopd.f:1307: note: accesses have the same alignment.
+loopd.f:1307: note: dependence distance modulo vf == 0 between (*b_93(D))[D.20701_109] and (*b_93(D))[D.20701_109]
+loopd.f:1307: note: dependence distance  = 1.
+loopd.f:1307: note: not vectorized, possible dependence between data-refs (*a_92(D))[D.20701_109] and (*a_92(D))[D.20713_139]
+loopd.f:1293: note: vectorized 0 loops in function.
+
+loopd.f:1334: note: not vectorized: inner-loop count not invariant.
+loopd.f:1335: note: dependence distance  = 0.
+loopd.f:1335: note: accesses have the same alignment.
+loopd.f:1335: note: dependence distance modulo vf == 0 between (*b_93(D))[D.20645_109] and (*b_93(D))[D.20645_109]
+loopd.f:1335: note: dependence distance  = 1.
+loopd.f:1335: note: not vectorized, possible dependence between data-refs (*a_92(D))[D.20645_109] and (*a_92(D))[D.20654_136]
+loopd.f:1321: note: vectorized 0 loops in function.
+
+loopd.f:1362: note: not vectorized: inner-loop count not invariant.
+loopd.f:1363: note: Vectorizing an unaligned access.
+loopd.f:1363: note: Vectorizing an unaligned access.
+loopd.f:1363: note: Vectorizing an unaligned access.
+loopd.f:1363: note: Vectorizing an unaligned access.
+loopd.f:1363: note: vect_model_load_cost: unaligned supported by hardware.
+loopd.f:1363: note: vect_model_load_cost: inside_cost = 2, outside_cost = 0 .
+loopd.f:1363: note: vect_model_load_cost: unaligned supported by hardware.
+loopd.f:1363: note: vect_model_load_cost: inside_cost = 2, outside_cost = 0 .
+loopd.f:1363: note: vect_model_load_cost: unaligned supported by hardware.
+loopd.f:1363: note: vect_model_load_cost: inside_cost = 2, outside_cost = 0 .
+loopd.f:1363: note: vect_model_simple_cost: inside_cost = 1, outside_cost = 0 .
+loopd.f:1363: note: vect_model_simple_cost: inside_cost = 1, outside_cost = 0 .
+loopd.f:1363: note: vect_model_simple_cost: inside_cost = 1, outside_cost = 0 .
+loopd.f:1363: note: vect_model_store_cost: inside_cost = 1, outside_cost = 0 .
+loopd.f:1363: note: cost model: epilogue peel iters set to vf/2 because loop iterations are unknown .
+loopd.f:1363: note: Cost model analysis: 
+  Vector inside of loop cost: 10
+  Vector outside of loop cost: 13
+  Scalar iteration cost: 7
+  Scalar outside cost: 6
+  prologue iterations: 0
+  epilogue iterations: 1
+  Calculated minimum iters for profitability: 2
+
+loopd.f:1363: note:   Profitability threshold = 1
+
+loopd.f:1363: note: Profitability threshold is 1 loop iterations.
+loopd.f:1363: note: LOOP VECTORIZED.
+loopd.f:1349: note: vectorized 1 loops in function.
+
+loopd.f:1389: note: not vectorized: inner-loop count not invariant.
+loopd.f:1391: note: not vectorized: unsupported use in stmt.
+loopd.f:1376: note: vectorized 0 loops in function.
+
+loopd.f:1418: note: not vectorized: control flow in loop.
+loopd.f:1418: note: not vectorized: Bad inner loop.
+loopd.f:1419: note: not vectorized: control flow in loop.
+loopd.f:1405: note: vectorized 0 loops in function.
+
+loopd.f:1448: note: not vectorized: inner-loop count not invariant.
+loopd.f:1450: note: not vectorized: unsupported use in stmt.
+loopd.f:1435: note: vectorized 0 loops in function.
+
+loopd.f:1476: note: not vectorized: inner-loop count not invariant.
+loopd.f:1479: note: not vectorized: unsupported use in stmt.
+loopd.f:1463: note: vectorized 0 loops in function.
+
+loopd.f:1506: note: not vectorized: multiple nested loops.
+loopd.f:1507: note: not vectorized: control flow in loop.
+loopd.f:1508: note: not vectorized: data ref analysis failed D.20347_117 = (*aa_98(D))[D.20346_116];
+
+loopd.f:1493: note: vectorized 0 loops in function.
+
+loopd.f:1535: note: not vectorized: multiple nested loops.
+loopd.f:1536: note: not vectorized: unexpected loop form.
+loopd.f:1537: note: not vectorized: data ref analysis failed D.20281_117 = (*aa_98(D))[D.20280_116];
+
+loopd.f:1522: note: vectorized 0 loops in function.
+
+loopd.f:1564: note: not vectorized: control flow in loop.
+loopd.f:1564: note: not vectorized: Bad inner loop.
+loopd.f:1566: note: not vectorized: control flow in loop.
+loopd.f:1551: note: vectorized 0 loops in function.
+
+loopd.f:1594: note: not vectorized: inner-loop count not invariant.
+loopd.f:1595: note: dependence distance  = 0.
+loopd.f:1595: note: accesses have the same alignment.
+loopd.f:1595: note: dependence distance modulo vf == 0 between (*a_92(D))[D.20161_106] and (*a_92(D))[D.20161_106]
+loopd.f:1595: note: dependence distance  = 1.
+loopd.f:1595: note: not vectorized, possible dependence between data-refs (*c_94(D))[D.20166_116] and (*c_94(D))[D.20161_106]
+loopd.f:1582: note: vectorized 0 loops in function.
+
+loopd.f:1623: note: not vectorized: control flow in loop.
+loopd.f:1623: note: not vectorized: Bad inner loop.
+loopd.f:1624: note: not vectorized: control flow in loop.
+loopd.f:1610: note: vectorized 0 loops in function.
+
+loopd.f:1649: note: not vectorized: control flow in loop.
+loopd.f:1649: note: not vectorized: Bad inner loop.
+loopd.f:1650: note: not vectorized: control flow in loop.
+loopd.f:1636: note: vectorized 0 loops in function.
+
+loopd.f:1678: note: not vectorized: control flow in loop.
+loopd.f:1678: note: not vectorized: Bad inner loop.
+loopd.f:1679: note: not vectorized: control flow in loop.
+loopd.f:1665: note: vectorized 0 loops in function.
+
+loopd.f:1706: note: not vectorized: control flow in loop.
+loopd.f:1706: note: not vectorized: Bad inner loop.
+loopd.f:1707: note: not vectorized: control flow in loop.
+loopd.f:1693: note: vectorized 0 loops in function.
+
+loopd.f:1737: note: not vectorized: multiple nested loops.
+loopd.f:1738: note: not vectorized: inner-loop count not invariant.
+loopd.f:1740: note: not vectorized: data ref analysis failed D.19885_126 = (*aa_98(D))[D.19884_125];
+
+loopd.f:1724: note: vectorized 0 loops in function.
+
+loopd.f:1768: note: not vectorized: control flow in loop.
+loopd.f:1768: note: not vectorized: Bad inner loop.
+loopd.f:1769: note: not vectorized: control flow in loop.
+loopd.f:1754: note: vectorized 0 loops in function.
+
+loopd.f:1798: note: not vectorized: control flow in loop.
+loopd.f:1798: note: not vectorized: Bad inner loop.
+loopd.f:1799: note: not vectorized: control flow in loop.
+loopd.f:1785: note: vectorized 0 loops in function.
+
+loopd.f:1829: note: not vectorized: control flow in loop.
+loopd.f:1829: note: not vectorized: Bad inner loop.
+loopd.f:1830: note: not vectorized: control flow in loop.
+loopd.f:1816: note: vectorized 0 loops in function.
+
+loopd.f:1861: note: not vectorized: control flow in loop.
+loopd.f:1861: note: not vectorized: Bad inner loop.
+loopd.f:1862: note: not vectorized: control flow in loop.
+loopd.f:1848: note: vectorized 0 loops in function.
+
+loopd.f:1895: note: not vectorized: control flow in loop.
+loopd.f:1895: note: not vectorized: Bad inner loop.
+loopd.f:1896: note: not vectorized: control flow in loop.
+loopd.f:1882: note: vectorized 0 loops in function.
+
+loopd.f:1935: note: not vectorized: control flow in loop.
+loopd.f:1935: note: not vectorized: Bad inner loop.
+loopd.f:1936: note: not vectorized: control flow in loop.
+loopd.f:1922: note: vectorized 0 loops in function.
+
+loopd.f:1961: note: not vectorized: control flow in loop.
+loopd.f:1961: note: not vectorized: Bad inner loop.
+loopd.f:1962: note: not vectorized: control flow in loop.
+loopd.f:1948: note: vectorized 0 loops in function.
+
+loopd.f:1987: note: not vectorized: inner-loop count not invariant.
+loopd.f:1988: note: Unknown alignment for access: *a_92(D)
+loopd.f:1988: note: versioning for alias required: can't determine dependence between (*a_92(D))[D.19414_109] and (*a_92(D))[D.19417_112]
+loopd.f:1988: note: mark for run-time aliasing test between (*a_92(D))[D.19414_109] and (*a_92(D))[D.19417_112]
+loopd.f:1988: note: dependence distance  = 0.
+loopd.f:1988: note: accesses have the same alignment.
+loopd.f:1988: note: dependence distance modulo vf == 0 between (*b_93(D))[D.19417_112] and (*b_93(D))[D.19417_112]
+loopd.f:1988: note: not vectorized: complicated access pattern.
+loopd.f:1974: note: vectorized 0 loops in function.
+
+loopd.f:2015: note: not vectorized: inner-loop count not invariant.
+loopd.f:2017: note: not vectorized: unsupported use in stmt.
+loopd.f:2002: note: vectorized 0 loops in function.
+
+loopd.f:2043: note: not vectorized: inner-loop count not invariant.
+loopd.f:2046: note: not vectorized: unsupported use in stmt.
+loopd.f:2030: note: vectorized 0 loops in function.
+
+loopd.f:2073: note: not vectorized: inner-loop count not invariant.
+loopd.f:2074: note: not vectorized: unhandled data-ref 
+loopd.f:2060: note: vectorized 0 loops in function.
+
+loopd.f:2099: note: not vectorized: inner-loop count not invariant.
+loopd.f:2100: note: not vectorized: data ref analysis failed D.19219_113 = (*aa_97(D))[D.19218_112];
+
+loopd.f:2086: note: vectorized 0 loops in function.
+
+loopd.f:2125: note: not vectorized: multiple nested loops.
+loopd.f:2126: note: not vectorized: unexpected loop form.
+loopd.f:2127: note: not vectorized: data ref analysis failed (*aa_98(D))[D.19170_114] = 0.0;
+
+loopd.f:2112: note: vectorized 0 loops in function.
+
+loopd.f:2153: note: not vectorized: multiple nested loops.
+loopd.f:2154: note: not vectorized: unexpected loop form.
+loopd.f:2155: note: Unknown alignment for access: *aa_98(D)
+loopd.f:2155: note: Unknown alignment for access: *aa_98(D)
+loopd.f:2155: note: Unknown alignment for access: *aa_98(D)
+loopd.f:2155: note: dependence distance  = 1.
+loopd.f:2155: note: not vectorized, possible dependence between data-refs (*aa_98(D))[D.19107_120] and (*aa_98(D))[D.19103_114]
+loopd.f:2141: note: vectorized 0 loops in function.
+
+loopd.f:2188: note: not vectorized: inner-loop count not invariant.
+loopd.f:2190: note: not vectorized: unsupported use in stmt.
+loopd.f:2175: note: vectorized 0 loops in function.
+
+loopd.f:2215: note: not vectorized: inner-loop count not invariant.
+loopd.f:2217: note: not vectorized: unsupported use in stmt.
+loopd.f:2202: note: vectorized 0 loops in function.
+
+loopd.f:2242: note: not vectorized: inner-loop count not invariant.
+loopd.f:2244: note: not vectorized: unsupported use in stmt.
+loopd.f:2229: note: vectorized 0 loops in function.
+
+loopd.f:2269: note: not vectorized: control flow in loop.
+loopd.f:2269: note: not vectorized: Bad inner loop.
+loopd.f:2271: note: not vectorized: control flow in loop.
+loopd.f:2256: note: vectorized 0 loops in function.
+
+loopd.f:2296: note: not vectorized: control flow in loop.
+loopd.f:2296: note: not vectorized: Bad inner loop.
+loopd.f:2299: note: not vectorized: control flow in loop.
+loopd.f:2283: note: vectorized 0 loops in function.
+
+loopd.f:2328: note: not vectorized: control flow in loop.
+loopd.f:2328: note: not vectorized: Bad inner loop.
+loopd.f:2330: note: not vectorized: control flow in loop.
+loopd.f:2315: note: vectorized 0 loops in function.
+
+loopd.f:2358: note: not vectorized: inner-loop count not invariant.
+loopd.f:2360: note: not vectorized: unsupported use in stmt.
+loopd.f:2342: note: vectorized 0 loops in function.
+
+loopd.f:2386: note: not vectorized: control flow in loop.
+loopd.f:2386: note: not vectorized: Bad inner loop.
+loopd.f:2391: note: not vectorized: control flow in loop.
+loopd.f:2372: note: vectorized 0 loops in function.
+
+loopd.f:2420: note: not vectorized: inner-loop count not invariant.
+loopd.f:2422: note: not vectorized: unsupported use in stmt.
+loopd.f:2407: note: vectorized 0 loops in function.
+
+loopd.f:2450: note: not vectorized: multiple nested loops.
+loopd.f:2454: note: not vectorized: control flow in loop.
+loopd.f:2454: note: not vectorized: Bad inner loop.
+loopd.f:2455: note: not vectorized: control flow in loop.
+loopd.f:2437: note: vectorized 0 loops in function.
+
+loopd.f:2486: note: not vectorized: control flow in loop.
+loopd.f:2486: note: not vectorized: Bad inner loop.
+loopd.f:2488: note: not vectorized: control flow in loop.
+loopd.f:2473: note: vectorized 0 loops in function.
+
+loopd.f:2513: note: not vectorized: inner-loop count not invariant.
+loopd.f:2515: note: not vectorized: unsupported use in stmt.
+loopd.f:2500: note: vectorized 0 loops in function.
+
+loopd.f:2541: note: not vectorized: control flow in loop.
+loopd.f:2541: note: not vectorized: Bad inner loop.
+loopd.f:2543: note: not vectorized: control flow in loop.
+loopd.f:2528: note: vectorized 0 loops in function.
+
+loopd.f:2568: note: not vectorized: inner-loop count not invariant.
+loopd.f:2569: note: dependence distance  = 0.
+loopd.f:2569: note: accesses have the same alignment.
+loopd.f:2569: note: dependence distance modulo vf == 0 between (*a_92(D))[D.18433_108] and (*a_92(D))[D.18433_108]
+loopd.f:2569: note: dependence distance  = 1.
+loopd.f:2569: note: not vectorized, possible dependence between data-refs (*a_92(D))[D.18437_112] and (*a_92(D))[D.18433_108]
+loopd.f:2555: note: vectorized 0 loops in function.
+
+loopd.f:2594: note: not vectorized: inner-loop count not invariant.
+loopd.f:2595: note: dependence distance  = 0.
+loopd.f:2595: note: accesses have the same alignment.
+loopd.f:2595: note: dependence distance modulo vf == 0 between (*a_92(D))[D.18376_108] and (*a_92(D))[D.18376_108]
+loopd.f:2595: note: dependence distance  = 1.
+loopd.f:2595: note: not vectorized, possible dependence between data-refs (*a_92(D))[D.18380_112] and (*a_92(D))[D.18376_108]
+loopd.f:2581: note: vectorized 0 loops in function.
+
+loopd.f:2620: note: not vectorized: inner-loop count not invariant.
+loopd.f:2621: note: dependence distance  = 1.
+loopd.f:2621: note: not vectorized, possible dependence between data-refs (*b_93(D))[D.18323_109] and (*b_93(D))[D.18320_112]
+loopd.f:2607: note: vectorized 0 loops in function.
+
+loopd.f:2646: note: not vectorized: control flow in loop.
+loopd.f:2646: note: not vectorized: Bad inner loop.
+loopd.f:2648: note: not vectorized: control flow in loop.
+loopd.f:2634: note: vectorized 0 loops in function.
+
+loopd.f:2674: note: not vectorized: control flow in loop.
+loopd.f:2674: note: not vectorized: Bad inner loop.
+loopd.f:2678: note: not vectorized: control flow in loop.
+loopd.f:2661: note: vectorized 0 loops in function.
+
+loopd.f:2708: note: not vectorized: control flow in loop.
+loopd.f:2708: note: not vectorized: Bad inner loop.
+loopd.f:2710: note: not vectorized: control flow in loop.
+loopd.f:2695: note: vectorized 0 loops in function.
+
+loopd.f:2738: note: not vectorized: control flow in loop.
+loopd.f:2738: note: not vectorized: Bad inner loop.
+loopd.f:2740: note: not vectorized: control flow in loop.
+loopd.f:2725: note: vectorized 0 loops in function.
+
+loopd.f:2770: note: not vectorized: multiple nested loops.
+loopd.f:2772: note: not vectorized: control flow in loop.
+loopd.f:2772: note: not vectorized: Bad inner loop.
+loopd.f:2773: note: not vectorized: control flow in loop.
+loopd.f:2755: note: vectorized 0 loops in function.
+
+loopd.f:2803: note: not vectorized: unexpected loop form.
+loopd.f:2803: note: not vectorized: Bad inner loop.
+loopd.f:2804: note: not vectorized: unexpected loop form.
+loopd.f:2789: note: vectorized 0 loops in function.
+
+loopd.f:2833: note: not vectorized: unexpected loop form.
+loopd.f:2833: note: not vectorized: Bad inner loop.
+loopd.f:2835: note: not vectorized: unexpected loop form.
+loopd.f:2820: note: vectorized 0 loops in function.
+
+loopd.f:2862: note: not vectorized: unexpected loop form.
+loopd.f:2862: note: not vectorized: Bad inner loop.
+loopd.f:2863: note: not vectorized: unexpected loop form.
+loopd.f:2848: note: vectorized 0 loops in function.
+
+loopd.f:2898: note: not vectorized: inner-loop count not invariant.
+loopd.f:2902: note: dependence distance  = 0.
+loopd.f:2902: note: accesses have the same alignment.
+loopd.f:2902: note: dependence distance modulo vf == 0 between (*a_92(D))[D.17778_109] and (*a_92(D))[D.17778_109]
+loopd.f:2902: note: Vectorizing an unaligned access.
+loopd.f:2902: note: Vectorizing an unaligned access.
+loopd.f:2902: note: Vectorizing an unaligned access.
+loopd.f:2902: note: Vectorizing an unaligned access.
+loopd.f:2902: note: vect_model_load_cost: unaligned supported by hardware.
+loopd.f:2902: note: vect_model_load_cost: inside_cost = 2, outside_cost = 0 .
+loopd.f:2902: note: vect_model_load_cost: unaligned supported by hardware.
+loopd.f:2902: note: vect_model_load_cost: inside_cost = 2, outside_cost = 0 .
+loopd.f:2902: note: vect_model_load_cost: unaligned supported by hardware.
+loopd.f:2902: note: vect_model_load_cost: inside_cost = 2, outside_cost = 0 .
+loopd.f:2902: note: vect_model_simple_cost: inside_cost = 1, outside_cost = 0 .
+loopd.f:2902: note: vect_model_simple_cost: inside_cost = 1, outside_cost = 0 .
+loopd.f:2902: note: vect_model_store_cost: inside_cost = 1, outside_cost = 0 .
+loopd.f:2902: note: cost model: epilogue peel iters set to vf/2 because loop iterations are unknown .
+loopd.f:2902: note: Cost model analysis: 
+  Vector inside of loop cost: 9
+  Vector outside of loop cost: 12
+  Scalar iteration cost: 6
+  Scalar outside cost: 6
+  prologue iterations: 0
+  epilogue iterations: 1
+  Calculated minimum iters for profitability: 2
+
+loopd.f:2902: note:   Profitability threshold = 1
+
+loopd.f:2902: note: Profitability threshold is 1 loop iterations.
+loopd.f:2902: note: LOOP VECTORIZED.
+loopd.f:2885: note: vectorized 1 loops in function.
+
+loopd.f:2928: note: not vectorized: number of iterations cannot be computed.
+loopd.f:2928: note: not vectorized: Bad inner loop.
+loopd.f:2932: note: not vectorized: number of iterations cannot be computed.
+loopd.f:2915: note: vectorized 0 loops in function.
+
+loopd.f:2958: note: not vectorized: inner-loop count not invariant.
+loopd.f:2961: note: dependence distance  = 0.
+loopd.f:2961: note: accesses have the same alignment.
+loopd.f:2961: note: dependence distance modulo vf == 0 between (*b_93(D))[D.17686_108] and (*b_93(D))[D.17686_108]
+loopd.f:2961: note: Vectorizing an unaligned access.
+loopd.f:2961: note: Vectorizing an unaligned access.
+loopd.f:2961: note: Vectorizing an unaligned access.
+loopd.f:2961: note: Vectorizing an unaligned access.
+loopd.f:2961: note: Vectorizing an unaligned access.
+loopd.f:2961: note: Vectorizing an unaligned access.
+loopd.f:2961: note: Vectorizing an unaligned access.
+loopd.f:2961: note: Vectorizing an unaligned access.
+loopd.f:2961: note: vect_model_load_cost: unaligned supported by hardware.
+loopd.f:2961: note: vect_model_load_cost: inside_cost = 2, outside_cost = 0 .
+loopd.f:2961: note: vect_model_load_cost: unaligned supported by hardware.
+loopd.f:2961: note: vect_model_load_cost: inside_cost = 2, outside_cost = 0 .
+loopd.f:2961: note: vect_model_load_cost: unaligned supported by hardware.
+loopd.f:2961: note: vect_model_load_cost: inside_cost = 2, outside_cost = 0 .
+loopd.f:2961: note: vect_model_simple_cost: inside_cost = 1, outside_cost = 0 .
+loopd.f:2961: note: vect_model_simple_cost: inside_cost = 1, outside_cost = 0 .
+loopd.f:2961: note: vect_model_store_cost: inside_cost = 1, outside_cost = 0 .
+loopd.f:2961: note: vect_model_load_cost: unaligned supported by hardware.
+loopd.f:2961: note: vect_model_load_cost: inside_cost = 2, outside_cost = 0 .
+loopd.f:2961: note: vect_model_load_cost: unaligned supported by hardware.
+loopd.f:2961: note: vect_model_load_cost: inside_cost = 2, outside_cost = 0 .
+loopd.f:2961: note: vect_model_load_cost: unaligned supported by hardware.
+loopd.f:2961: note: vect_model_load_cost: inside_cost = 2, outside_cost = 0 .
+loopd.f:2961: note: vect_model_simple_cost: inside_cost = 1, outside_cost = 0 .
+loopd.f:2961: note: vect_model_simple_cost: inside_cost = 1, outside_cost = 0 .
+loopd.f:2961: note: vect_model_store_cost: inside_cost = 1, outside_cost = 0 .
+loopd.f:2961: note: cost model: epilogue peel iters set to vf/2 because loop iterations are unknown .
+loopd.f:2961: note: Cost model analysis: 
+  Vector inside of loop cost: 18
+  Vector outside of loop cost: 18
+  Scalar iteration cost: 12
+  Scalar outside cost: 6
+  prologue iterations: 0
+  epilogue iterations: 1
+  Calculated minimum iters for profitability: 2
+
+loopd.f:2961: note:   Profitability threshold = 1
+
+loopd.f:2961: note: Profitability threshold is 1 loop iterations.
+loopd.f:2961: note: LOOP VECTORIZED.
+loopd.f:2945: note: vectorized 1 loops in function.
+
+loopd.f:2989: note: not vectorized: multiple nested loops.
+loopd.f:2991: note: not vectorized: control flow in loop.
+loopd.f:2992: note: not vectorized: data ref analysis failed D.17631_121 = (*aa_98(D))[D.17630_120];
+
+loopd.f:2976: note: vectorized 0 loops in function.
+
+loopd.f:3020: note: not vectorized: number of iterations cannot be computed.
+loopd.f:3020: note: not vectorized: Bad inner loop.
+loopd.f:3024: note: not vectorized: number of iterations cannot be computed.
+loopd.f:3007: note: vectorized 0 loops in function.
+
+loopd.f:3055: note: not vectorized: inner-loop count not invariant.
+loopd.f:3056: note: versioning for alias required: can't determine dependence between equiv.0.y[D.17530_110] and equiv.0.x[D.17527_113]
+loopd.f:3056: note: mark for run-time aliasing test between equiv.0.y[D.17530_110] and equiv.0.x[D.17527_113]
+loopd.f:3056: note: Vectorizing an unaligned access.
+loopd.f:3056: note: Vectorizing an unaligned access.
+loopd.f:3056: note: vect_model_load_cost: unaligned supported by hardware.
+loopd.f:3056: note: vect_model_load_cost: inside_cost = 2, outside_cost = 0 .
+loopd.f:3056: note: vect_model_load_cost: unaligned supported by hardware.
+loopd.f:3056: note: vect_model_load_cost: inside_cost = 2, outside_cost = 0 .
+loopd.f:3056: note: vect_model_simple_cost: inside_cost = 1, outside_cost = 0 .
+loopd.f:3056: note: vect_model_store_cost: inside_cost = 1, outside_cost = 0 .
+loopd.f:3056: note: cost model: Adding cost of checks for loop versioning aliasing.
+
+loopd.f:3056: note: cost model: epilogue peel iters set to vf/2 because loop iterations are unknown .
+loopd.f:3056: note: Cost model analysis: 
+  Vector inside of loop cost: 6
+  Vector outside of loop cost: 14
+  Scalar iteration cost: 4
+  Scalar outside cost: 1
+  prologue iterations: 0
+  epilogue iterations: 1
+  Calculated minimum iters for profitability: 11
+
+loopd.f:3056: note:   Profitability threshold = 10
+
+loopd.f:3056: note: Profitability threshold is 10 loop iterations.
+loopd.f:3056: note: create runtime check for data references equiv.0.y[D.17530_110] and equiv.0.x[D.17527_113]
+loopd.f:3056: note: created 1 versioning for alias checks.
+
+loopd.f:3056: note: LOOP VECTORIZED.
+loopd.f:3037: note: vectorized 1 loops in function.
+
+loopd.f:3087: note: not vectorized: inner-loop count not invariant.
+loopd.f:3088: note: Vectorizing an unaligned access.
+loopd.f:3088: note: vect_model_load_cost: aligned.
+loopd.f:3088: note: vect_model_load_cost: inside_cost = 1, outside_cost = 0 .
+loopd.f:3088: note: vect_model_load_cost: unaligned supported by hardware.
+loopd.f:3088: note: vect_model_load_cost: inside_cost = 2, outside_cost = 0 .
+loopd.f:3088: note: vect_model_simple_cost: inside_cost = 1, outside_cost = 0 .
+loopd.f:3088: note: vect_model_store_cost: inside_cost = 1, outside_cost = 0 .
+loopd.f:3088: note: cost model: epilogue peel iters set to vf/2 because loop iterations are unknown .
+loopd.f:3088: note: Cost model analysis: 
+  Vector inside of loop cost: 5
+  Vector outside of loop cost: 10
+  Scalar iteration cost: 4
+  Scalar outside cost: 6
+  prologue iterations: 0
+  epilogue iterations: 1
+  Calculated minimum iters for profitability: 2
+
+loopd.f:3088: note:   Profitability threshold = 1
+
+loopd.f:3088: note: Profitability threshold is 1 loop iterations.
+loopd.f:3088: note: LOOP VECTORIZED.
+loopd.f:3068: note: vectorized 1 loops in function.
+
+loopd.f:3118: note: not vectorized: inner-loop count not invariant.
+loopd.f:3119: note: Vectorizing an unaligned access.
+loopd.f:3119: note: Vectorizing an unaligned access.
+loopd.f:3119: note: Vectorizing an unaligned access.
+loopd.f:3119: note: vect_model_load_cost: unaligned supported by hardware.
+loopd.f:3119: note: vect_model_load_cost: inside_cost = 2, outside_cost = 0 .
+loopd.f:3119: note: vect_model_load_cost: unaligned supported by hardware.
+loopd.f:3119: note: vect_model_load_cost: inside_cost = 2, outside_cost = 0 .
+loopd.f:3119: note: vect_model_simple_cost: inside_cost = 1, outside_cost = 0 .
+loopd.f:3119: note: vect_model_store_cost: inside_cost = 1, outside_cost = 0 .
+loopd.f:3119: note: cost model: epilogue peel iters set to vf/2 because loop iterations are unknown .
+loopd.f:3119: note: Cost model analysis: 
+  Vector inside of loop cost: 6
+  Vector outside of loop cost: 10
+  Scalar iteration cost: 4
+  Scalar outside cost: 6
+  prologue iterations: 0
+  epilogue iterations: 1
+  Calculated minimum iters for profitability: 2
+
+loopd.f:3119: note:   Profitability threshold = 1
+
+loopd.f:3119: note: Profitability threshold is 1 loop iterations.
+loopd.f:3119: note: LOOP VECTORIZED.
+loopd.f:3100: note: vectorized 1 loops in function.
+
+loopd.f:3150: note: not vectorized: inner-loop count not invariant.
+loopd.f:3151: note: Vectorizing an unaligned access.
+loopd.f:3151: note: vect_model_load_cost: aligned.
+loopd.f:3151: note: vect_model_load_cost: inside_cost = 1, outside_cost = 0 .
+loopd.f:3151: note: vect_model_load_cost: unaligned supported by hardware.
+loopd.f:3151: note: vect_model_load_cost: inside_cost = 2, outside_cost = 0 .
+loopd.f:3151: note: vect_model_simple_cost: inside_cost = 1, outside_cost = 0 .
+loopd.f:3151: note: vect_model_store_cost: inside_cost = 1, outside_cost = 0 .
+loopd.f:3151: note: cost model: epilogue peel iters set to vf/2 because loop iterations are unknown .
+loopd.f:3151: note: Cost model analysis: 
+  Vector inside of loop cost: 5
+  Vector outside of loop cost: 10
+  Scalar iteration cost: 4
+  Scalar outside cost: 6
+  prologue iterations: 0
+  epilogue iterations: 1
+  Calculated minimum iters for profitability: 2
+
+loopd.f:3151: note:   Profitability threshold = 1
+
+loopd.f:3151: note: Profitability threshold is 1 loop iterations.
+loopd.f:3151: note: LOOP VECTORIZED.
+loopd.f:3131: note: vectorized 1 loops in function.
+
+loopd.f:3177: note: not vectorized: inner-loop count not invariant.
+loopd.f:3178: note: dependence distance  = 0.
+loopd.f:3178: note: accesses have the same alignment.
+loopd.f:3178: note: dependence distance modulo vf == 0 between (*a_92(D))[D.17339_108] and (*a_92(D))[D.17339_108]
+loopd.f:3178: note: Vectorizing an unaligned access.
+loopd.f:3178: note: Vectorizing an unaligned access.
+loopd.f:3178: note: Vectorizing an unaligned access.
+loopd.f:3178: note: vect_model_load_cost: unaligned supported by hardware.
+loopd.f:3178: note: vect_model_load_cost: inside_cost = 2, outside_cost = 0 .
+loopd.f:3178: note: vect_model_load_cost: unaligned supported by hardware.
+loopd.f:3178: note: vect_model_load_cost: inside_cost = 2, outside_cost = 0 .
+loopd.f:3178: note: vect_model_simple_cost: inside_cost = 1, outside_cost = 0 .
+loopd.f:3178: note: vect_model_store_cost: inside_cost = 1, outside_cost = 0 .
+loopd.f:3178: note: cost model: epilogue peel iters set to vf/2 because loop iterations are unknown .
+loopd.f:3178: note: Cost model analysis: 
+  Vector inside of loop cost: 6
+  Vector outside of loop cost: 10
+  Scalar iteration cost: 4
+  Scalar outside cost: 6
+  prologue iterations: 0
+  epilogue iterations: 1
+  Calculated minimum iters for profitability: 2
+
+loopd.f:3178: note:   Profitability threshold = 1
+
+loopd.f:3178: note: Profitability threshold is 1 loop iterations.
+loopd.f:3178: note: LOOP VECTORIZED.
+loopd.f:3163: note: vectorized 1 loops in function.
+
+loopd.f:3205: note: not vectorized: inner-loop count not invariant.
+loopd.f:3206: note: dependence distance  = 0.
+loopd.f:3206: note: accesses have the same alignment.
+loopd.f:3206: note: dependence distance modulo vf == 0 between (*a_92(D))[D.17295_113] and (*a_92(D))[D.17295_113]
+loopd.f:3206: note: Vectorizing an unaligned access.
+loopd.f:3206: note: Vectorizing an unaligned access.
+loopd.f:3206: note: Vectorizing an unaligned access.
+loopd.f:3206: note: vect_model_load_cost: unaligned supported by hardware.
+loopd.f:3206: note: vect_model_load_cost: inside_cost = 2, outside_cost = 0 .
+loopd.f:3206: note: vect_model_load_cost: unaligned supported by hardware.
+loopd.f:3206: note: vect_model_load_cost: inside_cost = 2, outside_cost = 0 .
+loopd.f:3206: note: vect_model_simple_cost: inside_cost = 1, outside_cost = 0 .
+loopd.f:3206: note: vect_model_store_cost: inside_cost = 1, outside_cost = 0 .
+loopd.f:3206: note: cost model: epilogue peel iters set to vf/2 because loop iterations are unknown .
+loopd.f:3206: note: Cost model analysis: 
+  Vector inside of loop cost: 6
+  Vector outside of loop cost: 10
+  Scalar iteration cost: 4
+  Scalar outside cost: 6
+  prologue iterations: 0
+  epilogue iterations: 1
+  Calculated minimum iters for profitability: 2
+
+loopd.f:3206: note:   Profitability threshold = 1
+
+loopd.f:3206: note: Profitability threshold is 1 loop iterations.
+loopd.f:3206: note: LOOP VECTORIZED.
+loopd.f:3190: note: vectorized 1 loops in function.
+
+loopd.f:3231: note: not vectorized: control flow in loop.
+loopd.f:3231: note: not vectorized: Bad inner loop.
+loopd.f:3232: note: not vectorized: control flow in loop.
+loopd.f:3218: note: vectorized 0 loops in function.
+
+loopd.f:3263: note: not vectorized: control flow in loop.
+loopd.f:3263: note: not vectorized: Bad inner loop.
+loopd.f:3264: note: not vectorized: control flow in loop.
+loopd.f:3250: note: vectorized 0 loops in function.
+
+loopd.f:3297: note: not vectorized: control flow in loop.
+loopd.f:3297: note: not vectorized: Bad inner loop.
+loopd.f:3298: note: not vectorized: control flow in loop.
+loopd.f:3284: note: vectorized 0 loops in function.
+
+loopd.f:3327: note: not vectorized: inner-loop count not invariant.
+loopd.f:3328: note: Vectorizing an unaligned access.
+loopd.f:3328: note: Vectorizing an unaligned access.
+loopd.f:3328: note: Vectorizing an unaligned access.
+loopd.f:3328: note: vect_model_load_cost: unaligned supported by hardware.
+loopd.f:3328: note: vect_model_load_cost: inside_cost = 2, outside_cost = 0 .
+loopd.f:3328: note: not vectorized: relevant stmt not supported: D.17082_110 = sin (D.17081_109);
+
+loopd.f:3314: note: vectorized 0 loops in function.
+
+loopd.f:3353: note: not vectorized: inner-loop count not invariant.
+loopd.f:3354: note: Vectorizing an unaligned access.
+loopd.f:3354: note: Vectorizing an unaligned access.
+loopd.f:3354: note: Vectorizing an unaligned access.
+loopd.f:3354: note: vect_model_induction_cost: inside_cost = 1, outside_cost = 2 .
+loopd.f:3354: note: vect_model_load_cost: unaligned supported by hardware.
+loopd.f:3354: note: vect_model_load_cost: inside_cost = 4, outside_cost = 0 .
+loopd.f:3354: note: vect_model_load_cost: unaligned supported by hardware.
+loopd.f:3354: note: vect_model_load_cost: inside_cost = 4, outside_cost = 0 .
+loopd.f:3354: note: vect_model_simple_cost: inside_cost = 2, outside_cost = 0 .
+loopd.f:3354: note: vect_model_simple_cost: inside_cost = 2, outside_cost = 0 .
+loopd.f:3354: note: vect_model_store_cost: inside_cost = 2, outside_cost = 0 .
+loopd.f:3354: note: vect_model_simple_cost: inside_cost = 1, outside_cost = 1 .
+loopd.f:3354: note: cost model: epilogue peel iters set to vf/2 because loop iterations are unknown .
+loopd.f:3354: note: Cost model analysis: 
+  Vector inside of loop cost: 15
+  Vector outside of loop cost: 21
+  Scalar iteration cost: 7
+  Scalar outside cost: 6
+  prologue iterations: 0
+  epilogue iterations: 2
+  Calculated minimum iters for profitability: 3
+
+loopd.f:3354: note:   Profitability threshold = 3
+
+loopd.f:3354: note: Profitability threshold is 3 loop iterations.
+loopd.f:3354: note: LOOP VECTORIZED.
+loopd.f:3340: note: vectorized 1 loops in function.
+
+loopd.f:3379: note: not vectorized: inner-loop count not invariant.
+loopd.f:3381: note: not vectorized: unsupported use in stmt.
+loopd.f:3366: note: vectorized 0 loops in function.
+
+loopd.f:3409: note: not vectorized: control flow in loop.
+loopd.f:3410: note: not vectorized: unhandled data-ref 
+loopd.f:3394: note: vectorized 0 loops in function.
+
+loopd.f:3439: note: not vectorized: control flow in loop.
+loopd.f:3439: note: not vectorized: Bad inner loop.
+loopd.f:3440: note: not vectorized: control flow in loop.
+loopd.f:3425: note: vectorized 0 loops in function.
+
+loopd.f:3466: note: not vectorized: control flow in loop.
+loopd.f:3466: note: not vectorized: Bad inner loop.
+loopd.f:3467: note: not vectorized: control flow in loop.
+loopd.f:3452: note: vectorized 0 loops in function.
+
+loopd.f:3493: note: not vectorized: inner-loop count not invariant.
+loopd.f:3494: note: not vectorized: data ref analysis failed (*a_101(D))[D.16791_119] = D.16796_130;
+
+loopd.f:3480: note: vectorized 0 loops in function.
+
+loopd.f:3519: note: not vectorized: inner-loop count not invariant.
+loopd.f:3520: note: not vectorized: data ref analysis failed D.16742_125 = (*b_102(D))[D.16741_124];
+
+loopd.f:3506: note: vectorized 0 loops in function.
+
+loopd.f:3545: note: not vectorized: inner-loop count not invariant.
+loopd.f:3546: note: not vectorized: data ref analysis failed D.16692_125 = (*b_102(D))[D.16691_124];
+
+loopd.f:3532: note: vectorized 0 loops in function.
+
+loopd.f:3571: note: not vectorized: inner-loop count not invariant.
+loopd.f:3572: note: not vectorized: data ref analysis failed D.16642_130 = (*c_103(D))[D.16641_129];
+
+loopd.f:3558: note: vectorized 0 loops in function.
+
+loopd.f:3599: note: not vectorized: inner-loop count not invariant.
+loopd.f:3601: note: not vectorized: data ref analysis failed D.16593_128 = (*b_105(D))[D.16592_127];
+
+loopd.f:3586: note: vectorized 0 loops in function.
+
+loopd.f:3627: note: not vectorized: inner-loop count not invariant.
+loopd.f:3629: note: not vectorized: data ref analysis failed D.16544_137 = (*aa_109(D))[D.16543_136];
+
+loopd.f:3613: note: vectorized 0 loops in function.
+
+loopd.f:3655: note: not vectorized: inner-loop count not invariant.
+loopd.f:3656: note: not vectorized: data ref analysis failed D.16485_113 = (*c_94(D))[D.16484_112];
+
+loopd.f:3642: note: vectorized 0 loops in function.
+
+loopd.f:3682: note: not vectorized: inner-loop count not invariant.
+loopd.f:3683: note: dependence distance  = 0.
+loopd.f:3683: note: accesses have the same alignment.
+loopd.f:3683: note: dependence distance modulo vf == 0 between (*a_92(D))[D.16436_106] and (*a_92(D))[D.16436_106]
+loopd.f:3683: note: Vectorizing an unaligned access.
+loopd.f:3683: note: Vectorizing an unaligned access.
+loopd.f:3683: note: Vectorizing an unaligned access.
+loopd.f:3683: note: Vectorizing an unaligned access.
+loopd.f:3683: note: vect_model_load_cost: unaligned supported by hardware.
+loopd.f:3683: note: vect_model_load_cost: inside_cost = 2, outside_cost = 0 .
+loopd.f:3683: note: vect_model_load_cost: unaligned supported by hardware.
+loopd.f:3683: note: vect_model_load_cost: inside_cost = 2, outside_cost = 0 .
+loopd.f:3683: note: vect_model_load_cost: unaligned supported by hardware.
+loopd.f:3683: note: vect_model_load_cost: inside_cost = 2, outside_cost = 0 .
+loopd.f:3683: note: vect_model_simple_cost: inside_cost = 1, outside_cost = 0 .
+loopd.f:3683: note: vect_model_simple_cost: inside_cost = 1, outside_cost = 0 .
+loopd.f:3683: note: vect_model_store_cost: inside_cost = 1, outside_cost = 0 .
+loopd.f:3683: note: cost model: epilogue peel iters set to vf/2 because loop iterations are unknown .
+loopd.f:3683: note: Cost model analysis: 
+  Vector inside of loop cost: 9
+  Vector outside of loop cost: 12
+  Scalar iteration cost: 6
+  Scalar outside cost: 6
+  prologue iterations: 0
+  epilogue iterations: 1
+  Calculated minimum iters for profitability: 2
+
+loopd.f:3683: note:   Profitability threshold = 1
+
+loopd.f:3683: note: Profitability threshold is 1 loop iterations.
+loopd.f:3683: note: LOOP VECTORIZED.
+loopd.f:3668: note: vectorized 1 loops in function.
+
+loopd.f:3708: note: not vectorized: inner-loop count not invariant.
+loopd.f:3709: note: Vectorizing an unaligned access.
+loopd.f:3709: note: Vectorizing an unaligned access.
+loopd.f:3709: note: vect_model_load_cost: unaligned supported by hardware.
+loopd.f:3709: note: vect_model_load_cost: inside_cost = 2, outside_cost = 0 .
+loopd.f:3709: note: vect_model_store_cost: inside_cost = 1, outside_cost = 0 .
+loopd.f:3709: note: cost model: epilogue peel iters set to vf/2 because loop iterations are unknown .
+loopd.f:3709: note: Cost model analysis: 
+  Vector inside of loop cost: 3
+  Vector outside of loop cost: 8
+  Scalar iteration cost: 2
+  Scalar outside cost: 6
+  prologue iterations: 0
+  epilogue iterations: 1
+  Calculated minimum iters for profitability: 2
+
+loopd.f:3709: note:   Profitability threshold = 1
+
+loopd.f:3709: note: Profitability threshold is 1 loop iterations.
+loopd.f:3709: note: LOOP VECTORIZED.
+loopd.f:3695: note: vectorized 1 loops in function.
+
+loopd.f:3734: note: not vectorized: inner-loop count not invariant.
+loopd.f:3735: note: not vectorized: data ref analysis failed D.16353_122 = (*b_102(D))[D.16352_121];
+
+loopd.f:3721: note: vectorized 0 loops in function.
+
+loopd.f:3760: note: not vectorized: inner-loop count not invariant.
+loopd.f:3761: note: not vectorized: data ref analysis failed (*a_101(D))[D.16305_119] = D.16306_122;
+
+loopd.f:3747: note: vectorized 0 loops in function.
+
+loopd.f:3786: note: not vectorized: control flow in loop.
+loopd.f:3786: note: not vectorized: Bad inner loop.
+loopd.f:3787: note: not vectorized: control flow in loop.
+loopd.f:3773: note: vectorized 0 loops in function.
+
+loopd.f:3815: note: not vectorized: inner-loop count not invariant.
+loopd.f:3816: note: dependence distance  = 0.
+loopd.f:3816: note: accesses have the same alignment.
+loopd.f:3816: note: dependence distance modulo vf == 0 between (*a_92(D))[D.16210_108] and (*a_92(D))[D.16210_108]
+loopd.f:3816: note: Vectorizing an unaligned access.
+loopd.f:3816: note: Vectorizing an unaligned access.
+loopd.f:3816: note: Vectorizing an unaligned access.
+loopd.f:3816: note: vect_model_load_cost: unaligned supported by hardware.
+loopd.f:3816: note: vect_model_load_cost: inside_cost = 2, outside_cost = 0 .
+loopd.f:3816: note: vect_model_load_cost: unaligned supported by hardware.
+loopd.f:3816: note: vect_model_load_cost: inside_cost = 2, outside_cost = 0 .
+loopd.f:3816: note: vect_model_simple_cost: inside_cost = 1, outside_cost = 0 .
+loopd.f:3816: note: vect_model_store_cost: inside_cost = 1, outside_cost = 0 .
+loopd.f:3816: note: cost model: epilogue peel iters set to vf/2 because loop iterations are unknown .
+loopd.f:3816: note: Cost model analysis: 
+  Vector inside of loop cost: 6
+  Vector outside of loop cost: 10
+  Scalar iteration cost: 4
+  Scalar outside cost: 6
+  prologue iterations: 0
+  epilogue iterations: 1
+  Calculated minimum iters for profitability: 2
+
+loopd.f:3816: note:   Profitability threshold = 1
+
+loopd.f:3816: note: Profitability threshold is 1 loop iterations.
+loopd.f:3816: note: LOOP VECTORIZED.
+loopd.f:3802: note: vectorized 1 loops in function.
+
+loopd.f:3841: note: not vectorized: inner-loop count not invariant.
+loopd.f:3842: note: dependence distance  = 0.
+loopd.f:3842: note: accesses have the same alignment.
+loopd.f:3842: note: dependence distance modulo vf == 0 between (*a_92(D))[D.16166_108] and (*a_92(D))[D.16166_108]
+loopd.f:3842: note: Vectorizing an unaligned access.
+loopd.f:3842: note: Vectorizing an unaligned access.
+loopd.f:3842: note: Vectorizing an unaligned access.
+loopd.f:3842: note: vect_model_load_cost: unaligned supported by hardware.
+loopd.f:3842: note: vect_model_load_cost: inside_cost = 2, outside_cost = 0 .
+loopd.f:3842: note: vect_model_load_cost: unaligned supported by hardware.
+loopd.f:3842: note: vect_model_load_cost: inside_cost = 2, outside_cost = 0 .
+loopd.f:3842: note: vect_model_simple_cost: inside_cost = 1, outside_cost = 0 .
+loopd.f:3842: note: vect_model_store_cost: inside_cost = 1, outside_cost = 0 .
+loopd.f:3842: note: cost model: epilogue peel iters set to vf/2 because loop iterations are unknown .
+loopd.f:3842: note: Cost model analysis: 
+  Vector inside of loop cost: 6
+  Vector outside of loop cost: 10
+  Scalar iteration cost: 4
+  Scalar outside cost: 6
+  prologue iterations: 0
+  epilogue iterations: 1
+  Calculated minimum iters for profitability: 2
+
+loopd.f:3842: note:   Profitability threshold = 1
+
+loopd.f:3842: note: Profitability threshold is 1 loop iterations.
+loopd.f:3842: note: LOOP VECTORIZED.
+loopd.f:3828: note: vectorized 1 loops in function.
+
+loopd.f:3867: note: not vectorized: inner-loop count not invariant.
+loopd.f:3868: note: dependence distance  = 0.
+loopd.f:3868: note: accesses have the same alignment.
+loopd.f:3868: note: dependence distance modulo vf == 0 between (*a_92(D))[D.16120_108] and (*a_92(D))[D.16120_108]
+loopd.f:3868: note: Vectorizing an unaligned access.
+loopd.f:3868: note: Vectorizing an unaligned access.
+loopd.f:3868: note: Vectorizing an unaligned access.
+loopd.f:3868: note: Vectorizing an unaligned access.
+loopd.f:3868: note: vect_model_load_cost: unaligned supported by hardware.
+loopd.f:3868: note: vect_model_load_cost: inside_cost = 2, outside_cost = 0 .
+loopd.f:3868: note: vect_model_load_cost: unaligned supported by hardware.
+loopd.f:3868: note: vect_model_load_cost: inside_cost = 2, outside_cost = 0 .
+loopd.f:3868: note: vect_model_load_cost: unaligned supported by hardware.
+loopd.f:3868: note: vect_model_load_cost: inside_cost = 2, outside_cost = 0 .
+loopd.f:3868: note: vect_model_simple_cost: inside_cost = 1, outside_cost = 0 .
+loopd.f:3868: note: vect_model_simple_cost: inside_cost = 1, outside_cost = 0 .
+loopd.f:3868: note: vect_model_store_cost: inside_cost = 1, outside_cost = 0 .
+loopd.f:3868: note: cost model: epilogue peel iters set to vf/2 because loop iterations are unknown .
+loopd.f:3868: note: Cost model analysis: 
+  Vector inside of loop cost: 9
+  Vector outside of loop cost: 12
+  Scalar iteration cost: 6
+  Scalar outside cost: 6
+  prologue iterations: 0
+  epilogue iterations: 1
+  Calculated minimum iters for profitability: 2
+
+loopd.f:3868: note:   Profitability threshold = 1
+
+loopd.f:3868: note: Profitability threshold is 1 loop iterations.
+loopd.f:3868: note: LOOP VECTORIZED.
+loopd.f:3854: note: vectorized 1 loops in function.
+
+loopd.f:3893: note: not vectorized: inner-loop count not invariant.
+loopd.f:3894: note: dependence distance  = 0.
+loopd.f:3894: note: accesses have the same alignment.
+loopd.f:3894: note: dependence distance modulo vf == 0 between (*a_92(D))[D.16074_108] and (*a_92(D))[D.16074_108]
+loopd.f:3894: note: Vectorizing an unaligned access.
+loopd.f:3894: note: Vectorizing an unaligned access.
+loopd.f:3894: note: Vectorizing an unaligned access.
+loopd.f:3894: note: vect_model_load_cost: unaligned supported by hardware.
+loopd.f:3894: note: vect_model_load_cost: inside_cost = 2, outside_cost = 0 .
+loopd.f:3894: note: vect_model_load_cost: unaligned supported by hardware.
+loopd.f:3894: note: vect_model_load_cost: inside_cost = 2, outside_cost = 0 .
+loopd.f:3894: note: vect_model_simple_cost: inside_cost = 1, outside_cost = 1 .
+loopd.f:3894: note: vect_model_simple_cost: inside_cost = 1, outside_cost = 0 .
+loopd.f:3894: note: vect_model_store_cost: inside_cost = 1, outside_cost = 0 .
+loopd.f:3894: note: cost model: epilogue peel iters set to vf/2 because loop iterations are unknown .
+loopd.f:3894: note: Cost model analysis: 
+  Vector inside of loop cost: 7
+  Vector outside of loop cost: 12
+  Scalar iteration cost: 5
+  Scalar outside cost: 6
+  prologue iterations: 0
+  epilogue iterations: 1
+  Calculated minimum iters for profitability: 2
+
+loopd.f:3894: note:   Profitability threshold = 1
+
+loopd.f:3894: note: Profitability threshold is 1 loop iterations.
+loopd.f:3894: note: LOOP VECTORIZED.
+loopd.f:3880: note: vectorized 1 loops in function.
+
+loopd.f:3919: note: not vectorized: inner-loop count not invariant.
+loopd.f:3920: note: dependence distance  = 0.
+loopd.f:3920: note: accesses have the same alignment.
+loopd.f:3920: note: dependence distance modulo vf == 0 between (*a_92(D))[D.16028_108] and (*a_92(D))[D.16028_108]
+loopd.f:3920: note: Vectorizing an unaligned access.
+loopd.f:3920: note: Vectorizing an unaligned access.
+loopd.f:3920: note: Vectorizing an unaligned access.
+loopd.f:3920: note: Vectorizing an unaligned access.
+loopd.f:3920: note: vect_model_load_cost: unaligned supported by hardware.
+loopd.f:3920: note: vect_model_load_cost: inside_cost = 2, outside_cost = 0 .
+loopd.f:3920: note: vect_model_load_cost: unaligned supported by hardware.
+loopd.f:3920: note: vect_model_load_cost: inside_cost = 2, outside_cost = 0 .
+loopd.f:3920: note: vect_model_simple_cost: inside_cost = 1, outside_cost = 0 .
+loopd.f:3920: note: vect_model_load_cost: unaligned supported by hardware.
+loopd.f:3920: note: vect_model_load_cost: inside_cost = 2, outside_cost = 0 .
+loopd.f:3920: note: vect_model_simple_cost: inside_cost = 1, outside_cost = 0 .
+loopd.f:3920: note: vect_model_store_cost: inside_cost = 1, outside_cost = 0 .
+loopd.f:3920: note: cost model: epilogue peel iters set to vf/2 because loop iterations are unknown .
+loopd.f:3920: note: Cost model analysis: 
+  Vector inside of loop cost: 9
+  Vector outside of loop cost: 12
+  Scalar iteration cost: 6
+  Scalar outside cost: 6
+  prologue iterations: 0
+  epilogue iterations: 1
+  Calculated minimum iters for profitability: 2
+
+loopd.f:3920: note:   Profitability threshold = 1
+
+loopd.f:3920: note: Profitability threshold is 1 loop iterations.
+loopd.f:3920: note: LOOP VECTORIZED.
+loopd.f:3906: note: vectorized 1 loops in function.
+
+loopd.f:3945: note: not vectorized: inner-loop count not invariant.
+loopd.f:3946: note: dependence distance  = 0.
+loopd.f:3946: note: accesses have the same alignment.
+loopd.f:3946: note: dependence distance modulo vf == 0 between (*a_92(D))[D.15982_108] and (*a_92(D))[D.15982_108]
+loopd.f:3946: note: Vectorizing an unaligned access.
+loopd.f:3946: note: Vectorizing an unaligned access.
+loopd.f:3946: note: Vectorizing an unaligned access.
+loopd.f:3946: note: Vectorizing an unaligned access.
+loopd.f:3946: note: vect_model_load_cost: unaligned supported by hardware.
+loopd.f:3946: note: vect_model_load_cost: inside_cost = 2, outside_cost = 0 .
+loopd.f:3946: note: vect_model_load_cost: unaligned supported by hardware.
+loopd.f:3946: note: vect_model_load_cost: inside_cost = 2, outside_cost = 0 .
+loopd.f:3946: note: vect_model_simple_cost: inside_cost = 1, outside_cost = 0 .
+loopd.f:3946: note: vect_model_load_cost: unaligned supported by hardware.
+loopd.f:3946: note: vect_model_load_cost: inside_cost = 2, outside_cost = 0 .
+loopd.f:3946: note: vect_model_simple_cost: inside_cost = 1, outside_cost = 0 .
+loopd.f:3946: note: vect_model_store_cost: inside_cost = 1, outside_cost = 0 .
+loopd.f:3946: note: cost model: epilogue peel iters set to vf/2 because loop iterations are unknown .
+loopd.f:3946: note: Cost model analysis: 
+  Vector inside of loop cost: 9
+  Vector outside of loop cost: 12
+  Scalar iteration cost: 6
+  Scalar outside cost: 6
+  prologue iterations: 0
+  epilogue iterations: 1
+  Calculated minimum iters for profitability: 2
+
+loopd.f:3946: note:   Profitability threshold = 1
+
+loopd.f:3946: note: Profitability threshold is 1 loop iterations.
+loopd.f:3946: note: LOOP VECTORIZED.
+loopd.f:3932: note: vectorized 1 loops in function.
+
+loopd.f:3971: note: not vectorized: inner-loop count not invariant.
+loopd.f:3973: note: not vectorized: unsupported use in stmt.
+loopd.f:3958: note: vectorized 0 loops in function.
+
+loopd.f:3998: note: not vectorized: inner-loop count not invariant.
+loopd.f:4000: note: not vectorized: unsupported use in stmt.
+loopd.f:3985: note: vectorized 0 loops in function.
+
+loopd.f:4028: note: not vectorized: inner-loop count not invariant.
+loopd.f:4029: note: Unknown alignment for access: *aa_97(D)
+loopd.f:4029: note: Vectorizing an unaligned access.
+loopd.f:4029: note: Vectorizing an unaligned access.
+loopd.f:4029: note: Vectorizing an unaligned access.
+loopd.f:4029: note: Vectorizing an unaligned access.
+loopd.f:4029: note: Vectorizing an unaligned access.
+loopd.f:4029: note: Vectorizing an unaligned access.
+loopd.f:4029: note: vect_model_load_cost: unaligned supported by hardware.
+loopd.f:4029: note: vect_model_load_cost: inside_cost = 2, outside_cost = 0 .
+loopd.f:4029: note: vect_model_load_cost: unaligned supported by hardware.
+loopd.f:4029: note: vect_model_load_cost: inside_cost = 2, outside_cost = 0 .
+loopd.f:4029: note: vect_model_load_cost: unaligned supported by hardware.
+loopd.f:4029: note: vect_model_load_cost: inside_cost = 2, outside_cost = 0 .
+loopd.f:4029: note: vect_model_load_cost: unaligned supported by hardware.
+loopd.f:4029: note: vect_model_load_cost: inside_cost = 2, outside_cost = 0 .
+loopd.f:4029: note: vect_model_load_cost: unaligned supported by hardware.
+loopd.f:4029: note: vect_model_load_cost: inside_cost = 2, outside_cost = 0 .
+loopd.f:4029: note: vect_model_load_cost: unaligned supported by hardware.
+loopd.f:4029: note: vect_model_load_cost: inside_cost = 2, outside_cost = 0 .
+loopd.f:4029: note: vect_model_simple_cost: inside_cost = 1, outside_cost = 0 .
+loopd.f:4029: note: vect_model_simple_cost: inside_cost = 1, outside_cost = 0 .
+loopd.f:4029: note: vect_model_simple_cost: inside_cost = 1, outside_cost = 0 .
+loopd.f:4029: note: vect_model_simple_cost: inside_cost = 1, outside_cost = 0 .
+loopd.f:4029: note: vect_model_simple_cost: inside_cost = 1, outside_cost = 0 .
+loopd.f:4029: note: vect_model_simple_cost: inside_cost = 1, outside_cost = 0 .
+loopd.f:4029: note: vect_model_simple_cost: inside_cost = 1, outside_cost = 0 .
+loopd.f:4029: note: vect_model_simple_cost: inside_cost = 1, outside_cost = 0 .
+loopd.f:4029: note: vect_model_simple_cost: inside_cost = 1, outside_cost = 0 .
+loopd.f:4029: note: vect_model_simple_cost: inside_cost = 1, outside_cost = 0 .
+loopd.f:4029: note: vect_model_simple_cost: inside_cost = 1, outside_cost = 0 .
+loopd.f:4029: note: vect_model_simple_cost: inside_cost = 1, outside_cost = 0 .
+loopd.f:4029: note: vect_model_simple_cost: inside_cost = 1, outside_cost = 0 .
+loopd.f:4029: note: vect_model_simple_cost: inside_cost = 1, outside_cost = 0 .
+loopd.f:4029: note: vect_model_simple_cost: inside_cost = 1, outside_cost = 0 .
+loopd.f:4029: note: vect_model_simple_cost: inside_cost = 1, outside_cost = 0 .
+loopd.f:4029: note: vect_model_simple_cost: inside_cost = 1, outside_cost = 0 .
+loopd.f:4029: note: vect_model_simple_cost: inside_cost = 1, outside_cost = 0 .
+loopd.f:4029: note: vect_model_simple_cost: inside_cost = 1, outside_cost = 0 .
+loopd.f:4029: note: vect_model_simple_cost: inside_cost = 1, outside_cost = 0 .
+loopd.f:4029: note: vect_model_simple_cost: inside_cost = 1, outside_cost = 0 .
+loopd.f:4029: note: vect_model_simple_cost: inside_cost = 1, outside_cost = 0 .
+loopd.f:4029: note: vect_model_simple_cost: inside_cost = 1, outside_cost = 0 .
+loopd.f:4029: note: vect_model_simple_cost: inside_cost = 1, outside_cost = 0 .
+loopd.f:4029: note: vect_model_simple_cost: inside_cost = 1, outside_cost = 0 .
+loopd.f:4029: note: vect_model_simple_cost: inside_cost = 1, outside_cost = 0 .
+loopd.f:4029: note: vect_model_simple_cost: inside_cost = 1, outside_cost = 0 .
+loopd.f:4029: note: vect_model_simple_cost: inside_cost = 1, outside_cost = 0 .
+loopd.f:4029: note: vect_model_simple_cost: inside_cost = 1, outside_cost = 0 .
+loopd.f:4029: note: vect_model_simple_cost: inside_cost = 1, outside_cost = 0 .
+loopd.f:4029: note: vect_model_simple_cost: inside_cost = 1, outside_cost = 0 .
+loopd.f:4029: note: vect_model_simple_cost: inside_cost = 1, outside_cost = 0 .
+loopd.f:4029: note: vect_model_simple_cost: inside_cost = 1, outside_cost = 0 .
+loopd.f:4029: note: vect_model_simple_cost: inside_cost = 1, outside_cost = 0 .
+loopd.f:4029: note: vect_model_simple_cost: inside_cost = 1, outside_cost = 0 .
+loopd.f:4029: note: vect_model_simple_cost: inside_cost = 1, outside_cost = 0 .
+loopd.f:4029: note: vect_model_simple_cost: inside_cost = 1, outside_cost = 0 .
+loopd.f:4029: note: vect_model_simple_cost: inside_cost = 1, outside_cost = 0 .
+loopd.f:4029: note: vect_model_simple_cost: inside_cost = 1, outside_cost = 0 .
+loopd.f:4029: note: vect_model_simple_cost: inside_cost = 1, outside_cost = 0 .
+loopd.f:4029: note: vect_model_simple_cost: inside_cost = 1, outside_cost = 0 .
+loopd.f:4029: note: vect_model_simple_cost: inside_cost = 1, outside_cost = 0 .
+loopd.f:4029: note: vect_model_simple_cost: inside_cost = 1, outside_cost = 0 .
+loopd.f:4029: note: vect_model_simple_cost: inside_cost = 1, outside_cost = 0 .
+loopd.f:4029: note: vect_model_simple_cost: inside_cost = 1, outside_cost = 0 .
+loopd.f:4029: note: vect_model_simple_cost: inside_cost = 1, outside_cost = 0 .
+loopd.f:4029: note: vect_model_simple_cost: inside_cost = 1, outside_cost = 0 .
+loopd.f:4029: note: vect_model_simple_cost: inside_cost = 1, outside_cost = 0 .
+loopd.f:4029: note: vect_model_simple_cost: inside_cost = 1, outside_cost = 0 .
+loopd.f:4029: note: vect_model_store_cost: inside_cost = 1, outside_cost = 0 .
+loopd.f:4029: note: cost model: epilogue peel iters set to vf/2 because loop iterations are unknown .
+loopd.f:4029: note: Cost model analysis: 
+  Vector inside of loop cost: 62
+  Vector outside of loop cost: 62
+  Scalar iteration cost: 56
+  Scalar outside cost: 6
+  prologue iterations: 0
+  epilogue iterations: 1
+  Calculated minimum iters for profitability: 2
+
+loopd.f:4029: note:   Profitability threshold = 1
+
+loopd.f:4029: note: Profitability threshold is 1 loop iterations.
+loopd.f:4029: note: LOOP VECTORIZED.
+loopd.f:4012: note: vectorized 1 loops in function.
