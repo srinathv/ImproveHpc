@@ -1,0 +1,38 @@
+#!/bin/bash --login
+
+# uncomment the following two lines if you need to debug this script
+# set -v      # Print script lines as they are read.
+# set -x      # Print commands and their arguments as they are executed.
+
+# PBS job options (name, compute nodes, job time)
+#PBS -N MolDyn
+#PBS -l select=2
+#PBS -l walltime=0:10:0
+
+# Replace [budget code] below with your project code (e.g. t01)
+#PBS -A y14
+
+# Make sure any symbolic links are resolved to absolute path
+export PBS_O_WORKDIR=$(readlink -f $PBS_O_WORKDIR)               
+
+# Change to the direcotry that the job was submitted from
+# (remember this should be on the /work filesystem)
+cd $PBS_O_WORKDIR
+
+
+
+# Launch the parallel job using 48 processes and 1 OpenMP thread 
+export OMP_NUM_THREADS=1
+aprun -n 48 -d 1 ./mpca
+
+# Launch the parallel job using 24 processes and 2 OpenMP threads 
+export OMP_NUM_THREADS=2
+aprun -n 24 -N 12 -S 6 -d 2 ./mpca
+
+# Launch the parallel job using 16 processes and 3 OpenMP threads 
+export OMP_NUM_THREADS=3
+aprun -n 16 -N 8 -S 4 -d 3 ./mpca
+
+# Launch the parallel job using 8 processes and 6 OpenMP threads 
+export OMP_NUM_THREADS=6
+aprun -n 8 -N 4 -S 2 -d 6 ./mpca
