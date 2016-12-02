@@ -34,7 +34,7 @@ pthread_mutex_t mutexsum;
 #endif /* PTHREADS */
 
 #ifndef MATRIX_SIZE
-#define MATRIX_SIZE 512
+#define MATRIX_SIZE 1024
 #endif
 
 #define NRA MATRIX_SIZE                 /* number of rows in matrix A */
@@ -116,48 +116,34 @@ void compute_nested(double **a, double **b, double **c, int rows_a, int cols_a, 
 // cols_a and rows_b are the same value
 void compute(double **a, double **b, double **c, int rows_a, int cols_a, int cols_b) {
   int i,j,k;
+  printf ("computing matrix multiplication \n");
 #pragma omp parallel private(i,j,k) shared(a,b,c)
   {
     /*** Do matrix multiply sharing iterations on outer loop ***/
     /*** Display who does which iterations for demonstration purposes ***/
 #pragma omp for nowait
 #ifdef __USE_TBB
-#ifdef __USE_TBB_1
-        tbb::parallel_for(0,rows_a, [=](int i){
+    printf ("TBB in compute \n");
+    tbb::parallel_for(0,rows_a, [=] (int i) {
 #else
     for (i=0; i<rows_a; i++) {
 #endif
-#endif
-      for(j=0; j<cols_b; j++) {
-#ifdef __USE_TBB
-#ifdef __USE_TBB_3
-        tbb::parallel_for(0,cols_a, [=](int k){
-#else
-        for (k=0; k<cols_a; k++) {
-#endif
-#endif
+      for(int j=0; j<cols_b; j++) {
+//        tbb::parallel_for(0,cols_a, [=](int k){
+        for (int k=0; k<cols_a; k++) {
 #ifdef APP_USE_INLINE_MULTIPLY
           c[i][j] += multiply(a[i][k], b[k][j]);
 #else /* APP_USE_INLINE_MULTIPLY */
           c[i][j] += a[i][k] * b[k][j];
 #endif /* APP_USE_INLINE_MULTIPLY */
         }
-#ifdef __USE_TBB
-#ifdef __USE_TBB_3
-        );
-#endif
-#endif
       }
     }
-  }   /*** End of parallel region ***/
-  printf ("comuting matrix multiply \n");
-}
 #ifdef __USE_TBB
-#ifdef __USE_TBB_1
   );
 #endif
-#endif
-
+  }   /*** End of omp parallel region ***/
+}
 
 void compute_interchange(double **a, double **b, double **c, int rows_a, int cols_a, int cols_b) {
   int i,j,k;
