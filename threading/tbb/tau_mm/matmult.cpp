@@ -124,7 +124,7 @@ void compute(double **a, double **b, double **c, int rows_a, int cols_a, int col
     for (i=0; i<rows_a; i++) {
       for(j=0; j<cols_b; j++) {
 #ifdef __USE_TBB
-        parallel_for(0,cols_a, [=](int k){}
+        tbb::parallel_for(0,cols_a, [=](int k){
 #else
         for (k=0; k<cols_a; k++) {
 #endif

@@ -1,5 +1,6 @@
 #! /bin/bash
 
+rm *.exe *.o
 TBB=-D__USE_TBB
 ##TBB=
 icpc -g matmult_initialize.cpp -o matmult_initialize.o -c 
