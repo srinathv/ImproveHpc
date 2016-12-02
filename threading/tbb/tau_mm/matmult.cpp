@@ -21,6 +21,10 @@ int provided;
 This is not a parallel implementation */
 #endif /* TAU_MPI */
 
+#ifdef __USE_TBB
+#include "tbb/tbb.h"
+#endif
+
 #ifdef PTHREADS
 #include <pthread.h>
 #include <unistd.h>
@@ -40,18 +44,32 @@ pthread_mutex_t mutexsum;
 double** allocateMatrix(int rows, int cols) {
   int i;
   double **matrix = (double**)malloc((sizeof(double*)) * rows);
+#ifdef __USE_TBB
+  tbb::parallel_for (0, rows, [=](int i) {
+#else
   for (i=0; i<rows; i++) {
+#endif
     matrix[i] = (double*)malloc((sizeof(double)) * cols);
   }
+#ifdef __USE_TBB
+  );
+#endif
   printf ("allocating matrix \n");
   return matrix;
 }
 
 void freeMatrix(double** matrix, int rows, int cols) {
   int i;
+#ifdef __USE_TBB
+  tbb::parallel_for (0, rows, [=](int i) {
+#else
   for (i=0; i<rows; i++) {
+#endif
     free(matrix[i]);
   }
+#ifdef __USE_TBB
+  );
+#endif
   printf ("freeing matrix \n");
   free(matrix);
 }
