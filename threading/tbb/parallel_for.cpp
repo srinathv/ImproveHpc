@@ -1,6 +1,9 @@
 #include <cmath>
 #include "tbb/tbb.h"
 
+#ifdef __USE_TAU
+#include <TAU.h>
+#endif
 double *output;
 double *input;
 
