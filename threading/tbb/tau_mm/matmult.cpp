@@ -43,7 +43,7 @@ double** allocateMatrix(int rows, int cols) {
   for (i=0; i<rows; i++) {
     matrix[i] = (double*)malloc((sizeof(double)) * cols);
   }
-  printf "allocating matrix";
+  printf ("allocating matrix \n");
   return matrix;
 }
 
@@ -52,7 +52,7 @@ void freeMatrix(double** matrix, int rows, int cols) {
   for (i=0; i<rows; i++) {
     free(matrix[i]);
   }
-  printf "freeing matrix";
+  printf ("freeing matrix \n");
   free(matrix);
 }
 
@@ -115,7 +115,7 @@ void compute(double **a, double **b, double **c, int rows_a, int cols_a, int col
       }
     }
   }   /*** End of parallel region ***/
-  printf "comuting matrix multiply";
+  printf ("comuting matrix multiply \n");
 }
 
 void compute_interchange(double **a, double **b, double **c, int rows_a, int cols_a, int cols_b) {
