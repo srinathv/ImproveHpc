@@ -22,3 +22,4 @@ int main() {
   delete[] input;
   delete[] output;
   return 0;
+}
