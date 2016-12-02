@@ -144,11 +144,12 @@ void compute(double **a, double **b, double **c, int rows_a, int cols_a, int col
       }
     }
   }   /*** End of parallel region ***/
+  printf ("comuting matrix multiply \n");
+}
 #ifdef __USE_TBB_1
   );
 #endif
-  printf ("comuting matrix multiply \n");
-}
+
 
 void compute_interchange(double **a, double **b, double **c, int rows_a, int cols_a, int cols_b) {
   int i,j,k;
