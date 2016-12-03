@@ -141,7 +141,7 @@ void compute(double **a, double **b, double **c, int rows_a, int cols_a, int col
 #else
     for (i=0; i<rows_a; i++) {
 #endif
-#ifdef __USE_TBB
+#ifdef __USE_TAU
   TAU_PROFILE("tbb_pf_in_compute","tbb",TAU_DEFAULT);
 #endif
       for(int j=0; j<cols_b; j++) {
@@ -163,8 +163,7 @@ void compute(double **a, double **b, double **c, int rows_a, int cols_a, int col
 
 void compute_interchange(double **a, double **b, double **c, int rows_a, int cols_a, int cols_b) {
   int i,j,k;
-#pragma omp parallel private(i,
-  j,k) shared(a,b,c)
+#pragma omp parallel private(i,j,k) shared(a,b,c)
   {
     /*** Do matrix multiply sharing iterations on outer loop ***/
     /*** Display who does which iterations for demonstration purposes ***/
