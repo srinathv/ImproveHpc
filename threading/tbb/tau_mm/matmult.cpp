@@ -21,6 +21,10 @@ int provided;
 This is not a parallel implementation */
 #endif /* TAU_MPI */
 
+#ifdef __USE_TAU
+#include <TAU.h>
+#endif
+
 #ifdef __USE_TBB
 #include "tbb/tbb.h"
 #endif
@@ -42,6 +46,9 @@ pthread_mutex_t mutexsum;
 #define NCB MATRIX_SIZE                 /* number of columns in matrix B */
 
 double** allocateMatrix(int rows, int cols) {
+#ifdef __USE_TAU
+  TAU_PROFILE("allocateMatrix", "double", TAU_DEFAULT);
+#endif
   int i;
   double **matrix = (double**)malloc((sizeof(double*)) * rows);
 #ifdef __USE_TBB
@@ -59,6 +66,9 @@ double** allocateMatrix(int rows, int cols) {
 }
 
 void freeMatrix(double** matrix, int rows, int cols) {
+#ifdef __USE_TAU
+  TAU_PROFILE("freeMatrix","void",TAU_DEFAULT);
+#endif
   int i;
 #ifdef __USE_TBB
   tbb::parallel_for (0, rows, [=](int i) {
@@ -115,6 +125,9 @@ void compute_nested(double **a, double **b, double **c, int rows_a, int cols_a, 
 
 // cols_a and rows_b are the same value
 void compute(double **a, double **b, double **c, int rows_a, int cols_a, int cols_b) {
+#ifdef __USE_TAU
+  TAU_PROFILE("compute","void",TAU_DEFAULT);
+#endif
   int i,j,k;
   printf ("computing matrix multiplication \n");
 #pragma omp parallel private(i,j,k) shared(a,b,c)
@@ -147,7 +160,8 @@ void compute(double **a, double **b, double **c, int rows_a, int cols_a, int col
 
 void compute_interchange(double **a, double **b, double **c, int rows_a, int cols_a, int cols_b) {
   int i,j,k;
-#pragma omp parallel private(i,j,k) shared(a,b,c)
+#pragma omp parallel private(i,
+  j,k) shared(a,b,c)
   {
     /*** Do matrix multiply sharing iterations on outer loop ***/
     /*** Display who does which iterations for demonstration purposes ***/
