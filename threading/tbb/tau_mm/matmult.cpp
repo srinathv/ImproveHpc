@@ -141,6 +141,9 @@ void compute(double **a, double **b, double **c, int rows_a, int cols_a, int col
 #else
     for (i=0; i<rows_a; i++) {
 #endif
+#ifdef __USE_TBB
+  TAU_PROFILE("tbb_pf_in_compute","tbb",TAU_DEFAULT);
+#endif
       for(int j=0; j<cols_b; j++) {
 //        tbb::parallel_for(0,cols_a, [=](int k){
         for (int k=0; k<cols_a; k++) {
