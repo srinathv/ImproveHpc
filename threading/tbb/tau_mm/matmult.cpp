@@ -263,6 +263,9 @@ void * threaded_func(void *data)
 
 int main (int argc, char *argv[])
 {
+#ifdef __USE_TAU
+  TAU_PROFILE ("main","",TAU_DEFAULT);
+#endif
 
 #ifdef PTHREADS
   int ret;

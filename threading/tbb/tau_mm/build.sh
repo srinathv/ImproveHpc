@@ -14,5 +14,5 @@ export TAU_OPTIONS="-optLinkOnly -optShared"
 
 export PATH=/work/02463/srinathv/tau2/x86_64/bin:$PATH
 
-tau_cxx.sh -g -D__USE_TAU ${TBB} matmult.cpp matmult_initialize_tbb.o -o matmult_tbb_tau.exe -ltbb -std=c++11
+tau_cxx.sh -g -D__USE_TAU ${TBB} -DTAU_STDCXXLIB -DPROFILING_ON matmult.cpp matmult_initialize_tbb.o -o matmult_tbb_tau.exe -ltbb -std=c++11
 
